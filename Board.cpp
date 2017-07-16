@@ -32,7 +32,7 @@ void Board::attack(int i){
     } else if(minions1.size() == 0 && turn == 2) {
         player1.takeDmg(minions2[i].attack);  //make a attack fun or make attack public for minion or friend,
     } else{
-        cout < "cannot attack opponent." < endl;
+        cout << "cannot attack opponent." << endl;
     }
 }
 
