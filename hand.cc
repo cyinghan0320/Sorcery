@@ -11,6 +11,24 @@ Hand::~Hand(){
 	}
 }
 
+bool Hand::emptyDeck(){
+	if (myDeck == nullptr)
+		return true;
+	return false;
+}
+
+Card* Hand::getTop(){
+	return myDeck->back();
+}
+
+void Hand::removeDeck(){
+	myDeck->removeTop();
+}
+
+void Hand::getCard(Card *t){
+	onHand.push_back(t);
+}
+
 void drawLine(int num){
 	for (int i = 0; i < num; ++i) {
 		cout << "|";

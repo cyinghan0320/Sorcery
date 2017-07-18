@@ -18,6 +18,10 @@ public:
 	void showhand();
 	void discard(int i);
 	void draw();
+	bool emptyDeck();
+	Card* getTop();
+	void removeDeck();
+	void getCard(Card* t);
 };
 
 #endif

@@ -21,5 +21,7 @@ public:
 	void takeDmg(int dmg);
 	string getName();
 	Hand getHand();
-}
+	void getMagic();
+	void takeCard();
+};
 #endif

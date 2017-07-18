@@ -8,10 +8,11 @@ using namespace std;
 
 class deck {
 private:
-    vector<Card*> allCards;
+	vector<Card*> allCards;
 public:
-    Deck(); // need to implant using input file stream
-    ~Deck();
-    void shuffle();
-}
+	Deck(); // need to implant using input file stream
+	~Deck();
+	void removeTop();
+	void shuffle();
+};
 #endif

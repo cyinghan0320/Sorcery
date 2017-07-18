@@ -10,6 +10,19 @@ Player::~Player(){
 	delete hand;
 }
 
+void Player::getMagic(){
+	++magic;
+}
+
+void Player::takeCard(){
+	if (hand->emptyDeck() == true)
+		return;
+	else{
+		hand->getCard(hand->getTop());
+		hand->removeDeck();
+	}
+}
+
 void Player::useSkill(){
 }                         //implant what skills
 
