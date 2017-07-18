@@ -18,6 +18,17 @@ public:
 	int getAbility(){
 		return ability;
 	}
+
+	void takeDmg(int damage){
+		health -= damage;
+	}
+
+	bool defeated(){
+		if (health < 1)
+			return true;
+		return false;
+	}
+
 	Minion(std::string s) : name(s) {
 		if (s == "Air Elemental") {
 			summonCost = 0;

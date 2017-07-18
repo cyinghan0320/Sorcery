@@ -3,12 +3,12 @@
 
 
 class spell : public Card {
-	string name;
-	string description;
+	std::string name;
+	std::string description;
 	int cost;
 public:
 	void draw();
-	spell(name,description);
+	spell(std::string name,std::string description,int cost);
 };
 
 #endif

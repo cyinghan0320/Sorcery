@@ -5,8 +5,8 @@
 #include <string>
 
 class Card {
-	string name;
-	string description;
+	std::string name;
+	std::string description;
 	int cost;
 public:
 	virtual useCard() = 0;
@@ -15,4 +15,4 @@ public:
 	virtual string getDescription() = 0;
 };
 
-#endif CARD_H
+#endif

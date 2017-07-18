@@ -9,7 +9,7 @@ using namespace std;
 
 class Player {
 private:
-	string name;
+	std::string name;
 	int health = 20;
 	int magic;
 	Hand* hand;

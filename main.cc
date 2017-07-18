@@ -68,7 +68,13 @@ int main() {
 		} else if (command == "discard") { //testing mode only, need to modify
 
 		} else if (command == "attack") {  //these takes various number of inputs need to implant
-
+			int index;
+			cin >> index;
+			int choice;
+			if (cin >> choice) {
+				Game->attack(index, choice);
+			}
+			Game->attack(index);
 		} else if (command == "play") { //these takes various number of inputs need to implant
 
 		} else if (command == "use") { //these takes various number of inputs need to implant

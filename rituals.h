@@ -2,12 +2,12 @@
 #define RITUAL_H
 
 class Ritual : public Card {
-	string name;
-	string description;
+	std::string name;
+	std::string description;
 	int cost;
 public:
 	void draw();
-	Ritual(string name, string description);
+	Ritual(std::string name, std::string description, int cost);
 	void useCard();
 };
 
