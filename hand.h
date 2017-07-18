@@ -8,15 +8,16 @@ using namespace std;
 
 class Hand {
 private:
-    vector <Card*> onHand;
-    Deck* myDeck;
-    
+	vector <Card*> onHand;
+	Deck* myDeck;
+	int num;
+
 public:
-    Hand(Deck* myDeck);
-    ~Hand();
-    void showhand();
-    void discard(int i);
-    void draw();
-}
+	Hand(Deck* myDeck, int num);
+	~Hand();
+	void showhand();
+	void discard(int i);
+	void draw();
+};
 
 #endif
