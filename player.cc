@@ -3,20 +3,27 @@
 #include "player.h"
 
 
-Player(String name, Hand* hand, string ability) : name {name} hand {hand}, ability {ability} {}
+Player::Player(String name, Hand* hand):name{name} hand{hand}{}
 
-~Player(){
-	delete hand;
+Player::~Player(){
+    delete hand;
 }
 
-void useSkill(){
-}                 //implant what skills
+void Player::useSkill(){} //implant what skills
 
-
-
-void takeDmg(int dmg) {
-	health -= dmg;
-	if(health < 1) {
-		cout <<"player "<< name <<" defeated" << endl;
-	}
+void Player::takeDmg(int dmg) {
+    health -= dmg;
+    if(health < 1){
+        cout <<"player "<< name <<" defeated" << endl;
+    }
 }
+
+
+string Player::getName(){
+    return name;
+};
+
+
+Hand Player::getHand(){
+    return hand;
+};

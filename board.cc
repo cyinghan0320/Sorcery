@@ -1,10 +1,8 @@
 #include "board.h"
 
 //need to implant showboard
-Board::Board(GraveYard* grave1, GraveYard* grave2, Player* player1,
-             Player* player2, Ritual* ritual1, Ritual* ritual2)
-: grave1{grave1}, grave2{grave2}, player1{player1}, player2{player2},
-ritual1{ritual1}, ritual2{ritual2}, turn{1} {}
+Board::Board(Player* player1, Player* player2)
+: grave1{new Graveyard}, grave2{new Graveyard}, player1{player1}, player2{player2}, turn{1} {}
 
 
 Board::~Board(){
@@ -23,7 +21,15 @@ Board::~Board(){
 }
 
 
-void Board::showboard(){}
+void Board::showboard(){} //need implamentation
+
+void Board::playerHand(){
+    if(turn == 1){
+        player1.hand.showhand();
+    } else{
+        player2.hand.showhand();
+    }
+}
 
 
 void Board::attack(int i){
@@ -79,4 +85,59 @@ void Board::use(int i, int p, int t){
             minion2.use(*ritual2);
         }
     }
+}
+
+
+void Board::play(int i) {
+    if(turn == 1){
+        player1.onHand[i].useCard();
+    } else{
+        player2.onHand[i].useCard();
+    }
+}
+
+
+void Board::play(int i, int p, int t){
+    if(turn == 1){
+        if(p == 1 && t != 'r'){
+            player1.onHand[i].useCard(minion1[t]);
+        } else if p == 2 && t != 'r'{
+            player1.onHand[i].useCard(minion2[t]);
+        } else if(p == 1 && t == 'r'){
+            player1.onHand[i].useCard(*ritual1);
+        } else if(p == 2 && t == 'r'){
+            player1.onHand[i].useCard(*ritual2);
+        }
+    } else {
+        if(p == 1 && t != 'r'){
+            player2.onHand[i].useCard(minion1[t]);
+        } else if p == 2 && t != 'r'{
+            player2.onHand[i].useCard(minion2[t]);
+        } else if(p == 1 && t == 'r'){
+            player2.onHand[i].useCard(*ritual1);
+        } else if(p == 2 && t == 'r'){
+            player2.onHand[i].useCard(*ritual2);
+        }
+    }
+    
+}
+
+
+void Board::setRitual(Ritual* ritual){
+    if(turn == 1){
+        delete ritual1;
+        ritual1 = ritual;
+    } else {
+        delete ritual2;
+        ritual2 = ritual;
+    }
+}
+
+void Board::end(){
+    turn = 1 + turn % 2;
+}
+
+
+int getTurn() {
+    return turn;
 }
