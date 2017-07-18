@@ -5,6 +5,7 @@
 class spell : public Card {
 	string name;
 	string description;
+	int cost;
 public:
 	void draw();
 	spell(name,description);

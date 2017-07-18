@@ -7,6 +7,7 @@
 class Card {
 	string name;
 	string description;
+	int cost;
 public:
 	virtual useCard() = 0;
 	virtual draw() = 0;

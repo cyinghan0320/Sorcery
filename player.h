@@ -23,5 +23,6 @@ public:
 	Hand getHand();
 	void getMagic();
 	void takeCard();
+	int getSkill(int index);
 };
 #endif

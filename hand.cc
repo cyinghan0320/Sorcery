@@ -17,6 +17,7 @@ bool Hand::emptyDeck(){
 	return false;
 }
 
+
 Card* Hand::getTop(){
 	return myDeck->back();
 }

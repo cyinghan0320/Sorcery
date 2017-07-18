@@ -14,6 +14,10 @@ void Player::getMagic(){
 	++magic;
 }
 
+int Player::getSkill(int index){
+	return onHand[index]->getAbility();
+}
+
 void Player::takeCard(){
 	if (hand->emptyDeck() == true)
 		return;
