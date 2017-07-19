@@ -35,7 +35,6 @@ public:
 	void setRitual(Ritual* ritual);
 	void end();
 	int getTurn();
-	void updateMinion(); // removes any minions that are dead
 };
 
 
