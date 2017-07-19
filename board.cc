@@ -141,3 +141,9 @@ void Board::end(){
 int getTurn() {
     return turn;
 }
+
+void updateMinion(){
+    for (int i = 0;i << minions1.size(); i++){
+        
+    }
+}
