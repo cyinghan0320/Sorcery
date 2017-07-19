@@ -18,3 +18,17 @@ string Graveyard::getTop(){
     stack.pop_back();
     return temp;
 }
+
+
+bool Graveyard::isEmpty() {
+    if(stack.size() == 0){
+        return true;
+    }else{
+        return false;
+    }
+}
+
+
+void addMinion(Minion min){
+    stack.push_back(min);
+}
