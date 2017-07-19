@@ -124,8 +124,6 @@ int main() {
 			cout << "invalid command, please try again." << endl;
 		}
 		
-		// check for any changes to minions on the board
-		Game.update();
 	}
 
 	delete Game;
