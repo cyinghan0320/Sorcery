@@ -35,7 +35,10 @@ public:
 	void setRitual(Ritual* ritual);
 	void end();
 	int getTurn();
+	void updateMinion();
 };
+
+
 
 
 
