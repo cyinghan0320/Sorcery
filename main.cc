@@ -107,7 +107,7 @@ int main() {
 					cin >> target;
 					int skill = activePlayer->getSkill(index, player, target);
 				} else {
-					cerr << "invalide input" << endl;
+					cerr << "invalid input" << endl;
 				}
 			} else {
 				int skill = activePlayer->getSkill(index);
@@ -123,6 +123,9 @@ int main() {
 		} else {
 			cout << "invalid command, please try again." << endl;
 		}
+		
+		// check for any changes to minions on the board
+		Game.update();
 	}
 
 	delete Game;
