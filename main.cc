@@ -1,4 +1,5 @@
 #include <fstream>
+#include <cstdlib>
 #include "card.h"
 #include "board.h"
 #include "graveyard.h"
@@ -38,7 +39,7 @@ int main() {
 	getline(cin, name1);
 	p1->setName(name1);
 	cout << p1->getName() <<" is a nice name!"  << endl;
-	cout << "What is your name, my warrior player1? " << endl;
+	cout << "What is your name, my warrior player2? " << endl;
 	getline(cin, name2);
 	p1->setName(name2);
 	cout << p2->getName() << " is a nice name!"  << endl;
@@ -63,26 +64,56 @@ int main() {
 		} else if (command == "quit") {
 			cout << "quitting game" << endl;
 			break;
-		} else if (command == "draw") {  //testing mode only, need to modify
-
-		} else if (command == "discard") { //testing mode only, need to modify
-
+		} else if (command == "draw" && testMode == 1) {  //testing mode only, need to modify
+			activePlayer->takeCard();
+		} else if (command == "discard" && tetsMode == 1) { //testing mode only, need to modify
+			activePlayer->discard();
 		} else if (command == "attack") {  //these takes various number of inputs need to implant
 			int index;
 			cin >> index;
 			int choice;
-			if (cin >> choice) {
+			if (isdigit(cin.peek())) {
+				cin >> choice;
 				Game->attack(index, choice);
+			} else {
+				Game->attack(index);
 			}
-			Game->attack(index);
 		} else if (command == "play") { //these takes various number of inputs need to implant
-
+			int index;
+			cin >> index;
+			int player;
+			if (isdigit(cin.peek())) {
+				cin >> player;
+				int target;
+				if (isdigit(cin.peek())){
+					cin >> target; 
+				} else{
+					cerr << "invalid input" < endl;
+					continue;
+				}
+				Game->play(index, player, target);
+			} else {
+				Game->play(index);
+			}
 		} else if (command == "use") { //these takes various number of inputs need to implant
 			int index;
 			cin >> index;
-			int skill = activePlayer.getSkill(index);
 			// then we need to modify the ability class
+			if(isdigit(cin.peek())){
+				int player;
+				cin >> player;
+				if(isdigit(cin.peek())) {
+					int target;
+					cin >> target;
+					int skill = activePlayer->getSkill(index, player, target);
+				} else {
+					cerr << "invalide input" << endl;
+				}
+			} else {
+				int skill = activePlayer->getSkill(index);
+			}
 		} else if (command == "inspect") {
+			int which;
 			cin >> which;
 			activePlayer->getHand()->inspect(which);
 		} else if (command == "hand") {
@@ -90,9 +121,10 @@ int main() {
 		} else if (command == "board") {
 			Game->showboard();
 		} else {
-			cout << "invalid command, please try again."
+			cout << "invalid command, please try again." << endl;
 		}
 	}
 
-
+	delete Game;
+	return 0;
 }
