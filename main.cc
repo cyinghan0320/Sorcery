@@ -45,7 +45,7 @@ int main() {
 	cout << p2->getName() << " is a nice name!"  << endl;
 
 	while(cin >> command) {
-
+		
 		//declaring turn
 		Player* activePlayer = p1;
 		if(game.getTurn() == 2) {
@@ -69,6 +69,9 @@ int main() {
 		} else if (command == "discard" && tetsMode == 1) { //testing mode only, need to modify
 			activePlayer->discard();
 		} else if (command == "attack") {  //these takes various number of inputs need to implant
+			if(){
+				cout << "already attacked this turn" << endl;
+			}
 			int index;
 			cin >> index;
 			int choice;
