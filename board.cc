@@ -139,7 +139,7 @@ int Board::getTurn() {
 }
 
 
-int updateMinion() {
+void Board::updateMinion() {
     for(int i = 0; i < minions1.size(); i++){
         if(minions1[i].defeated()){
             Minion* holder = new Minion;
