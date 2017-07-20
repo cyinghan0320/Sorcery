@@ -34,6 +34,7 @@ public:
 	void play(int i, int p, int t);
 	void end();
 	int getTurn();
+	int getMinSize(int side);
 };
 
 
