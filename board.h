@@ -32,7 +32,6 @@ public:
 	void use(int i, int p, int t);
 	void play(int i);
 	void play(int i, int p, int t);
-	void setRitual(Ritual* ritual);
 	void end();
 	int getTurn();
 };
