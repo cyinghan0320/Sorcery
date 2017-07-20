@@ -35,8 +35,12 @@ public:
 		action--;
 	}
 	
-	void refreshAttack{
+	void refreshAttack(){
 		action = 1;
+	}
+	
+	int getAction() {
+		return action;
 	}
 
 	int getAbility(){
