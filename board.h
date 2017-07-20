@@ -35,6 +35,7 @@ public:
 	void end();
 	int getTurn();
 	int getMinSize(int side);
+	void updateMinion();
 };
 
 
