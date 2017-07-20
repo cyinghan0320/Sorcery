@@ -127,7 +127,7 @@ int main() {
 			cout << "invalid command, please try again." << endl;
 		}
 		
-		
+		Game->updateMinion();
 	}
 
 	delete Game;
