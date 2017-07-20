@@ -46,14 +46,20 @@ void Board::attack(int i){
 
 
 void Board::attack(int i, int j){
-    int m1 = j;
-    int m2 = i;
-    if(turn%2 == 1){
-        m1 = i;
-        m2 = j;
+    if(turn%2 == 1 && minions1[i]->getAction()) {
+        minions1[m1].health -= minions2[m2].attack;
+        minions2[m2].health -= minions1[m1].attack;
+        player2->takeDmg(minions1[i]->showAttack());  //make a attack fun or make attack public for minion,
+        minions1[i]->useAttack();
+    } else if(turn%2 == 0 && minions2[i]->getAction()) {
+        minions1[m1].health -= minions2[m2].attack;
+        minions2[m2].health -= minions1[m1].attack;
+        player1->takeDmg(minions2[i]->showAttack());  
+        minions2[i]->useAttack();
+    } else{
+        cout << "cannot attack opponent." << endl;
     }
-    minions1[m1].health -= minions2[m2].attack;
-    minions2[m2].health -= minions1[m1].attack;
+    
 }
 
 
@@ -160,7 +166,7 @@ void Board::updateMinion() {
     }
 }
 
-void refreshAllAttack(){
+void Board::refreshAllAttack(){
     for(int i = 0; i < minions1.size(); i++){
         minions1[i]->refreshAttack();
     }
