@@ -33,10 +33,12 @@ void Board::playerHand(){
 
 
 void Board::attack(int i){
-    if(turn%2 == 1) {
-        player2.takeDmg(minions1[i].attack);  //make a attack fun or make attack public for minion,
-    } else if(turn%2 == 0) {
-        player1.takeDmg(minions2[i].attack);  //make a attack fun or make attack public for minion or friend,
+    if(turn%2 == 1 && minions1[i]->getAction()) {
+        player2->takeDmg(minions1[i]->showAttack());  //make a attack fun or make attack public for minion,
+        minions1[i]->useAttack();
+    } else if(turn%2 == 0 && minions2[i]->getAction()) {
+        player1->takeDmg(minions2[i]->showAttack());  
+        minions2[i]->useAttack();
     } else{
         cout << "cannot attack opponent." << endl;
     }
