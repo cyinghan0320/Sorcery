@@ -24,7 +24,7 @@ Board::~Board(){
 void Board::showboard(){} //need implamentation
 
 void Board::playerHand(){
-    if(turn == 1){
+    if(turn%2 == 1){
         player1.hand.showhand();
     } else{
         player2.hand.showhand();
@@ -33,9 +33,9 @@ void Board::playerHand(){
 
 
 void Board::attack(int i){
-    if(minions2.size() == 0 && turn == 1) {
+    if(minions2.size() == 0 && turn%2 == 1) {
         player2.takeDmg(minions1[i].attack);  //make a attack fun or make attack public for minion,
-    } else if(minions1.size() == 0 && turn == 2) {
+    } else if(minions1.size() == 0 && turn%2 == 0) {
         player1.takeDmg(minions2[i].attack);  //make a attack fun or make attack public for minion or friend,
     } else{
         cout << "cannot attack opponent." << endl;
@@ -44,18 +44,22 @@ void Board::attack(int i){
 
 
 void Board::attack(int i, int j){
-    int m1 = i;
-    int m2 = j;
-    if(turn == 2){
-        m1 = j;
-        m2 = i;
+    int m1 = j;
+    int m2 = i;
+    if(turn%2 == 1){
+        m1 = i;
+        m2 = j;
     }
     minions1[m1].health -= minions2[m2].attack;
     minions2[m2].health -= minions1[m1].attack;
+    if(){
+    } 
+    if(){
+    }
 }
 
 void Board::use(int i){
-    if(turn == 1){
+    if(turn%2 == 1){
         minion1.use();
     } else {
         minion2.use();
@@ -64,7 +68,7 @@ void Board::use(int i){
 
 
 void Board::use(int i, int p, int t){
-    if(turn == 1){
+    if(turn%2 == 1){
         if(p == 1 && t != 'r'){
             minion1.use(minion1[t]);
         } else if p == 2 && t != 'r'{
@@ -89,7 +93,7 @@ void Board::use(int i, int p, int t){
 
 
 void Board::play(int i) {
-    if(turn == 1){
+    if(turn%2 == 1){
         player1.onHand[i].useCard();
     } else{
         player2.onHand[i].useCard();
@@ -98,7 +102,7 @@ void Board::play(int i) {
 
 
 void Board::play(int i, int p, int t){
-    if(turn == 1){
+    if(turn%2 == 1){
         if(p == 1 && t != 'r'){
             player1.onHand[i].useCard(minion1[t]);
         } else if p == 2 && t != 'r'{
@@ -124,7 +128,7 @@ void Board::play(int i, int p, int t){
 
 
 void Board::setRitual(Ritual* ritual){
-    if(turn == 1){
+    if(turn%2 == 1){
         delete ritual1;
         ritual1 = ritual;
     } else {
@@ -134,7 +138,7 @@ void Board::setRitual(Ritual* ritual){
 }
 
 void Board::end(){
-    turn = 1 + turn % 2;
+    turn++;
 }
 
 
