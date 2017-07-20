@@ -73,11 +73,11 @@ void Board::play(int i) {
         auto ritual = ritual2;
         (0 <= i && i < 5) ? auto object = player2->onHand[i]: Null;
     } 
-    if(object->getStat().type == "Minion"){
+    if(object->getStat().type == "minion"){
         field.push_back(object);
-    } else if(object->getStat().type == "Spell"){
+    } else if(object->getStat().type == "spell"){
         object->useCard();
-    } else if(object->getStat().type == "Ritual"){
+    } else if(object->getStat().type == "ritual"){
         delete ritual;
         ritual = object;
     }
