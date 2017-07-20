@@ -14,6 +14,7 @@ class Minion : public Card {
 	int abilityCost;
 	int ability;
 	bool trigger;
+	int action;
 	int attack;
 	int defence;
 	int health;
@@ -28,6 +29,14 @@ public:
 			return display_minion_triggered_ability(name, cost, attack, defence, des);
 		else
 			return display_minion_activated_ability(name, cost, attack, defence, cost, des);
+	}
+	
+	void useAttack(){
+		action--;
+	}
+	
+	void refreshAttack{
+		action = 1;
 	}
 
 	int getAbility(){
