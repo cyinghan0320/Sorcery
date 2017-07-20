@@ -127,6 +127,7 @@ int main() {
 			cout << "invalid command, please try again." << endl;
 		}
 		
+		
 	}
 
 	delete Game;
