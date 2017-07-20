@@ -17,7 +17,7 @@
 
 using namespace std;
 
-
+int testmode = 1;
 int main() {
 
 	int turn  = 1;// track the number of the turn
@@ -70,7 +70,7 @@ int main() {
 			break;
 		} else if (command == "draw" && testMode == 1) {  //testing mode only, need to modify
 			activePlayer->takeCard();
-		} else if (command == "discard" && tetsMode == 1) { //testing mode only, need to modify
+		} else if (command == "discard" && testMode == 1) { //testing mode only, need to modify
 			activePlayer->discard();
 		} else if (command == "attack") {  //these takes various number of inputs need to implant
 			int index;
