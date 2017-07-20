@@ -52,41 +52,41 @@ void Board::attack(int i, int j){
     }
     minions1[m1].health -= minions2[m2].attack;
     minions2[m2].health -= minions1[m1].attack;
-    if(){
+    if(minions1[m1].defeated()){
+        Minion* holder1 = new Minion;
+        holder1(minions1[m1]->getStat().name);
+        grave1->addMinion(holder1);
+        minions1.erase(m1);
     } 
-    if(){
+    if(minions2[m2].defeated()){
+        Minion* holder2 = new Minion;
+        holder2(minions2[m2]->getStat().name);
+        grave2->addMinion(holder2);
+        minions2.erase(m2);
     }
 }
 
 void Board::use(int i){
     if(turn%2 == 1){
-        minion1.use();
+        minion1[i]->use();
     } else {
-        minion2.use();
+        minion2[i]->use();
     }
 }
 
 
 void Board::use(int i, int p, int t){
     if(turn%2 == 1){
-        if(p == 1 && t != 'r'){
-            minion1.use(minion1[t]);
-        } else if p == 2 && t != 'r'{
-            minion1.use(minion2[t]);
-        } else if(p == 1 && t == 'r'){
-            minion1.use(*ritual1);
-        } else if(p == 2 && t == 'r'){
-            minion1.use(*ritual2);
+        if(p == 1){
+            minion1[i]->use(minion1[t]);
+        } else if(p == 2){
+            minion1[i]->use(minion2[t]);
         }
-    } else {
-        if(p == 1 && t != 'r'){
-            minion2.use(minion1[t]);
-        } else if p == 2 && t != 'r'{
-            minion2.use(minion2[t]);
-        } else if(p == 1 && t == 'r'){
-            minion2.use(*ritual1);
-        } else if(p == 2 && t == 'r'){
-            minion2.use(*ritual2);
+    } else{
+        if(p == 1){
+            minion2[i]->use(minion1[t]);
+        } else if(p == 2){
+            minion2[i]->use(minion2[t]);
         }
     }
 }
@@ -94,36 +94,27 @@ void Board::use(int i, int p, int t){
 
 void Board::play(int i) {
     if(turn%2 == 1){
-        player1.onHand[i].useCard();
+        player1->onHand[i]->useCard();
     } else{
-        player2.onHand[i].useCard();
+        player2->onHand[i]->useCard();
     }
 }
 
 
 void Board::play(int i, int p, int t){
     if(turn%2 == 1){
-        if(p == 1 && t != 'r'){
-            player1.onHand[i].useCard(minion1[t]);
-        } else if p == 2 && t != 'r'{
-            player1.onHand[i].useCard(minion2[t]);
-        } else if(p == 1 && t == 'r'){
-            player1.onHand[i].useCard(*ritual1);
-        } else if(p == 2 && t == 'r'){
-            player1.onHand[i].useCard(*ritual2);
+        if(p == 1){
+            player1->onHand[i]->useCard(minion1[t]);
+        } else if(p == 2){
+            player1->onHand[i]->useCard(minion2[t]);
         }
     } else {
-        if(p == 1 && t != 'r'){
-            player2.onHand[i].useCard(minion1[t]);
-        } else if p == 2 && t != 'r'{
-            player2.onHand[i].useCard(minion2[t]);
-        } else if(p == 1 && t == 'r'){
-            player2.onHand[i].useCard(*ritual1);
-        } else if(p == 2 && t == 'r'){
-            player2.onHand[i].useCard(*ritual2);
+        if(p == 1){
+            player2->onHand[i]->useCard(minion1[t]);
+        } else if(p == 2){
+            player2->onHand[i]->useCard(minion2[t]);
         }
     }
-    
 }
 
 
@@ -134,6 +125,15 @@ void Board::setRitual(Ritual* ritual){
     } else {
         delete ritual2;
         ritual2 = ritual;
+    }
+}
+
+
+void Board::playRitual(){
+    if(turn%2 == 1){
+        ritual1->useCard();
+    } else{
+        ritual2->useCard();
     }
 }
 
