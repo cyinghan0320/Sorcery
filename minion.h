@@ -4,6 +4,7 @@
 #include <iostream>
 #include <string>
 #include <vector>
+#include "Card.h"
 
 class Minion : public Card {
 	std::string name;
@@ -19,6 +20,16 @@ class Minion : public Card {
 	vector<Card*> enchantVec;
 
 public:
+
+	card_template_t display(){
+		if (ability == -1)
+			return display_minion_no_ability(name, cost, attack, defence);
+		else if (trigger == true)
+			return display_minion_triggered_ability(name, cost, attack, defence, des);
+		else
+			return display_minion_activated_ability(name, cost, attack, defence, cost, des);
+	}
+
 	int getAbility(){
 		return ability;
 	}

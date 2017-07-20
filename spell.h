@@ -12,6 +12,9 @@ public:
 	spell(std::string name,std::string description,int cost);
 	int getCost();
 	std::string getDes();
+	card_template_t display(){
+		display_spell(name,cost, description);
+	}
 };
 
 #endif

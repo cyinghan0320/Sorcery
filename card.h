@@ -3,6 +3,7 @@
 
 #include <iostream>
 #include <string>
+#include "ascii_graphics.h"
 
 class Card {
 	std::string name;
@@ -15,6 +16,7 @@ public:
 	virtual std::string showType() = 0;
 	virtual std::string getName() = 0;
 	virtual std::string getDescription() = 0;
+	virtual card_template_t display();
 };
 
 #endif

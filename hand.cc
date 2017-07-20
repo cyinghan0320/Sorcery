@@ -66,14 +66,13 @@ void Hand::showhand(){
 			out.emplace_back(display_ritual(e->getName(), e->getCost(), e->getDes()));
 		}
 	}
-	for (int i=0; i < out.size(); ++i) {
-		for (int j = 0; j < 33; ++j) {
-
+	int sz = out[0].size();
+	for (int j =0; j < sz; ++j) {
+		for (int i=0; i < out.size(); ++i) {
+			cout << out[i][j];
 		}
+		cout << endl;
 	}
-
-
-
 }
 
 
