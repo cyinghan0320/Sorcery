@@ -168,7 +168,7 @@ void Board::refreshAllAttack(){
     for(int i = 0; i < minions1.size(); i++){
         minions1[i]->refreshAttack();
     }
-    for(int i = 0; i < minions1.size(); i++){
+    for(int i = 0; i < minions2.size(); i++){
         minions2[i]->refreshAttack();
     }
 }
