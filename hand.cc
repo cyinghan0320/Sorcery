@@ -1,6 +1,7 @@
 #include "hand.h"
-#include
+#include "ascii_graphics.h"
 #include <iostream>
+#include <vector>
 
 Hand::Hand(Deck* myDeck, int num) : myDeck{myDeck}, num {num}{
 }
@@ -40,78 +41,39 @@ void drawLine(int num){
 	}
 }
 
-// void drawDescription(string description, int limit){
-//  int len = description.length();
-//  int max = len / limit;
-//  int rem = len % limit;
-//  int counter = 0;
-//  while (counter != max) {
-//      for (int i =0; i < limit; ++i) {
-//          cout << description.at(counter*limit + i);
-//      }
-//      ++counter;
-//  }
-//  if (rem != 0) {
-//      for (int i = 0; i < rem; ++i) {
-//          cout << description.at(max * limit + i);
-//      }
-//  }
-// }
 
 
 
 void Hand::showhand(){
+	vector<card_template_t> out;
+	for (auto e: onHand) {
+		string ty  = e->showType();
+		if (ty == "minion") {
+			if (e->getAbility() == -1)
+				out.emplace_back(display_minion_no_ability(e->getName(), e->showCost(), e->showAttack(), e->showDefence()));
+			else if (e->trigger())
+				out.emplace_back(display_minion_no_ability(e->getName(), e->showCost(), e->showAttack(), e->showDefence(), e->showDescription()));
+			else
+				out.emplace_back(display_minion_no_ability(e->getName(), e->showCost(), e->showAttack(), e->showDefence(), e->showCost(),e->showDescription()));
+		}
+		else if (ty == "spell") {
+			out.emplace_back(display_spell(e->getName(),e->getCost(), e->getDes()));
+		}
+		else if (ty == "ritual") {
+			out.emplace_back(display_ritual(e->getName(), 1, e->getCost(), e->getDes(), e->getCharge()));
+		}
+		else if (ty == "enchantment") {
+			out.emplace_back(display_ritual(e->getName(), e->getCost(), e->getDes()));
+		}
+	}
+	for (int i=0; i < out.size(); ++i) {
+		for (int j = 0; j < 33; ++j) {
+
+		}
+	}
 
 
-	// drawLine(num);
-	// cout << "|";
-	// cout << "|" << endl;
-	// for (int v = 0; v < 5; ++v) {
-	//  cout << "|";
-	//  for (int i = 0; i < 3; ++i) {
-	//      cout << " ";
-	//  }
-	//  cout << onHand[v]->getName();
-	//  for (int i = 0; i < 9; ++i) {
-	//      cout << " ";
-	//  }
-	//  cout << "|";
-	//  for (int i = 0; i < 2; ++i) {
-	//      cout << " ";
-	//  }
-	//  cout << "1 "; // need to modify later
-	// }
-	// cout << endl;
-	//
-	// drawLine (num);
-	//
-	// cout << "|" << endl;
-	// for (int v = 0; v < 5; ++v) {
-	//  cout << "|";
-	//  for(int i =0; i < 15; ++i) {
-	//      cout << " ";
-	//  }
-	//  cout << "type ";
-	// }
-	// cout << "|" << endl;
-	// drawLine(num);
-	// cout << "|" <<endl;
-	// int counter = 0;
-	// for (int i =0; i < 5; ++i) {
-	//  int limit = 20;
-	//  for (int j= 0; j < limit - 1; ++j) {
-	//      int len = onHand[i]->getDescription().length();
-	//      if (counter * (limit - 1) + j < len)
-	//          cout << onHand[i]->getDescription().at(counter*(limit- 1) + j);
-	//      else
-	//          cout << " ";
-	//  }
-	//  cout << " |";
-	//  ++counter;
-	// }
-	// cout << "|" << endl;
 
-	//it is not finished since still need the attack and mana i guess
 }
 
 

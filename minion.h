@@ -7,16 +7,45 @@
 
 class Minion : public Card {
 	std::string name;
+	std::string des;
+	std::string type = "minion";
 	int summonCost;
 	int abilityCost;
 	int ability;
+	bool trigger;
 	int attack;
+	int defence;
 	int health;
 	vector<Card*> enchantVec;
 
 public:
 	int getAbility(){
 		return ability;
+	}
+
+	bool trigger(){
+		return trigger;
+	}
+
+	std::string showName(){
+		return name;
+	}
+
+	int showAttack(){
+		return attack;
+	}
+
+	int showDefence(){
+		return defence;
+	}
+
+
+	int showCost (){
+		return summonCost;
+	}
+
+	std::string showDescription (){
+		return des;
 	}
 
 	void takeDmg(int damage){

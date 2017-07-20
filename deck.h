@@ -2,11 +2,12 @@
 #define deck_hpp
 #include <vector>
 #include <fstream>
+#include "card.h"
 
 using namespace std;
 
 
-class deck {
+class Deck : public Card {
 private:
 	vector<Card*> allCards;
 public:
