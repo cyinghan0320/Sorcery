@@ -33,7 +33,6 @@ int main() {
 	p2(name2, hand2);
 	Board* Game = new Board;
 	Game(p1, p2);
-	bool attackTable[6] = {false};
 
 	//while game is in session loop
 	string command;
@@ -55,9 +54,10 @@ int main() {
 			activePlayer = p2;
 		}
 		
-		if (turn != 1 && turn != 2) { // not the first round of player1 or player2
+		if (turn != 1 && turn != 2 && turn == Game->getTurn()) { // not the first round of player1 or player2
 			activePlayer->getMagic(); // add one magic
 			activePlayer->takeCard(); // take one card if possibile
+			Game->refreshAllAttack();
 			++turn;
 		}
 		cout << "at the start of "<<activePlayer->getName()  + "'s turn" << endl;
@@ -65,7 +65,6 @@ int main() {
 		//sorting commands and executions
 		if(command == "end") {
 			Game->end();
-			attackTable[1] = attackTable[2] = attackTable[3] = attackTable[4] = attackTable[5] = false;
 		} else if (command == "quit") {
 			cout << "quitting game" << endl;
 			break;
@@ -76,7 +75,6 @@ int main() {
 		} else if (command == "attack") {  //these takes various number of inputs need to implant
 			int index;
 			cin >> index;
-			attackTable[index] ? cout << "already attacked this turn" << endl : Null;
 			int choice;
 			if (isdigit(cin.peek())) {
 				cin >> choice;
