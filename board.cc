@@ -25,9 +25,9 @@ void Board::showboard(){} //need implamentation
 
 void Board::playerHand(){
     if(turn%2 == 1){
-        player1->hand.showhand();
+        player1->hand->showhand();
     } else{
-        player2->hand.showhand();
+        player2->hand->showhand();
     }
 }
 
@@ -147,18 +147,18 @@ int Board::getTurn() {
 
 void Board::updateMinion() {
     for(int i = 0; i < minions1.size(); i++){
-        if(minions1[i].defeated()){
+        if(minions1[i]->defeated()){
             Minion* holder = new Minion;
             holder(minions1[i]->getStat().name);
-            grave1.addMinion(holder);
+            grave1->addMinion(holder);
             minions1.erase(i);
         }
     }
     for(int j = 0; j < minions2.size(); j++){
-        if(minions2[j].defeated()){
+        if(minions2[j]->defeated()){
             Minion* holder = new Minion;
             holder(minions2[j]->getStat().name);
-            grave2.addMinion(holder);
+            grave2->addMinion(holder);
             minions2.erase(j);
         }
     }
