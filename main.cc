@@ -48,7 +48,7 @@ int main() {
 	cout << p2->getName() << " is a nice name!"  << endl;
 
 	while(cin >> command) {
-		
+
 		//declaring turn
 		Player* activePlayer = p1;
 		if(game.getTurn() == 2) {
@@ -75,7 +75,7 @@ int main() {
 		} else if (command == "attack") {  //these takes various number of inputs need to implant
 			int index;
 			cin >> index;
-			attackTable[index] ? cout << "already attacked this turn" << endl: Null;
+			attackTable[index] ? cout << "already attacked this turn" << endl : Null;
 			int choice;
 			if (isdigit(cin.peek())) {
 				cin >> choice;
@@ -90,8 +90,8 @@ int main() {
 			if (isdigit(cin.peek())) {
 				cin >> player;
 				int target;
-				if (isdigit(cin.peek())){
-					cin >> target; 
+				if (isdigit(cin.peek())) {
+					cin >> target;
 				} else{
 					cerr << "invalid input" < endl;
 					continue;
@@ -104,7 +104,7 @@ int main() {
 			int index;
 			cin >> index;
 			// then we need to modify the ability class
-			if(isdigit(cin.peek())){
+			if(isdigit(cin.peek())) {
 				int player;
 				cin >> player;
 				if(isdigit(cin.peek())) {
@@ -128,7 +128,7 @@ int main() {
 		} else {
 			cout << "invalid command, please try again." << endl;
 		}
-		
+
 		Game->updateMinion();
 	}
 

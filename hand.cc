@@ -1,4 +1,5 @@
 #include "hand.h"
+#include
 #include <iostream>
 
 Hand::Hand(Deck* myDeck, int num) : myDeck{myDeck}, num {num}{
@@ -60,53 +61,56 @@ void drawLine(int num){
 
 
 void Hand::showhand(){
-	drawLine(num);
-	cout << "|";
-	cout << "|" << endl;
-	for (int v = 0; v < 5; ++v) {
-		cout << "|";
-		for (int i = 0; i < 3; ++i) {
-			cout << " ";
-		}
-		cout << onHand[v]->getName();
-		for (int i = 0; i < 9; ++i) {
-			cout << " ";
-		}
-		cout << "|";
-		for (int i = 0; i < 2; ++i) {
-			cout << " ";
-		}
-		cout << "1 "; // need to modify later
-	}
-	cout << endl;
 
-	drawLine (num);
 
-	cout << "|" << endl;
-	for (int v = 0; v < 5; ++v) {
-		cout << "|";
-		for(int i =0; i < 15; ++i) {
-			cout << " ";
-		}
-		cout << "type ";
-	}
-	cout << "|" << endl;
-	drawLine(num);
-	cout << "|" <<endl;
-	int counter = 0;
-	for (int i =0; i < 5; ++i) {
-		int limit = 20;
-		for (int j= 0; j < limit - 1; ++j) {
-			int len = onHand[i]->getDescription().length();
-			if (counter * (limit - 1) + j < len)
-				cout << onHand[i]->getDescription().at(counter*(limit- 1) + j);
-			else
-				cout << " ";
-		}
-		cout << " |";
-		++counter;
-	}
-	cout << "|" << endl;
+	// drawLine(num);
+	// cout << "|";
+	// cout << "|" << endl;
+	// for (int v = 0; v < 5; ++v) {
+	//  cout << "|";
+	//  for (int i = 0; i < 3; ++i) {
+	//      cout << " ";
+	//  }
+	//  cout << onHand[v]->getName();
+	//  for (int i = 0; i < 9; ++i) {
+	//      cout << " ";
+	//  }
+	//  cout << "|";
+	//  for (int i = 0; i < 2; ++i) {
+	//      cout << " ";
+	//  }
+	//  cout << "1 "; // need to modify later
+	// }
+	// cout << endl;
+	//
+	// drawLine (num);
+	//
+	// cout << "|" << endl;
+	// for (int v = 0; v < 5; ++v) {
+	//  cout << "|";
+	//  for(int i =0; i < 15; ++i) {
+	//      cout << " ";
+	//  }
+	//  cout << "type ";
+	// }
+	// cout << "|" << endl;
+	// drawLine(num);
+	// cout << "|" <<endl;
+	// int counter = 0;
+	// for (int i =0; i < 5; ++i) {
+	//  int limit = 20;
+	//  for (int j= 0; j < limit - 1; ++j) {
+	//      int len = onHand[i]->getDescription().length();
+	//      if (counter * (limit - 1) + j < len)
+	//          cout << onHand[i]->getDescription().at(counter*(limit- 1) + j);
+	//      else
+	//          cout << " ";
+	//  }
+	//  cout << " |";
+	//  ++counter;
+	// }
+	// cout << "|" << endl;
+
 	//it is not finished since still need the attack and mana i guess
 }
 
