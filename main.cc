@@ -20,7 +20,7 @@ using namespace std;
 
 int main() {
 
-	int turn  = 0;// track the number of the turn
+	int turn  = 1;// track the number of the turn
 	//initializing the entire board
 	string name1;
 	string name2;
@@ -51,13 +51,14 @@ int main() {
 
 		//declaring turn
 		Player* activePlayer = p1;
-		if(game.getTurn() == 2) {
+		if(Game->getTurn()%2 == 0) {
 			activePlayer = p2;
 		}
-		++turn;
+		
 		if (turn != 1 && turn != 2) { // not the first round of player1 or player2
 			activePlayer->getMagic(); // add one magic
 			activePlayer->takeCard(); // take one card if possibile
+			++turn;
 		}
 		cout << "at the start of "<<activePlayer->getName()  + "'s turn" << endl;
 
