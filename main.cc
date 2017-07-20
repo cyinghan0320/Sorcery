@@ -1,4 +1,5 @@
 #include <fstream>
+#include <boolean>
 #include <cstdlib>
 #include "card.h"
 #include "board.h"
@@ -12,6 +13,7 @@
 #include "enchantment.h"
 #include "hand.h"
 #include "ability.h"
+
 
 using namespace std;
 
@@ -31,6 +33,7 @@ int main() {
 	p2(name2, hand2);
 	Board* Game = new Board;
 	Game(p1, p2);
+	bool attackTable[6] = {false};
 
 	//while game is in session loop
 	string command;
@@ -61,6 +64,7 @@ int main() {
 		//sorting commands and executions
 		if(command == "end") {
 			Game->end();
+			attackTable[1] = attackTable[2] = attackTable[3] = attackTable[4] = attackTable[5] = false;
 		} else if (command == "quit") {
 			cout << "quitting game" << endl;
 			break;
@@ -69,11 +73,9 @@ int main() {
 		} else if (command == "discard" && tetsMode == 1) { //testing mode only, need to modify
 			activePlayer->discard();
 		} else if (command == "attack") {  //these takes various number of inputs need to implant
-			if(){
-				cout << "already attacked this turn" << endl;
-			}
 			int index;
 			cin >> index;
+			attackTable[index] ? cout << "already attacked this turn" << endl: Null;
 			int choice;
 			if (isdigit(cin.peek())) {
 				cin >> choice;
