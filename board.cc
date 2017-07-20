@@ -61,11 +61,11 @@ void Board::play(int i) {
     if(turn%2 == 1){
         auto field = minions1;
         auto ritual = ritual1;
-        auto object = player1->onHand[i];
+        (0 <= i && i < 5) ? auto object = player1->onHand[i]: Null;
     } else{
         auto field = minions2;
         auto ritual = ritual2;
-        auto object = player2->onHand[i];  //need to implant getType
+        (0 <= i && i < 5) ? auto object = player2->onHand[i]: Null;
     } 
     if(object->getStat().type == "Minion"){
         field.push_back(object);
@@ -85,103 +85,48 @@ void Board::play(int i, int p, int t) {
         auto object = player2->onHand[i];  //need to implant getType
     } 
     if(p == 1){
-        if(t == 'r') {
-            auto target = ritual1;
-        } else if(0 < t && t <= 5){
-            auto target = minions1[t];
-        }
+        (t == 'r') ? auto target = ritual1: Null;
+        (0 <= t && t < 5) ? auto target = minions1[t] : Null; 
     } else{
-        if(t == 'r') {
-            auto target = ritual2;
-        } else if(0 < t && t <= 5){
-            auto target = minions2[t];
-        }
-    } 
+        (t == 'r') ? auto target = ritual2: Null;
+        (0 <= t && t < 5) ? auto target = minions2[t] : Null; 
+    }
     object->useCard(target);
-    return;
 }
         
-
-
 
 void Board::use(int i){
     if(turn%2 == 1){
-        if(0 < i && i <= 5){
-            minion1[i]->use();
-        } else if(i == 'r'){
-            ritual1->useCard();
-        }
-    } else {
-        if(0 < i && i <= 5){
-            minion2[i]->use();
-        } else if(i == 'r'){
-            ritual2->useCard();
-        }
-    }
-}
-
-
-void Board::use(int i, int p, int t){
-    if(turn%2 == 1){
-        if(p == 1) {
-            if(0 < t && t <= 5){
-                minion1[i]->use(minion1[t]);
-            } else if(t == 'r'){
-                minion1[i]->use(ritual1);
-            }
-        } else{
-             if(0 < t && t <= 5){
-                minion1[i]->use(minion2[t]);
-             } else if(t == 'r'){
-                minion1[i]->use(ritual2);
-             }
+        (i == 'r') ? auto object = ritual1: Null;
+        (0 <= i && i < 5) ? auto object = minions1[t]: Null;
     } else{
-        if(p == 1) {
-            if(0 < t && t <= 5){
-                minion2[i]->use(minion1[t]);
-            } else if(t == 'r'){
-                minion2[i]->use(ritual1);
-            }
-        } else{
-             if(0 < t && t <= 5){
-                minion2[i]->use(minion2[t]);
-             } else if(t == 'r'){
-                minion2[i]->use(ritual2);
-             }
-    }
+        (i == 'r') ? auto object = ritual2: Null;
+        (0 <= i && i < 5) ? auto object = minions2[t]: Null;
+    } 
+    object->useCard();
 }
         
-void Board::useRitual(int p, int t){
+        
+void Board::use(int i, int p, int t){
     if(turn%2 == 1){
-        if(p == 1){
-            if(0 < t && t <= 5){
-                ritual1->useCard(minions1[t]);
-            } else if(t == 'r'){
-                ritual1->useCard(ritual1);
-            }
-        } else{
-            if(0 < t && t <= 5){
-                ritual1->useCard(minions2[t]);
-            } else if(t == 'r'){
-                ritual1->useCard(ritual2);
-            }
-        }
+        (i == 'r') ? auto object = ritual1: Null;
+        (0 <= i && i < 5) ? auto object = minions1[t]: Null;
     } else{
-        if(p == 1){
-            if(0 < t && t <= 5){
-                ritual2->useCard(minions1[t]);
-            } else if(t == 'r'){
-                ritual2->useCard(ritual1);
-            }
-        } else{
-            if(0 < t && t <= 5){
-                ritual2->useCard(minions2[t]);
-            } else if(t == 'r'){
-                ritual2->useCard(ritual2);
-            }
-        }
+        (i == 'r') ? auto object = ritual2: Null;
+        (0 <= i && i < 5) ? auto object = minions2[t]: Null;
+    } 
+    if(p == 1){
+        (t == 'r') ? auto target = ritual1: Null;
+        (0 <= t && t < 5) ? auto target = minions1[t] : Null; 
+    } else{
+        (t == 'r') ? auto target = ritual2: Null;
+        (0 <= t && t < 5) ? auto target = minions2[t] : Null; 
     }
+    object->useCard(target);
 }
+
+
+        
 
         
 void Board::end(){
