@@ -1,4 +1,8 @@
 #include "hand.h"
+#include "minion.h"
+#include "spell.h"
+#include "ritual.h"
+#include "enchantment"
 #include "ascii_graphics.h"
 #include <iostream>
 #include <vector>
@@ -7,7 +11,7 @@
 
 
 
-bool isSpell(string name){
+Card createCard(string name){
 	for(int i = 0; i < ){
 		
 	} 
