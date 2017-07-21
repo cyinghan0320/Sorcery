@@ -33,6 +33,7 @@ public:
 	void use(int i, int p, int t);
 	void play(int i);
 	void play(int i, int p, int t);
+	void inspect(int i);
 	void end();
 	int getTurn();
 	int getMinSize(int side);
