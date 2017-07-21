@@ -13,12 +13,13 @@
 
 Card* createCard(string name){
 	if(name == "Giant Strength"){
-		Ritual* cardptr = new GiantStrength(); 
+		GiantStrength* cardptr = new GiantStrength(); 
 	} else if(name == "Magic Fatigue"){
-		Ritual* cardptr = new MagicFatigue(); 
+		MagicFatigue* cardptr = new MagicFatigue(); 
 	} else if(name == "Silence"){
-		Ritual* cardptr = new Silence(); 
-	} else if(){
+		Silence* cardptr = new Silence(); 
+	} else if(name == "Dark Ritual"){
+		Ritual* cardptr = new Ritual(name);
 	} else if(){
 	} else if(){
 	} else if(){
