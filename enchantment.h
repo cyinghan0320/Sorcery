@@ -41,6 +41,10 @@ public:
         attack = info.attack + 2;
         health = info.health + 2;
         enchantVec.push_back(name);
+        minion->addEnchant(name);
+    }
+    void addEnchant(string name){
+           minion->addEnchant(name);
     }
 };
 
@@ -63,6 +67,10 @@ public:
         action = info.action;
         attack = info.attack;
         health = info.health;
+        minion->addEnchant(name);
+    }
+    void addEnchant(string name){
+           minion->addEnchant(name);
     }
 };
 
@@ -83,7 +91,11 @@ public:
         action = info.action;
         attack = info.attack;
         health = info.health;
-    };
+        minion->addEnchant(name);
+    }
+    void addEnchant(string name){
+           minion->addEnchant(name);
+    }
 };
 
 
