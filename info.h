@@ -2,6 +2,7 @@
 #define Info_h
 #include <vector>
 #include "card.h"
+#include <string>
 using namespace std;
 
 struct Info {
@@ -10,7 +11,7 @@ struct Info {
 	string ability;
 	bool trigger;
 	int action, attack, health;
-	vector<Card*> enchantVec;
+	vector<string> enchantVec;
 };
 
  #endif
