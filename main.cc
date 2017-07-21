@@ -65,11 +65,11 @@ int main() {
 		} else if (command == "quit") {
 			cout << "quitting game" << endl;
 			break;
-		} else if (command == "draw" && testMode == 1) {  //testing mode only, need to modify
+		} else if (command == "draw" && testMode == 1) { 
 			activePlayer->takeCard();
-		} else if (command == "discard" && testMode == 1) { //testing mode only, need to modify
+		} else if (command == "discard" && testMode == 1) { 
 			activePlayer->discard();
-		} else if (command == "attack") {  //these takes various number of inputs need to implant
+		} else if (command == "attack") { 
 			int index;
 			cin >> index;
 			int choice;
@@ -79,7 +79,7 @@ int main() {
 			} else {
 				Game->attack(index);
 			}
-		} else if (command == "play") { //these takes various number of inputs need to implant
+		} else if (command == "play") {
 			int index;
 			cin >> index;
 			int player;
@@ -89,7 +89,7 @@ int main() {
 				if (isdigit(cin.peek())) {
 					cin >> target;
 				} else{
-					cerr << "invalid input" < endl;
+					cerr << "invalid input to play" < endl;
 					continue;
 				}
 				Game->play(index, player, target);
@@ -108,7 +108,7 @@ int main() {
 					cin >> target;
 					int skill = activePlayer->getSkill(index, player, target);
 				} else {
-					cerr << "invalid input" << endl;
+					cerr << "invalid input to use" << endl;
 				}
 			} else {
 				int skill = activePlayer->getSkill(index);
