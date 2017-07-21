@@ -9,14 +9,11 @@
 #include "info.h"
 
 class Minion : public Card {
-	std::string name;
-	std::string des;
 	std::string type = "minion";
-	int summonCost;
 	int abilityCost;
 	int ability;
 	bool trigger;
-	int action;
+	int action = 1;
 	int attack;
 	int health;
 	vector<Card*> enchantVec;
@@ -112,26 +109,31 @@ public:
 			abilityCost = 0;
 			attack = 2;
 			health = 2;
+			des = "Whenever an opponent's minion enters the play, deal 1 damage to it.";
 		} else if (s == "Potion Seller") {
 			summonCost = 2;
 			abilityCost = 0;
 			attack = 1;
 			health = 3;
+			des = "at the end of your turn, all your minions gain +0/+1";
 		} else if (s == "Novice Pyromancer") {
 			summonCost = 1;
 			abilityCost = 1;
 			attack = 0;
 			health = 1;
+			des = "Deal 1 damage to target minion";
 		} else if (s == "Apprentice Summoner") {
 			summonCost = 1;
 			abilityCost = 1;
 			attack = 1;
 			health = 1;
+			des = "Summon a 1/1 air elemental";
 		} else if (s == "Master Summoner") {
 			summonCost = 3;
 			abilityCost = 2;
 			attack = 2;
 			health = 2;
+			des = "Summon up to three 1/1 air elementals";
 		}
 	}
 };
