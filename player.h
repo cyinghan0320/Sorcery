@@ -14,12 +14,12 @@ private:
 	int magic;
 	Hand* hand;
 public:
-	Player(String name, Hand* hand);
+	Player(std::string name, Hand* hand);
 	~Player();
 	void setName(string name);
 	void useSkill();
 	void takeDmg(int dmg);
-	string getName();
+	std::string getName();
 	Hand getHand();
 	void getMagic();
 	void takeCard();

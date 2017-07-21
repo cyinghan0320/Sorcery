@@ -25,26 +25,26 @@ public:
 
 	card_template_t display(){
 		if (ability == -1)
-			return display_minion_no_ability(name, cost, attack, health);
+			return display_minion_no_ability(name, summonCost, attack, health);
 		else if (trigger == true)
-			return display_minion_triggered_ability(name, cost, attack, health, des);
+			return display_minion_triggered_ability(name, summonCost, attack, health, des);
 		else
-			return display_minion_activated_ability(name, cost, attack, health, cost, des);
+			return display_minion_activated_ability(name, summonCost, attack, health, abilityCost, des);
 	}
-	
-	
+
+
 	Info getStat(Info& information){
-			information.name = name;
-			information.des = des;
-			information.type = "minion";
-			information.summonCost = summonCost;
-			information.abilityCost = abilityCost;
-			information.ability = ability;
-			information.trigger = trigger;
-			information.action = action;
-			information.attack = attack;
-			information.health = health;
-			information.enchantVec = enchantVec;
+		information.name = name;
+		information.des = des;
+		information.type = "minion";
+		information.summonCost = summonCost;
+		information.abilityCost = abilityCost;
+		information.ability = ability;
+		information.trigger = trigger;
+		information.action = action;
+		information.attack = attack;
+		information.health = health;
+		information.enchantVec = enchantVec;
 		return information;
 	}
 
@@ -64,9 +64,6 @@ public:
 		return ability;
 	}
 
-	bool trigger(){
-		return trigger;
-	}
 
 	std::string showName(){
 		return name;
@@ -76,8 +73,8 @@ public:
 		return attack;
 	}
 
-	int showDefence(){
-		return defence;
+	int showHealth(){
+		return health;
 	}
 
 
@@ -139,4 +136,4 @@ public:
 	}
 };
 
-#endif MINION_H
+#endif

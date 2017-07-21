@@ -1,5 +1,4 @@
 #include <fstream>
-#include <boolean>
 #include <cstdlib>
 #include "card.h"
 #include "board.h"
@@ -9,7 +8,7 @@
 #include "deck.h"
 #include "minions.h"
 #include "spell.h"
-#include "ritual.h"
+#include "rituals.h"
 #include "enchantment.h"
 #include "hand.h"
 #include "ability.h"

@@ -1,7 +1,8 @@
 #ifndef SPELL_H
 #define SPELL_H
-#include "ascii_graphics.h"
 
+#include "Card.h"
+#include "ascii_graphics.h"
 
 class spell : public Card {
 	std::string name;
@@ -10,7 +11,7 @@ class spell : public Card {
 	std::string type;
 public:
 	void draw();
-	spell(std::string name,std::string description,int cost, type = "spell");
+	spell(std::string name,std::string description,int cost, std::string type = "spell");
 	int getCost();
 	std::string getDes();
 	card_template_t display();

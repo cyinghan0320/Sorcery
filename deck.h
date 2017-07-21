@@ -9,7 +9,7 @@ using namespace std;
 
 class Deck : public Card {
 private:
-	vector<Card*> allCards;
+	std::vector<Card*> allCards;
 public:
 	Deck(); // need to implant using input file stream
 	~Deck();

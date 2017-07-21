@@ -3,7 +3,7 @@
 #define Board_hpp
 
 #include "minion.h"
-#include "ritual.h"
+#include "rituals.h"
 #include "player.h"
 #include "graveyard.h"
 #include "ascii_graphics.h"

@@ -12,7 +12,7 @@ class Card {
 	int cost;
 public:
 	virtual useCard() = 0;
-	virtual draw() = 0;
+	virtual void draw() = 0;
 	virtual std::string showType() = 0;
 	virtual std::string getName() = 0;
 	virtual std::string getDescription() = 0;

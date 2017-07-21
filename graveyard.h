@@ -1,17 +1,16 @@
 #ifndef graveyard_h
 #define graveyard_h
-#include <boolean>
 #include <vector>
-#include "card.h"
+#include "Card.h"
 #include <string>
 
 class Graveyard {
 private:
-	vector <Card*> stack;
+	std::vector<Card*> stack;
 public:
 	Graveyard();
 	~Graveyard();
-	string getTop();     //gets the name of the card and deletes the pointer
+	std::string getTop();     //gets the name of the card and deletes the pointer
 	bool isEmpty();
 	void addMinion();
 };
