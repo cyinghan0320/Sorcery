@@ -146,6 +146,13 @@ int main() {
 		}
 
 		Game->updateMinion();
+		if(player1->dead() && player2->dead()){
+			cout << "It is a tie" <<endl;
+		} else if(p1->dead()){
+			cout << p2->getName() << "wins" <<endl;
+		} else if(player2->dead()){
+			cout <<  p1->getName() << "wins" <<endl;
+		}
 	}
 
 	delete Game;
