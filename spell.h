@@ -7,15 +7,13 @@ class spell : public Card {
 	std::string name;
 	std::string description;
 	int cost;
-	std::string type = "spell";
+	std::string type;
 public:
 	void draw();
-	spell(std::string name,std::string description,int cost);
+	spell(std::string name,std::string description,int cost, type = "spell");
 	int getCost();
 	std::string getDes();
-	card_template_t display(){
-		display_spell(name,cost, description);
-	}
+	card_template_t display();
 };
 
 #endif

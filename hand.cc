@@ -33,7 +33,6 @@ void Hand::getCard(Card *t){
 }
 
 
-
 void Hand::showhand(){
 	vector<card_template_t> out;
 	for (auto e: onHand) {

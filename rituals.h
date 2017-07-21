@@ -11,7 +11,6 @@ public:
 	void draw();
 	Ritual(std::string name, std::string description, int cost);
 	void useCard();
-
 	card_template_t display(){
 		display_ritual(name, 1, cost, description, charge);
 	}

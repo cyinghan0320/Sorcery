@@ -1,5 +1,4 @@
 #include "board.h"
-#include "ascii_graphics.h"
 //need to implant showboard
 Board::Board(Player* player1, Player* player2)
 	: grave1{new Graveyard}, grave2{new Graveyard}, player1{player1}, player2{player2}, turn{1} {
@@ -23,6 +22,9 @@ Board::~Board(){
 
 
 void Board::showboard(){
+	vector <card_template_t> out;
+
+
 
 } //need implamentation
 
