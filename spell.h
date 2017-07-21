@@ -1,7 +1,7 @@
 #ifndef SPELL_H
 #define SPELL_H
 
-#include "Card.h"
+#include "card.h"
 #include "ascii_graphics.h"
 
 class spell : public Card {

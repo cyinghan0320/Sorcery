@@ -2,7 +2,6 @@
 #define Info_h
 #include <vector>
 #include "card.h"
-#include <boolean>
 using namespace std;
 
 struct Info {
@@ -12,6 +11,6 @@ struct Info {
 	bool trigger;
 	int action, attack, health;
 	vector<Card*> enchantVec;
- };
-  
+};
+
  #endif

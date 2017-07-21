@@ -1,7 +1,7 @@
 #ifndef RITUAL_H
 #define RITUAL_H
 #include "ascii_graphics.h"
-#include "Card.h"
+#include "card.h"
 
 class Ritual : public Card {
 	std::string name;

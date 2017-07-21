@@ -4,7 +4,7 @@
 #include <iostream>
 #include <string>
 #include <vector>
-#include "Card.h"
+#include "card.h"
 #include "ascii_graphics.h"
 #include "info.h"
 
