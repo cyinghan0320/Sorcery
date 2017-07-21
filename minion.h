@@ -142,6 +142,8 @@ public:
 			attack = 2;
 			health = 2;
 			des = "Summon up to three 1/1 air elementals";
+		} else{
+			cerr << "No such minion exists." << endl;
 		}
 	}
 };
