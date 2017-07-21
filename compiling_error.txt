@@ -1,0 +1,2 @@
+C:\Users\Raymond\AppData\Local\Temp\cc8y78kV.o:try1.cc:(.text+0x5c): undefined reference to `display_minion_no_ability(std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >, int, int, int)'
+collect2.exe: error: ld returned 1 exit status
