@@ -16,7 +16,7 @@ class Minion : public Card {
 	int action = 1;
 	int attack;
 	int health;
-	vector<Card*> enchantVec;
+	vector<string> enchantVec;
 
 public:
 
