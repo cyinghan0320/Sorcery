@@ -5,9 +5,6 @@
 #include "ascii_graphics.h"
 
 class spell : public Card {
-	std::string name;
-	std::string description;
-	int cost;
 	std::string type;
 public:
 	void draw();
