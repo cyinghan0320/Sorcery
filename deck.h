@@ -12,7 +12,6 @@ class Deck : public Card {
 private:
 	std::vector<string> allCards;
 public:
-	Deck(); // need to implant using input file stream
 	void removeTop();
 	void shuffle();
 	void addCard(string);
