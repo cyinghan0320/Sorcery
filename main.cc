@@ -136,7 +136,10 @@ int main() {
 		} else if (command == "inspect") {
 			int which;
 			cin >> which;
-			activePlayer->getHand()->inspect(which);
+			if(turn%2 == 1){
+				
+			} else{
+			}
 		} else if (command == "hand") {
 			Game->playerHand();
 		} else if (command == "board") {
