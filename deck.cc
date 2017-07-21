@@ -11,7 +11,7 @@ Deck::~Deck() {
 	}
 }
 
-void randomize(int i, int j, vector <Card*>& set){
+void randomize(int i, int j, vector <string>& set){
 	Card* temp = set[i];
 	set[i] = set[j];
 	set[j] = temp;
@@ -27,4 +27,9 @@ void Deck::shuffle() {
 		int randValue = rand() % allCards.size();
 		randomize(i, randValue, allCards);
 	}
+}
+
+
+void Deck::addCard(string name){
+	
 }
