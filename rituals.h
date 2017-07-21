@@ -2,10 +2,13 @@
 #define RITUAL_H
 #include "ascii_graphics.h"
 #include "card.h"
+#include <string>
+using namespace std;
 
 class Ritual : public Card {
 	std::string name;
 	std::string description;
+	string type = "ritual";
 	int cost;
 	int charge;
 public:
