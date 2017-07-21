@@ -16,8 +16,11 @@ public:
         delete minion;
     }
     virtual Minion* assign(Minion* &min);
-    void addEnchant(string name){
-           minion->addEnchant(name);
+    vector <string> getEnchantVec(){
+           return enchantVec;
+    }
+    Minion* removeEnchant(){
+        return minion;
     }
 };
 
@@ -40,11 +43,8 @@ public:
         action = info.action;
         attack = info.attack + 2;
         health = info.health + 2;
+        enchantVec = info.enchantVec;
         enchantVec.push_back(name);
-        minion->addEnchant(name);
-    }
-    void addEnchant(string name){
-           minion->addEnchant(name);
     }
 };
 
@@ -67,11 +67,10 @@ public:
         action = info.action;
         attack = info.attack;
         health = info.health;
-        minion->addEnchant(name);
+        enchantVec = info.enchantVec;
+        enchantVec.push_back(name);
     }
-    void addEnchant(string name){
-           minion->addEnchant(name);
-    }
+
 };
 
 
@@ -91,11 +90,10 @@ public:
         action = info.action;
         attack = info.attack;
         health = info.health;
-        minion->addEnchant(name);
+        enchantVec = info.enchantVec;
+        enchantVec.push_back(name);
     }
-    void addEnchant(string name){
-           minion->addEnchant(name);
-    }
+
 };
 
 
