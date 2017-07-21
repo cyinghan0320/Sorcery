@@ -1,18 +1,10 @@
 #include "deck.h"
 #include <cstdlib>
 
-Deck::Deck() {
-}
 
-
-Deck::~Deck() {
-	for(int i = 0; i < allCards.size(); i++) {
-		delete allCards[i];
-	}
-}
 
 void randomize(int i, int j, vector <string>& set){
-	Card* temp = set[i];
+	string temp = set[i];
 	set[i] = set[j];
 	set[j] = temp;
 }
@@ -31,5 +23,5 @@ void Deck::shuffle() {
 
 
 void Deck::addCard(string name){
-	
+	allCards.push_back(name);
 }
