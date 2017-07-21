@@ -21,6 +21,16 @@ Board::~Board(){
 }
 
 
+void inspect(int i){
+	Minion* chosen;
+	(i < minions1.size)? chosen = minions1[i]: cerr << "Inspection: No minion at that position" <<  endl;
+	if(turn%2 == 0){
+		(i < minions2.size)? chosen = minions2[i]: cerr << "Inspection: No minion at that position" <<  endl;
+	}
+	// print the minions card first 
+	
+}
+
 void Board::showboard(){
 	vector <card_template_t> line1;
 	vector <card_template_t> line2;
