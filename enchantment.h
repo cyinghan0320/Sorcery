@@ -8,6 +8,7 @@ class Enchantment : public Minion {
 protected:
     Minion* minion;
 public:
+    Enchantment
     Enchantment(Minion &min): minion{min} {}
     ~Enchantment(){
         delete minion;
@@ -18,7 +19,9 @@ public:
 
 class GiantStrength : public Enchantment {
 public:
+    GiantStrength() :name{"Giant Strength"} {};
     Minion* assign(Minion* &min){
+        minion = min;
         name = min->getStat().name;
         des = min->getStat().des;
         type = "minion";
@@ -35,7 +38,9 @@ public:
 
 class MagicFatigue : public Enchantment {
 public:
+    MagicFatigue() :name{"Magic Fatigue"} {};
     Minion* assign(Minion* &min){
+        minion = min;
         name = min->getStat().name;
         des = min->getStat().des;
         type = "minion";
@@ -52,7 +57,9 @@ public:
 
 class Silence : public Enchantment {
 public:
+    Silence() :name{"Silence"} {};
     Minion* assign(Minion* &min){
+        minion = min;
         name = min->getStat().name;
         des = min->getStat().des;
         type = "minion";
