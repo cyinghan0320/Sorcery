@@ -11,10 +11,28 @@
 
 
 
-Card createCard(string name){
-	for(int i = 0; i < ){
-		
-	} 
+Card* createCard(string name){
+	if(name == "Giant Strength"){
+		Ritual* cardptr = new GiantStrength(); 
+	} else if(name == "Magic Fatigue"){
+		Ritual* cardptr = new MagicFatigue(); 
+	} else if(name == "Silence"){
+		Ritual* cardptr = new Silence(); 
+	} else if(){
+	} else if(){
+	} else if(){
+	} else if(){
+	} else if(){
+	} else if(){
+	} else if(){
+	} else if(){
+	} else if(){
+	} else if(){
+	} else if(){
+	} else if(){
+	} else if(){
+	} else if(){
+	}
 }
 
 
