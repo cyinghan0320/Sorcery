@@ -1,4 +1,4 @@
-#include <fstream>
+#include <ifstream>
 #include <cstdlib>
 #include "card.h"
 #include "board.h"
@@ -13,18 +13,32 @@
 #include "hand.h"
 #include "ability.h"
 
+void createDeck(Deck* deck, string infile) {
+    ifstream ifs;
+    ifs.open(infile.c_str(), in);
+    string temp;
+    while(ifs >> temp){
+        deck->addCard(temp);
+    }
+    ifs.close();
+}
 
 using namespace std;
 
 int testmode = 1;
 int main() {
-
+	string filename1 = "";
+	string filename1 = "";
+	Deck* deck1 = new Deck;
+	Deck* deck2 = new Deck;
+	createDeck(deck1, filename1);
+	createDeck(deck2, filename2);
 	//initializing the entire board
 	string name1;
 	string name2;
 	cin >> name1 >> name2;
-	Hand* hand1 = new Hand;
-	Hand* hand2 = new Hand;
+	Hand* hand1 = new Hand(deck1 ,0);
+	Hand* hand2 = new Hand(deck2,0);
 	Player* p1 = new Player;
 	Player* p2 = new Player;
 	p1(name1, hand1,1);
