@@ -1,4 +1,5 @@
 #include "board.h"
+#include "hand.h"
 //need to implant showboard
 Board::Board(Player* player1, Player* player2)
 	: grave1{new Graveyard}, grave2{new Graveyard}, player1{player1}, player2{player2}, turn{1} {
@@ -21,14 +22,25 @@ Board::~Board(){
 }
 
 
-void inspect(int i){
+void Board::inspect(int i){
 	Minion* chosen;
 	(i < minions1.size)? chosen = minions1[i]: cerr << "Inspection: No minion at that position" <<  endl;
 	if(turn%2 == 0){
 		(i < minions2.size)? chosen = minions2[i]: cerr << "Inspection: No minion at that position" <<  endl;
 	}
 	// print the minions card first 
+	//dont know if createCard() will be available here
+	vector <Enchantment*> stack;//create an array of Enchantment pointers, need to print them  
+	for(name: chosen->getEnchant()){
+		Enchantment* temp = createCard(name);
+		stack.push_back(temp);
+	}
+	//implant display for enchantment here !!!!!!!!!!!!!!!!!!!!!!!
+	//the description for enchantment is enchantDes
 	
+	for(int i = 0; i < stack.size(); i++){
+		delete stack[i];
+	}
 }
 
 void Board::showboard(){
