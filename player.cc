@@ -49,9 +49,17 @@ void Player::takeDmg(int dmg) {
 
 string Player::getName(){
 	return name;
-};
+}
 
 
 Hand Player::getHand(){
 	return hand;
-};
+}
+
+bool dead(){
+	if(health <= 0){
+	return true;
+	}
+		return false;
+}
+
