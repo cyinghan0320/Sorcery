@@ -25,11 +25,17 @@ Card* createCard(string name){
 	} else if(name == "Standstill"){
 		Ritual* cardptr = new Ritual(name, "Whenever a minion enters play, destroy it" , 3, 4);
 	} else if(name == "Banish"){
+		Spell* cardptr = Spell(name,2,"Destroy target minion or ritual");
 	} else if(name == "Unsummon"){
+		Spell* cardptr = Spell(name,1,"Put target minion on the bottom of its owner's deck");
 	} else if(name == "Recharge"){
+		Spell* cardptr = Spell(name,1,"Your ritual gains 3 charges");
 	} else if(name == "Disenchant"){
+		Spell* cardptr = Spell(name,1,"Destroy the top enchantment on target minion");
 	} else if(name == "Raise Dead"){
+		Spell* cardptr = Spell(name,1,"Resurrect the top minion in your graveyard");
 	} else ifname == "Blizzard"){
+		Spell* cardptr = Spell(name,3,"Deal 2 damage to all minions");
 	} else{
 		Minion* cardptr = new Minion(name);
 	}
@@ -88,13 +94,6 @@ void Hand::discard(int i) {
 
 void Hand::draw() {
 	string newCardName = myDeck->allCards.pop_back();
-	Card* newCard;
-	if() {
-	} else if(){
-	} else if(){
-	
-	} else if(){
-	}
-		
+	Card* newCard = createCard(newCardName);
 	onHand.push_back(newCard);
 }
