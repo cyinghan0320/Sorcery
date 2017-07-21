@@ -8,6 +8,7 @@ class spell : public Card {
 	std::string name;
 	std::string description;
 	int cost;
+	Board &t;
 	std::string type;
 public:
 	void draw();

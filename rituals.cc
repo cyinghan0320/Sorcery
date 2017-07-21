@@ -1,9 +1,10 @@
 #include "rituals.h"
+#include "ability.h"
 
 using namespace std;
 
-Ritual::Ritual(string name, string description, int cost) :
-	name{name}, description{description}, cost{cost}{
+Ritual::Ritual(string name, string description, int cost, int index) :
+	name{name}, description{description}, cost{cost}, index{index}{
 }
 
 card_template_t Ritual::display(){
@@ -15,4 +16,8 @@ void Ritual::draw(){
 	for (auto e: out) {
 		cout << e << endl;
 	}
+}
+
+void Ritual::useCard(Board &t){
+	chooseAbility(t, index);
 }

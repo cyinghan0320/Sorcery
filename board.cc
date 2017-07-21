@@ -21,6 +21,7 @@ Board::~Board(){
 }
 
 
+
 void Board::showboard(){
 	vector <card_template_t> line1;
 	vector <card_template_t> line2;
@@ -32,10 +33,65 @@ void Board::showboard(){
 	line1.emplace_back(player1->display());
 	line1.emplace_back(CARD_TEMPLATE_BORDER);
 	line1.emplace_back(grave1->display());
-// not finished
-
-
-
+	for (int i = 0; i < minions1.size(); ++i) {
+		line2.emplace_back(minions1[i]);
+	}
+	if (minions1.size() < 5) {
+		int diff = 5 - minions1.size();
+		for (int i=0; i < diff; ++i) {
+			line2.emplace_back(CARD_TEMPLATE_BORDER);
+		}
+	}
+	line3.emplace_back(CENTRE_GRAPHIC);
+	for (int i = 0; i < minions2.size(); ++i) {
+		line4.emplace_back(minions2[i]);
+	}
+	if (minions2.size() < 5) {
+		int diff = 5 - minions2.size();
+		for (int i=0; i < diff; ++i) {
+			line4.emplace_back(CARD_TEMPLATE_BORDER);
+		}
+	}
+	line5.emplace_back(ritual2->display());
+	line5.emplace_back(CARD_TEMPLATE_BORDER);
+	line5.emplace_back(player2->display());
+	line5.emplace_back(CARD_TEMPLATE_BORDER);
+	line5.emplace_back(grave2->display());
+	int length = line1[0].size();
+	for (int j = 0; j < length; ++j) {
+		for (int i = 0; i < line1.size(); ++i) {
+			cout << line1[i][j];
+		}
+		cout << endl;
+	}
+	length = line2[0].size();
+	for (int j = 0; j < length; ++j) {
+		for (int i = 0; i < line2.size(); ++i) {
+			cout << line2[i][j];
+		}
+		cout << endl;
+	}
+	length = line3[0].size();
+	for (int j = 0; j < length; ++j) {
+		for (int i = 0; i < line3.size(); ++i) {
+			cout << line3[i][j];
+		}
+		cout << endl;
+	}
+	length = line4[0].size();
+	for (int j = 0; j < length; ++j) {
+		for (int i = 0; i < line3.size(); ++i) {
+			cout << line4[i][j];
+		}
+		cout << endl;
+	}
+	length = line5[0].size();
+	for (int j = 0; j < length; ++j) {
+		for (int i = 0; i < line3.size(); ++i) {
+			cout << line5[i][j];
+		}
+		cout << endl;
+	}
 } //need implamentation
 
 void Board::playerHand(){
