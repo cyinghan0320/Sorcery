@@ -37,6 +37,7 @@ public:
         action = info.action;
         attack = info.attack + 2;
         health = info.health + 2;
+        enchantVec.push_back(name);
     }
 }
 
