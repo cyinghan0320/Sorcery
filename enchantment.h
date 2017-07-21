@@ -2,11 +2,13 @@
 #define Enchantment_hpp
 #include "minion.h"
 #include "info.h"
+#include <string>
 using namespace std;
 
 class Enchantment : public Minion {
 protected:
     Minion* minion;
+    string Enchantdes;
 public:
     Enchantment
     Enchantment(Minion &min): minion{min} {}
@@ -19,7 +21,8 @@ public:
 
 class GiantStrength : public Enchantment {
 public:
-    GiantStrength() :name{"Giant Strength"} {};
+    GiantStrength() :name{"Giant Strength"},
+    Enchantdes{""} {}
     Minion* assign(Minion* &min){
         minion = min;
         name = min->getStat().name;
@@ -38,7 +41,8 @@ public:
 
 class MagicFatigue : public Enchantment {
 public:
-    MagicFatigue() :name{"Magic Fatigue"} {};
+    MagicFatigue() :name{"Magic Fatigue"},
+    Enchantdes{"Enchanted minion's activated ability costs 2 more"}{};
     Minion* assign(Minion* &min){
         minion = min;
         name = min->getStat().name;
@@ -57,7 +61,8 @@ public:
 
 class Silence : public Enchantment {
 public:
-    Silence() :name{"Silence"} {};
+    Silence() :name{"Silence"},
+     Enchantdes{"Enchanted minion cannot use ability"} {};
     Minion* assign(Minion* &min){
         minion = min;
         name = min->getStat().name;
