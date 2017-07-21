@@ -112,7 +112,11 @@ void Board::play(int i, int p, int t) {
 		(t == 'r') ? auto target = ritual2 : Null;
 		(0 <= t && t < 5) ? auto target = minions2[t] : Null;
 	}
-	object->useCard(target);
+	if(object->getStat().type == "enchantment") {
+		object->assign(target);
+	} else if(object->getStat().type == "spell") {
+		object->useCard(target);
+	}
 }
 
 
