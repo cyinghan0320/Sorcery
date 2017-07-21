@@ -32,6 +32,8 @@ Card* createCard(string name){
 	} else if(){
 	} else if(){
 	} else if(){
+	} else{
+		Minion(name);
 	}
 }
 
