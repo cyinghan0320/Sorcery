@@ -13,7 +13,7 @@ class Ritual : public Card {
 	int charge;
 public:
 	void draw();
-	Ritual(std::string name, std::string description, int cost);
+	Ritual(std::string name, std::string description, int cost, int charge);
 	void useCard();
 	card_template_t display();
 };
