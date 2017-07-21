@@ -48,6 +48,7 @@ void Board::playerHand(){
 
 
 void Board::attack(int i){
+	(i < 1 || 5 < i) ? cerr << "out of bound" << endl, return; : Null;
 	if(turn%2 == 1 && minions1[i]->getAction()) {
 		player2->takeDmg(minions1[i]->showAttack());  //make a attack fun or make attack public for minion,
 		minions1[i]->useAttack();
@@ -61,6 +62,7 @@ void Board::attack(int i){
 
 
 void Board::attack(int i, int j){
+	(i < 1 || 5 < i) || (j < 1 || 5 < j) ? cerr << "out of bound" << endl, return; : Null;
 	if(turn%2 == 1 && minions1[i]->getAction()) {
 		minions1[i]->takeDmg(minions2[j]->showAttack());
 		minions2[j]->takeDmg(minions1[i]->showAttack());
@@ -79,6 +81,7 @@ void Board::attack(int i, int j){
 
 
 void Board::play(int i) {
+	(i < 1 || 5 < i) ? cerr << "out of bound" << endl, return; : Null;
 	if(turn%2 == 1) {
 		auto field = minions1;
 		auto ritual = ritual1;
@@ -100,6 +103,7 @@ void Board::play(int i) {
 
 
 void Board::play(int i, int p, int t) {
+	(i < 1 || 5 < i) ? cerr << "out of bound" << endl, return; : Null;
 	if(turn%2 == 1) {
 		auto object = player1->onHand[i];
 	} else{
@@ -121,24 +125,28 @@ void Board::play(int i, int p, int t) {
 
 
 void Board::use(int i){
+	(i < 0 && 4 < i) || (i == 'r') ? Null : cerr << "invalid input" return;
 	if(turn%2 == 1) {
 		(i == 'r') ? auto object = ritual1 : Null;
-		(0 <= i && i < 5) ? auto object = minions1[t] : Null;
+		(0 <= i && i < 5) ? auto object = minions1[i] : Null;
 	} else{
 		(i == 'r') ? auto object = ritual2 : Null;
-		(0 <= i && i < 5) ? auto object = minions2[t] : Null;
+		(0 <= i && i < 5) ? auto object = minions2[i] : Null;
 	}
 	object->useCard();
 }
 
 
 void Board::use(int i, int p, int t){
+	(i < 0 && 4 < i) || (i == 'r') ? Null : cerr << "invalid input" return;
+	(t < 0 && 4 < t) || (t == 'r') ? Null : cerr << "invalid input" return;
+	(p == 1 || p == 2) ? Null : cerr << "invalid input" return;
 	if(turn%2 == 1) {
 		(i == 'r') ? auto object = ritual1 : Null;
-		(0 <= i && i < 5) ? auto object = minions1[t] : Null;
+		(0 <= i && i < 5) ? auto object = minions1[i] : Null;
 	} else{
 		(i == 'r') ? auto object = ritual2 : Null;
-		(0 <= i && i < 5) ? auto object = minions2[t] : Null;
+		(0 <= i && i < 5) ? auto object = minions2[i] : Null;
 	}
 	if(p == 1) {
 		(t == 'r') ? auto target = ritual1 : Null;
