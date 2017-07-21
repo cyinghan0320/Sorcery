@@ -7,7 +7,7 @@
 
 class Card {
 	std::string name;
-	std::string description;
+	std::string des;
 	std::string type;
 	int cost;
 public:
