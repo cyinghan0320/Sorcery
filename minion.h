@@ -6,6 +6,7 @@
 #include <vector>
 #include "Card.h"
 #include "ascii_graphics.h"
+#include "info.h"
 
 class Minion : public Card {
 	std::string name;
@@ -29,6 +30,22 @@ public:
 			return display_minion_triggered_ability(name, cost, attack, health, des);
 		else
 			return display_minion_activated_ability(name, cost, attack, health, cost, des);
+	}
+	
+	
+	Info getStat(Info& information){
+			information.name = name;
+			information.des = des;
+			information.type = "minion";
+			information.summonCost = summonCost;
+			information.abilityCost = abilityCost;
+			information.ability = ability;
+			information.trigger = trigger;
+			information.action = action;
+			information.attack = attack;
+			information.health = health;
+			information.enchantVec = enchantVec;
+		return information;
 	}
 
 	void useAttack(){
