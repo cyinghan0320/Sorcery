@@ -27,17 +27,19 @@ using namespace std;
 
 int testmode = 1;
 int main() {
-	string filename1 = "";
-	string filename1 = "";
+	//initializing the entire board
+	string filename1 = "default.deck";
+	string filename2 = "default.deck";
+	
 	Deck* deck1 = new Deck;
 	Deck* deck2 = new Deck;
-	createDeck(deck1, filename1);
-	createDeck(deck2, filename2);
-	//initializing the entire board
+	createDeck(deck1, filename1), deck1.shuffle();
+	createDeck(deck2, filename2), deck2.shuffle();
+	
 	string name1;
 	string name2;
 	cin >> name1 >> name2;
-	Hand* hand1 = new Hand(deck1 ,0);
+	Hand* hand1 = new Hand(deck1,0);
 	Hand* hand2 = new Hand(deck2,0);
 	Player* p1 = new Player;
 	Player* p2 = new Player;
