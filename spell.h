@@ -5,7 +5,7 @@
 #include "ascii_graphics.h"
 
 class spell : public Card {
-	std::string type;
+	std::string type = "spell";
 public:
 	void draw();
 	spell(std::string name,std::string description,int cost, std::string type = "spell");
