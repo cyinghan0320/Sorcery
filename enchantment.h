@@ -24,17 +24,19 @@ public:
     GiantStrength() :name{"Giant Strength"},
     Enchantdes{""} {}
     Minion* assign(Minion* &min){
+        Info info;
+        info = min->getStat(info);
         minion = min;
-        name = min->getStat().name;
-        des = min->getStat().des;
+        name = info.name;
+        des = info.des;
         type = "minion";
-        summonCost = min->getStat().summonCost;
-        abilityCost = min->getStat().abilityCost;
-        ability = min->getStat().ability;
-        trigger = min->getStat().trigger;
-        action = min->getStat().action;
-        attack = min->getStat().attack + 2;
-        health = min->getStat().health + 2;
+        summonCost = info.summonCost;
+        abilityCost = info.abilityCost;
+        ability = info.ability;
+        trigger = info.trigger;
+        action = info.action;
+        attack = info.attack + 2;
+        health = info.health + 2;
     }
 }
 
@@ -44,17 +46,19 @@ public:
     MagicFatigue() :name{"Magic Fatigue"},
     Enchantdes{"Enchanted minion's activated ability costs 2 more"}{};
     Minion* assign(Minion* &min){
+        Info info;
+        info = min->getStat(info);
         minion = min;
-        name = min->getStat().name;
-        des = min->getStat().des;
+        name = info.name;
+        des = info.des;
         type = "minion";
-        summonCost = min->getStat().summonCost;
-        abilityCost = min->getStat().abilityCost + 2;
-        ability = min->getStat().ability;
-        trigger = min->getStat().trigger;
-        action = min->getStat().action;
-        attack = min->getStat().attack;
-        health = min->getStat().health;
+        summonCost = info.summonCost;
+        abilityCost = info.abilityCost + 2;
+        ability = info.ability;
+        trigger = info.trigger;
+        action = info.action;
+        attack = info.attack;
+        health = info.health;
     }
 }
 
@@ -65,16 +69,16 @@ public:
      Enchantdes{"Enchanted minion cannot use ability"} {};
     Minion* assign(Minion* &min){
         minion = min;
-        name = min->getStat().name;
-        des = min->getStat().des;
+        name =info.name;
+        des =info.des;
         type = "minion";
-        summonCost = min->getStat().summonCost;
-        abilityCost = min->getStat().abilityCost;
+        summonCost = info.summonCost;
+        abilityCost = info.abilityCost;
         ability = "";
-        trigger = min->getStat().trigger;
-        action = min->getStat().action;
-        attack = min->getStat().attack;
-        health = min->getStat().health;
+        trigger =info.trigger;
+        action = info.action;
+        attack = info.attack;
+        health = info.health;
     };
 }
 
