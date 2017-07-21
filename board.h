@@ -6,6 +6,7 @@
 #include "ritual.h"
 #include "player.h"
 #include "graveyard.h"
+#include "ascii_graphics.h"
 #include <vector>
 
 using namespace std;
