@@ -41,6 +41,10 @@ int main() {
 	cin >> name1 >> name2;
 	Hand* hand1 = new Hand(deck1,0);
 	Hand* hand2 = new Hand(deck2,0);
+	for(int i = 0; i < 5; i++){
+		hand1.draw();
+		hand2.draw();
+	}
 	Player* p1 = new Player;
 	Player* p2 = new Player;
 	p1(name1, hand1,1);
