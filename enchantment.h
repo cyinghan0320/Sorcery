@@ -28,7 +28,7 @@ public:
         trigger = min->getStat().trigger;
         action = min->getStat().action;
         attack = min->getStat().attack + 2;
-        defense = min->getStat().defense + 2;
+        health = min->getStat().health + 2;
     }
 }
 
@@ -45,7 +45,7 @@ public:
         trigger = min->getStat().trigger;
         action = min->getStat().action;
         attack = min->getStat().attack;
-        defense = min->getStat().defense;
+        health = min->getStat().health;
     }
 }
 
@@ -62,7 +62,7 @@ public:
         trigger = min->getStat().trigger;
         action = min->getStat().action;
         attack = min->getStat().attack;
-        defense = min->getStat().defense;
+        health = min->getStat().health;
     };
 }
 
