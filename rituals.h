@@ -6,10 +6,7 @@
 using namespace std;
 
 class Ritual : public Card {
-	std::string name;
-	std::string description;
 	string type = "ritual";
-	int cost;
 	int charge;
 public:
 	void draw();
