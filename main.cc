@@ -27,8 +27,8 @@ int main() {
 	Hand* hand2 = new Hand;
 	Player* p1 = new Player;
 	Player* p2 = new Player;
-	p1(name1, hand1);
-	p2(name2, hand2);
+	p1(name1, hand1,1);
+	p2(name2, hand2,2);
 	Board* Game = new Board;
 	Game(p1, p2);
 

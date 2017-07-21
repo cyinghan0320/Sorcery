@@ -4,6 +4,7 @@
 #define player_hpp
 #include <string>
 #include "hand.h"
+#include "ascii_graphics.h"
 using namespace std;
 
 
@@ -13,8 +14,9 @@ private:
 	int health = 20;
 	int magic;
 	Hand* hand;
+	int num;
 public:
-	Player(std::string name, Hand* hand);
+	Player(std::string name, Hand* hand, int num);
 	~Player();
 	void setName(string name);
 	void useSkill();
@@ -24,5 +26,6 @@ public:
 	void getMagic();
 	void takeCard();
 	int getSkill(int index);
+	card_template_t display();
 };
 #endif

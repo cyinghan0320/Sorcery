@@ -3,7 +3,7 @@
 #include "player.h"
 
 
-Player::Player(String name, Hand* hand) : name{name} hand{hand}{
+Player::Player(String name, Hand* hand, int num) : name{name} hand{hand}, num{num}{
 }
 
 Player::~Player(){
@@ -16,6 +16,10 @@ void Player::getMagic(){
 
 int Player::getSkill(int index){
 	return onHand[index]->getAbility();
+}
+
+card_template_t Player::display(){
+	return display_player_card(num, name, health, magic);
 }
 
 

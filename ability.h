@@ -5,8 +5,6 @@
 class ability {
 public:
 	void chooseAbility (int choice);
-
-
 };
 
 

@@ -22,7 +22,17 @@ Board::~Board(){
 
 
 void Board::showboard(){
-	vector <card_template_t> out;
+	vector <card_template_t> line1;
+	vector <card_template_t> line2;
+	vector <card_template_t> line3;
+	vector <card_template_t> line4;
+	vector <card_template_t> line5;
+	line1.emplace_back(ritual1->display());
+	line1.emplace_back(CARD_TEMPLATE_BORDER);
+	line1.emplace_back(player1->display());
+	line1.emplace_back(CARD_TEMPLATE_BORDER);
+	line1.emplace_back(grave1->display());
+// not finished
 
 
 
