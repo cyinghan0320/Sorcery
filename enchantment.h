@@ -8,7 +8,7 @@ using namespace std;
 class Enchantment : public Minion {
 protected:
     Minion* minion;
-    string Enchantdes;
+    string enchantDes;
 public:
     Enchantment
     Enchantment(Minion &min): minion{min} {}
@@ -22,7 +22,7 @@ public:
 class GiantStrength : public Enchantment {
 public:
     GiantStrength() :name{"Giant Strength"},
-    Enchantdes{""} {}
+    enchantDes{""} {}
     Minion* assign(Minion* &min){
         Info info;
         info = min->getStat(info);
@@ -44,7 +44,7 @@ public:
 class MagicFatigue : public Enchantment {
 public:
     MagicFatigue() :name{"Magic Fatigue"},
-    Enchantdes{"Enchanted minion's activated ability costs 2 more"}{};
+    enchantDes{"Enchanted minion's activated ability costs 2 more"}{};
     Minion* assign(Minion* &min){
         Info info;
         info = min->getStat(info);
@@ -66,7 +66,7 @@ public:
 class Silence : public Enchantment {
 public:
     Silence() :name{"Silence"},
-     Enchantdes{"Enchanted minion cannot use ability"} {};
+     enchantDes{"Enchanted minion cannot use ability"} {};
     Minion* assign(Minion* &min){
         minion = min;
         name =info.name;
