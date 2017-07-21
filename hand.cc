@@ -2,6 +2,17 @@
 #include "ascii_graphics.h"
 #include <iostream>
 #include <vector>
+#include <boolean>
+#include <string>
+
+
+
+bool isSpell(string name){
+	for(int i = 0; i < ){
+		
+	} 
+}
+
 
 Hand::Hand(Deck* myDeck, int num) : myDeck{myDeck}, num {num}{
 }
@@ -53,7 +64,14 @@ void Hand::discard(int i) {
 
 
 void Hand::draw() {
-	Card newCard = myDeck.allCards.back;
-	myDeck.allCards.resize(myDeck.size() - 1);
+	string newCardName = myDeck->allCards.pop_back();
+	Card* newCard;
+	if() {
+	} else if(){
+	} else if(){
+	
+	} else if(){
+	}
+		
 	onHand.push_back(newCard);
 }
