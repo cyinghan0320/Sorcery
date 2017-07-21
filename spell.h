@@ -1,5 +1,6 @@
 #ifndef SPELL_H
 #define SPELL_H
+#include "ascii_graphics.h"
 
 
 class spell : public Card {

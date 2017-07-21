@@ -5,6 +5,7 @@
 #include <string>
 #include <vector>
 #include "Card.h"
+#include "ascii_graphics.h"
 
 class Minion : public Card {
 	std::string name;
@@ -16,7 +17,6 @@ class Minion : public Card {
 	bool trigger;
 	int action;
 	int attack;
-	int defence;
 	int health;
 	vector<Card*> enchantVec;
 
@@ -24,21 +24,21 @@ public:
 
 	card_template_t display(){
 		if (ability == -1)
-			return display_minion_no_ability(name, cost, attack, defence);
+			return display_minion_no_ability(name, cost, attack, health);
 		else if (trigger == true)
-			return display_minion_triggered_ability(name, cost, attack, defence, des);
+			return display_minion_triggered_ability(name, cost, attack, health, des);
 		else
-			return display_minion_activated_ability(name, cost, attack, defence, cost, des);
+			return display_minion_activated_ability(name, cost, attack, health, cost, des);
 	}
-	
+
 	void useAttack(){
 		action--;
 	}
-	
+
 	void refreshAttack(){
 		action = 1;
 	}
-	
+
 	int getAction() {
 		return action;
 	}

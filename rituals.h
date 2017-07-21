@@ -1,5 +1,6 @@
 #ifndef RITUAL_H
 #define RITUAL_H
+#include "ascii_graphics.h"
 
 class Ritual : public Card {
 	std::string name;
