@@ -19,7 +19,7 @@ Card* createCard(string name){
 	} else if(name == "Silence"){
 		Silence* cardptr = new Silence(); 
 	} else if(name == "Dark Ritual"){
-		Ritual* cardptr = new Ritual(name);
+		Ritual* cardptr = new Ritual(name, "At the start of your turn, gain 1 magic" , 0, 5);
 	} else if(){
 	} else if(){
 	} else if(){
