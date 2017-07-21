@@ -9,7 +9,7 @@ class Card {
 	std::string name;
 	std::string des;
 	std::string type;
-	int cost;
+	int summonCost;
 public:
 	virtual useCard() = 0;
 	virtual void draw() = 0;
