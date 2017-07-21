@@ -16,7 +16,10 @@ public:
         delete minion;
     }
     virtual Minion* assign(Minion* &min);
-}
+    void addEnchant(string name){
+           minion->addEnchant(name);
+    }
+};
 
 
 class GiantStrength : public Enchantment {
@@ -29,7 +32,7 @@ public:
         minion = min;
         name = info.name;
         des = info.des;
-        type = "minion";
+        type = "enchanted minion";
         summonCost = info.summonCost;
         abilityCost = info.abilityCost;
         ability = info.ability;
@@ -39,7 +42,7 @@ public:
         health = info.health + 2;
         enchantVec.push_back(name);
     }
-}
+};
 
 
 class MagicFatigue : public Enchantment {
@@ -52,7 +55,7 @@ public:
         minion = min;
         name = info.name;
         des = info.des;
-        type = "minion";
+        type = "enchanted minion";
         summonCost = info.summonCost;
         abilityCost = info.abilityCost + 2;
         ability = info.ability;
@@ -61,7 +64,7 @@ public:
         attack = info.attack;
         health = info.health;
     }
-}
+};
 
 
 class Silence : public Enchantment {
@@ -72,7 +75,7 @@ public:
         minion = min;
         name =info.name;
         des =info.des;
-        type = "minion";
+        type = "enchanted minion";
         summonCost = info.summonCost;
         abilityCost = info.abilityCost;
         ability = "";
@@ -81,7 +84,7 @@ public:
         attack = info.attack;
         health = info.health;
     };
-}
+};
 
 
 
