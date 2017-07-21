@@ -26,6 +26,7 @@ public:
 	void getMagic();
 	void takeCard();
 	int getSkill(int index);
+	bool dead();
 	card_template_t display();
 };
 #endif
