@@ -12,9 +12,9 @@ class Ritual : public Card {
 	std::string name;
 	std::string des;
 	int charge;
-	int index;
 public:
-	Ritual(std::string name, std::string description,int cost, int charge);
+	Ritual(std::string name, std::string description,std::string ability, int summonCost, int charge)
+	name{name},des{description}, ability{ability} ,summonCost{summonCost},charge{charge}, type{"ritual"};
 	void draw();
 	void useCard(Board &t);
 	card_template_t display();
