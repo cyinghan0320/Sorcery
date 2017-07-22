@@ -209,14 +209,26 @@ void Board::play(int i) {
 void Board::play(int i, int p, int t) {
 	Card* target;
 	Card* object;
+	vector<Minion*> fieldOpponent;
+	vector<Minion*> field;
+	Graveyard* grave;
+	Ritual myRitual;
 	if (i < 1 || 5 < i) {
 		cerr << "out of bound" << endl;
 		return;
 	}
 	if(turn%2 == 1) {
 		object = player1->getHand()[i];
+		field = player1->getHand();
+		fieldOpponent = player2->getHand();
+		grave = grave1;
+		myRitual = ritual1;
 	} else{
 		object = player2->getHand()[i];  //need to implant getType
+		field = player2->getHand();
+		fieldOpponent = player1->getHand();
+		grave = grave2;
+		myRitual = ritual2;
 	}
 	if(p == 1) {
 		if (t == 'r')
@@ -244,25 +256,26 @@ void Board::play(int i, int p, int t) {
 			string unsum = target->getName();
 			hand* deck = player1->getHand()->sendToBottom(unsum);
 		   	if(target->showType() == "minion"){
-				vector<Minion*> field = player1->getHand();
-				if(2 == p){
-					field = player2->getHand();  //need to implant getType
-				}
 				field.erase(t);
 			}else{
 		   		delete target;
 		   		target = nullptr;
 			}
 		} else if(abil == “recharge"){
-			if(turn%2 == 1)
-			 	ritual1->recharge(3);
-			else
-				ritual2->recharge(3);
+			 	myRitual->recharge(3);
 		} else if(abil == “disenchant"){
 			target->disenchant();
 		} else if(abil == “revive"){
-			
+			  if(field.size() >= 5) {
+				  cerr << "full field, no minion can be summoned" << endl;
+				  return;
+			  } 
+			string top = grave->getTop();
+			createCard(top)
 		} else if(abil == “blizzard"){
+			 for(int i = 0; i < fieldOpponent.size(); i++){ 
+				fieldOpponent[i]->takeDmg(2);
+			 }
 		}
 
 	}
