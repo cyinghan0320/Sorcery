@@ -192,6 +192,10 @@ void Board::play(int i) {
 	}
 
 	if(object->getStat().type == "minion") {
+		if(field.size() 5 >=) {
+			cerr << "Field is full!" << endl;
+			return;
+		}
 		field.push_back(object);
 	} else if(object->getStat().type == "spell") {
 		object->useCard();
@@ -289,6 +293,43 @@ void Board::use(int i, int p, int t){
 			target = ritual2;
 		else if (0 <= t && t < 5)
 			target = minions2[t];
+	}
+	vector<Minion*> field = minion1;
+	if(turn%2 == 0)
+		field = minion2;
+
+	string abil = object->getAbility();
+	if(abil == "enter play 1 dmg" || "deal 1 dmg") {
+		target->takeDmg(1);
+	}else if(abil ==  "heal all") {
+		for(int i = 0; i < field.size(); i++) {
+			field[i]->heal(1);
+		}
+	}else if(abil == "summon 1 air") {
+		if(field.size() < 5) {
+			auto holder = createCard("Air Elemental")
+			              this->play();
+		}
+	}else if(abil == "summon 3 air") {
+		for(int i = 3; i > 0; i--) {
+			if(field.size() < 5) {
+				auto holder = createCard("Air Elemental")
+				              this->play();
+			}
+		}
+	}else if() {
+	}else if() {
+	}else if() {
+	}else if() {
+	}else if() {
+	}else if() {
+	}else if() {
+	}else if() {
+	}else if() {
+	}else if() {
+	}else if() {
+	}else{
+		return;
 	}
 	object->useCard(target);
 }
