@@ -1,7 +1,7 @@
 CXX = g++-5
 CXXFLAGS = -std=c++14 -Werror=vla
 EXEC = a5
-OBJECTS = main.o board.o info.o graveyard.o deck.o player.o hand.o card.o enchantment.o spell.o minion.o rituals.o
+OBJECTS = main.o board.o info.o graveyard.o deck.o player.o hand.o card.o enchantment.o spell.o minion.o rituals.o ability.o
 DEPENDS = ${OBJECTS:.o=.d}
 
 ${EXEC}: ${OBJECTS}
