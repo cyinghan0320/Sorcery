@@ -1,6 +1,9 @@
 #include "board.h"
 #include "hand.h"
 //need to implant showboard
+
+class Enchantment;
+
 Board::Board(Player* player1, Player* player2)
 	: grave1{new Graveyard}, grave2{new Graveyard}, player1{player1}, player2{player2}, turn{1} {
 }
@@ -24,15 +27,21 @@ Board::~Board(){
 
 void Board::inspect(int i){
 	Minion* chosen;
-	(i >= 0 && i < minions1.size) ? chosen = minions1[i] : cerr << "Inspection: No minion at that position" <<  endl;
+	if (i >= 0 && i < minions1.size())
+		chosen = minions1[i];
+	else
+		cerr << "Inspection: No minion at that position" <<  endl;
 	if(turn%2 == 0) {
-		(i < minions2.size) ? chosen = minions2[i] : cerr << "Inspection: No minion at that position" <<  endl;
+		if (i < minions2.size())
+			chosen = minions2[i];
+		else
+			cerr << "Inspection: No minion at that position" <<  endl;
 	}
 	// print the minions card first
 	//dont know if createCard() will be available here
 	vector <Enchantment*> stack;//create an array of Enchantment pointers, need to print them
-	for(name: chosen->getEnchant()) {
-		Enchantment* temp = createCard(name);
+	for(name: chosen->getEnchantVec()) {
+		Enchantment* temp = player1->getHand().createCard(name);
 		stack.push_back(temp);
 	}
 	//implant display for enchantment here !!!!!!!!!!!!!!!!!!!!!!!
@@ -117,15 +126,21 @@ void Board::showboard(){
 
 void Board::playerHand(){
 	if(turn%2 == 1) {
-		player1->hand->showhand();
+		player1->getHand().showhand();
 	} else{
-		player2->hand->showhand();
+		player2->getHand().showhand();
 	}
 }
 
 
 void Board::attack(int i){
-	(i < 1 || 5 < i) ? cerr << "out of bound" << endl, return; : Null;
+	if (i < 1 || 5 < i) {
+		cerr << "out of bound" << endl;
+		return;
+	}
+	else
+		Null;
+
 	if(turn%2 == 1 && minions1[i]->getAction()) {
 		player2->takeDmg(minions1[i]->showAttack());  //make a attack fun or make attack public for minion,
 		minions1[i]->useAttack();
@@ -139,18 +154,21 @@ void Board::attack(int i){
 
 
 void Board::attack(int i, int j){
-	(i < 1 || 5 < i) || (j < 1 || 5 < j) ? cerr << "out of bound" << endl, return; : Null;
-	if(turn%2 == 1 && minions1[i]->getAction()) {
-		minions1[i]->takeDmg(minions2[j]->showAttack());
-		minions2[j]->takeDmg(minions1[i]->showAttack());
-		minions1[i]->useAttack();
-	} else if(turn%2 == 0 && minions2[i]->getAction()) {
-		minions1[j]->takeDmg(minions2[i]->showAttack());
-		minions2[i]->takeDmg(minions1[j]->showAttack());
-		minions2[i]->useAttack();
-	} else{
-		cout << "cannot attack opponent." << endl;
-	}
+	if (i < 1 || 5 < i) || (j < 1 || 5 < j) {
+			cerr << "out of bound" << endl;
+			return;
+		}
+		if (turn%2 == 1 && minions1[i]->getAction()) {
+			minions1[i]->takeDmg(minions2[j]->showAttack());
+			minions2[j]->takeDmg(minions1[i]->showAttack());
+			minions1[i]->useAttack();
+		} else if(turn%2 == 0 && minions2[i]->getAction()) {
+			minions1[j]->takeDmg(minions2[i]->showAttack());
+			minions2[i]->takeDmg(minions1[j]->showAttack());
+			minions2[i]->useAttack();
+		} else{
+			cout << "cannot attack opponent." << endl;
+		}
 
 }
 
@@ -158,7 +176,10 @@ void Board::attack(int i, int j){
 
 
 void Board::play(int i) {
-	(i < 1 || 5 < i) ? cerr << "out of bound" << endl, return; : Null;
+	if (i < 1 || 5 < i) {
+		cerr << "out of bound" << endl;
+		return;
+	}
 	if(turn%2 == 1) {
 		auto field = minions1;
 		auto ritual = ritual1;
@@ -180,7 +201,10 @@ void Board::play(int i) {
 
 
 void Board::play(int i, int p, int t) {
-	(i < 1 || 5 < i) ? cerr << "out of bound" << endl, return; : Null;
+	if (i < 1 || 5 < i) {
+		cerr << "out of bound" << endl;
+		return;
+	}
 	if(turn%2 == 1) {
 		auto object = player1->onHand[i];
 	} else{
@@ -202,7 +226,10 @@ void Board::play(int i, int p, int t) {
 
 
 void Board::use(int i){
-	(i < 0 && 4 < i) || (i == 'r') ? Null : cerr << "invalid input" return;
+	if  (!((i < 0 && 4 < i) || (i == 'r'))) {
+		cerr << "invalid input";
+		return;
+	}
 	if(turn%2 == 1) {
 		(i == 'r') ? auto object = ritual1 : Null;
 		(0 <= i && i < 5) ? auto object = minions1[i] : Null;
@@ -215,9 +242,17 @@ void Board::use(int i){
 
 
 void Board::use(int i, int p, int t){
-	(i < 0 && 4 < i) || (i == 'r') ? Null : cerr << "invalid input" return;
-	(t < 0 && 4 < t) || (t == 'r') ? Null : cerr << "invalid input" return;
-	(p == 1 || p == 2) ? Null : cerr << "invalid input" return;
+	if (!((i < 0 && 4 < i) || (i == 'r'))) {
+		cerr << "invalid input" return;
+	}
+	if (!((t < 0 && 4 < t) || (t == 'r'))) {
+		cerr << "invalid input";
+		return;
+	}
+	if (!((p == 1 || p == 2))) {
+		cerr << "invalid input";
+		return;
+	}
 	if(turn%2 == 1) {
 		(i == 'r') ? auto object = ritual1 : Null;
 		(0 <= i && i < 5) ? auto object = minions1[i] : Null;
@@ -252,14 +287,14 @@ int Board::getTurn() {
 void Board::updateMinion() {
 	for(int i = 0; i < minions1.size(); i++) {
 		if(minions1[i]->defeated()) {
-			Minion* holder = new Minion (minions1[i]->getStat().name);
+			Minion* holder = new Minion(minions1[i]->getStat().name);
 			grave1->addMinion(holder);
 			minions1.erase(i);
 		}
 	}
 	for(int j = 0; j < minions2.size(); j++) {
 		if(minions2[j]->defeated()) {
-			Minion* holder = new Minion (minions2[j]->getStat().name);
+			Minion* holder = new Minion(minions2[j]->getStat().name);
 			grave2->addMinion(holder);
 			minions2.erase(j);
 		}

@@ -33,6 +33,6 @@ card_template_t graveyard::display(){
 	return stack.back()->display();
 }
 
-void addMinion(Minion min){
+void addMinion(Minion* min){
 	stack.push_back(min);
 }

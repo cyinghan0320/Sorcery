@@ -7,13 +7,13 @@
 
 class Graveyard {
 private:
-	std::vector<Card*> stack;
+	std::vector<Minion*> stack;
 public:
 	Graveyard();
 	~Graveyard();
 	std::string getTop();     //gets the name of the card and deletes the pointer
 	bool isEmpty();
-	void addMinion();
+	void addMinion(Minion* ptr);
 	card_template_t display();
 
 };
