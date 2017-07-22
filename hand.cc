@@ -24,17 +24,17 @@ Card* createCard(string name){
 	} else if(name == "Standstill") {
 		Ritual* cardptr = new Ritual(name, "Whenever a minion enters play, destroy it", 3, 4);
 	} else if(name == "Banish") {
-		Spell* cardptr = new Spell(name,2,"Destroy target minion or ritual");
+		Spell* cardptr = new Spell(name,"Destroy target minion or ritual", 2, "destroy");
 	} else if(name == "Unsummon") {
-		Spell* cardptr = new Spell(name,1,"Put target minion on the bottom of its owner's deck");
+		Spell* cardptr = new Spell(name,"Put target minion on the bottom of its owner's deck",1, "unsummon");
 	} else if(name == "Recharge") {
-		Spell* cardptr = new Spell(name,1,"Your ritual gains 3 charges");
+		Spell* cardptr = new Spell(name,"Your ritual gains 3 charges", 1,"recharge");
 	} else if(name == "Disenchant") {
-		Spell* cardptr = new Spell(name,1,"Destroy the top enchantment on target minion");
+		Spell* cardptr = new Spell(name,"Destroy the top enchantment on target minion", 1, "disenchant");
 	} else if(name == "Raise Dead") {
-		Spell* cardptr = new Spell(name,1,"Resurrect the top minion in your graveyard");
+		Spell* cardptr = new Spell(name,"Resurrect the top minion in your graveyard", 1,"revive");
 	} else if(name == "Blizzard") {
-		Spell* cardptr = new Spell(name,3,"Deal 2 damage to all minions");
+		Spell* cardptr = new Spell(name,"Deal 2 damage to all minions", 3, "blizzard");
 	} else{
 		Minion* cardptr = new Minion(name);
 	}
