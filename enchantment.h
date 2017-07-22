@@ -30,6 +30,7 @@ public:
 	GiantStrength() {
 		name = "Giant Strength";
 		enchantDes ="";
+		summonCost = 1;
 	}
 	Minion* assign(Minion* &min){
 		Info info;
@@ -57,6 +58,7 @@ public:
 	MagicFatigue() {
 		name = "Magic Fatigue";
 		enchantDes ="Enchanted minion's activated ability costs 2 more";
+		summonCost = 0;
 	}
 	Minion* assign(Minion* &min){
 		Info info;
@@ -84,6 +86,7 @@ public:
 	Silence() {
 		name = "Silence";
 		enchantDes="Enchanted minion cannot use ability";
+		summonCost = 1;
 	}
 	Minion* assign(Minion* &min){
 		Info info;
