@@ -8,12 +8,13 @@
 class spell : public Card {
 	std::string name;
 	std::string description;
-	int cost;
+	int SummonCost;
 	Board &t;
 	std::string type;
 public:
 	void draw();
-	spell(std::string name,std::string description,int cost, std::string type = "spell");
+	spell(std::string name,std::string description,int cost,
+	      ,std::string ability, int abilityCost, std::string type = "spell");
 	int getCost();
 	std::string getDes();
 	card_template_t display();
