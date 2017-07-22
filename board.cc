@@ -234,9 +234,13 @@ void Board::play(int i, int p, int t) {
 	} else if(object->getStat().type == "spell") {
 		string abil = object->getAbility(); //spell implementation
 		if(abil == “destroy"){
-		   if(target->)
+		   if(target->showType() == "minion")
+		   	target->takeDmg(999);
+		   else
+		   	delete target;
+		   	target = nullptr;
 		} else if(abil == “unsummon"){
-			  object->showType
+			  if(object->
 		} else if(abil == “recharge"){
 		} else if(abil == “disenchant"){
 		} else if(abil == “revive"){
