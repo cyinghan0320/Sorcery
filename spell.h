@@ -6,15 +6,10 @@
 #include "board.h"
 
 class spell : public Card {
-	std::string name;
-	std::string description;
-	int SummonCost;
-	Board &t;
-	std::string type;
 public:
 	void draw();
 	spell(std::string name,std::string description,int cost,
-	      ,std::string ability, int abilityCost, std::string type = "spell");
+	      ,std::string ability, int abilityCost);
 	int getCost();
 	std::string getDes();
 	card_template_t display();
