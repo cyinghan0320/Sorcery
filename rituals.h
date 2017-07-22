@@ -3,17 +3,15 @@
 #include "ascii_graphics.h"
 #include "board.h"
 #include "card.h"
+#include <string>
+using namespace std;
 
 class Ritual : public Card {
-	std::string name;
-	std::string description;
 	Board &t;
-	int cost;
 	int charge;
 	int index;
 public:
 	void draw();
-	Ritual(std::string name, std::string description, int cost, int index);
 	void useCard();
 	card_template_t display();
 };

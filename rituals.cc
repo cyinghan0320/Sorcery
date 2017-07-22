@@ -3,8 +3,8 @@
 
 using namespace std;
 
-Ritual::Ritual(string name, string description, int cost, int index) :
-	name{name}, description{description}, cost{cost}, index{index}{
+Ritual::Ritual(string name, string description, int cost, int charge) :
+	name{name}, des{description}, summonCost{cost}, charge{charge}{
 }
 
 card_template_t Ritual::display(){

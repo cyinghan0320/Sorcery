@@ -5,6 +5,7 @@
 #include <string>
 #include "hand.h"
 #include "ascii_graphics.h"
+#include <boolean>
 using namespace std;
 
 
@@ -26,6 +27,7 @@ public:
 	void getMagic();
 	void takeCard();
 	int getSkill(int index);
+	bool dead();
 	card_template_t display();
 };
 #endif
