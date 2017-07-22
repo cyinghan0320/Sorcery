@@ -23,6 +23,9 @@ public:
 	virtual Info getStat() = 0;
 	virtual std::string getDescription() = 0;
 	virtual card_template_t display();
+	std::string getAbility(){
+		return ability;
+	}
 };
 
 #endif
