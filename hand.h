@@ -15,6 +15,7 @@ private:
 public:
 	Hand(Deck* myDeck, int num);
 	~Hand();
+	vector<Card*>& getHand();
 	void showhand();
 	void discard(int i);
 	void draw();

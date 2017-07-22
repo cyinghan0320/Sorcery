@@ -2,8 +2,8 @@
 
 #include "player.h"
 
-
-Player::Player(String name, Hand* hand, int num) : name{name} hand{hand}, num{num}{
+using namespace std;
+Player::Player(string name, Hand* hand, int num) : name{name},hand{hand}, num{num}{
 }
 
 Player::~Player(){
@@ -14,9 +14,6 @@ void Player::getMagic(){
 	++magic;
 }
 
-int Player::getSkill(int index){
-	return onHand[index]->getAbility();
-}
 
 card_template_t Player::display(){
 	return display_player_card(num, name, health, magic);
@@ -57,9 +54,8 @@ Hand Player::getHand(){
 }
 
 bool dead(){
-	if(health <= 0){
-	return true;
+	if(health <= 0) {
+		return true;
 	}
-		return false;
+	return false;
 }
-

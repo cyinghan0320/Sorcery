@@ -40,6 +40,7 @@ public:
 	int getTurn();
 	int getMinSize(int side);
 	void updateMinion();
+	void refreshAllAttack();
 };
 
 

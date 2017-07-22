@@ -1,14 +1,15 @@
 #include "rituals.h"
-#include "ability.h"
 
 using namespace std;
 
+class ability;
+
 Ritual::Ritual(string name, string description, int cost, int charge) :
-	name{name}, des{description}, summonCost{cost}, charge{charge}{
+	Card(name, description,"Ritual", cost), charge{charge}{
 }
 
 card_template_t Ritual::display(){
-	return display_ritual(name, 1, cost, description, charge);
+	return display_ritual(name, 1, summonCost, des, charge);
 }
 
 void Ritual::draw(){
@@ -19,5 +20,6 @@ void Ritual::draw(){
 }
 
 void Ritual::useCard(Board &t){
-	chooseAbility(t, index);
+	ability a;
+	a.chooseAbility(t, index);
 }

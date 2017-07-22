@@ -2,18 +2,19 @@
 #define deck_hpp
 #include <vector>
 #include <fstream>
-#include "card.h"
+// #include "card.h"
 #include <string>
 
-using namespace std;
 
 
-class Deck : public Card {
+class Deck {
 private:
-	std::vector<string> allCards;
+	std::vector<std::string> allCards;
 public:
 	void removeTop();
-	void shuffle();
-	void addCard(string);
+	void Dshuffle();
+	void addCard(std::string str);
 };
+
+
 #endif

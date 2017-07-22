@@ -9,6 +9,7 @@
 #include "info.h"
 
 class Minion : public Card {
+protected:
 	std::string type = "minion";
 	std::string name;
 	int abilityCost;
@@ -20,7 +21,7 @@ class Minion : public Card {
 	vector<string> enchantVec;
 
 public:
-
+	Minion();
 	card_template_t display(){
 		if (ability == -1)
 			return display_minion_no_ability(name, summonCost, attack, health);
@@ -102,7 +103,7 @@ public:
 		return false;
 	}
 
-	Minion(std::string s) : name(s) {
+	Minion(std::string s) : name{s}, type{"minion"}{
 		if (s == "Air Elemental") {
 			summonCost = 0;
 			abilityCost = 0;

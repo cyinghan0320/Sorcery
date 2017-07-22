@@ -1,9 +1,9 @@
 #include "deck.h"
 #include <cstdlib>
 
+using namespace std;
 
-
-void randomize(int i, int j, vector <string>& set){
+void randomize(int i, int j, vector<string>& set){
 	string temp = set[i];
 	set[i] = set[j];
 	set[j] = temp;
@@ -12,9 +12,12 @@ void randomize(int i, int j, vector <string>& set){
 void Deck::removeTop(){
 	allCards.pop_back();
 }
+//
+// Deck::Deck(vector<string> a) :
+//  allCards{a}{
+// }
 
-
-void Deck::shuffle() {
+void Deck::Dshuffle() {
 	for(int i = 0; i < allCards.size(); i++) {
 		int randValue = rand() % allCards.size();
 		randomize(i, randValue, allCards);

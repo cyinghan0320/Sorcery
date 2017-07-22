@@ -3,6 +3,7 @@
 
 #include "card.h"
 #include "ascii_graphics.h"
+#include "board.h"
 
 class spell : public Card {
 	std::string name;

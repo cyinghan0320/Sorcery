@@ -12,9 +12,10 @@
 #include "hand.h"
 #include "ability.h"
 
+
 void createDeck(Deck* deck, string infile) {
 	ifstream ifs;
-	ifs.open(infile.c_str(), in);
+	ifs.open(infile.c_str());
 	string temp;
 	while(ifs >> temp) {
 		deck->addCard(temp);
@@ -24,7 +25,7 @@ void createDeck(Deck* deck, string infile) {
 
 using namespace std;
 
-int testmode = 1;
+int testMode = 1;
 int main() {
 	//initializing the entire board
 	string filename1 = "default.deck";
@@ -32,8 +33,10 @@ int main() {
 
 	Deck* deck1 = new Deck;
 	Deck* deck2 = new Deck;
-	createDeck(deck1, filename1), deck1.shuffle();
-	createDeck(deck2, filename2), deck2.shuffle();
+	createDeck(deck1, filename1);
+	// deck1->Dshuffle();
+	createDeck(deck2, filename2);
+	// deck2->Dshuffle();
 
 	string name1;
 	string name2;
@@ -41,15 +44,12 @@ int main() {
 	Hand* hand1 = new Hand(deck1,0);
 	Hand* hand2 = new Hand(deck2,0);
 	for(int i = 0; i < 5; i++) {
-		hand1.draw();
-		hand2.draw();
+		hand1->draw();
+		hand2->draw();
 	}
-	Player* p1 = new Player;
-	Player* p2 = new Player;
-	p1(name1, hand1,1);
-	p2(name2, hand2,2);
-	Board* Game = new Board;
-	Game(p1, p2);
+	Player* p1 = new Player(name1, hand1,1);
+	Player* p2 = new Player(name2, hand2,2);
+	Board* Game = new Board (p1, p2);
 
 	//while game is in session loop
 	string command;
@@ -87,7 +87,9 @@ int main() {
 		} else if (command == "draw" && testMode == 1) {
 			activePlayer->takeCard();
 		} else if (command == "discard" && testMode == 1) {
-			activePlayer->discard();
+			int choice;
+			cin >> choice;
+			activePlayer->getHand().discard(choice);
 		} else if (command == "attack") {
 			int index;
 			cin >> index;
@@ -108,7 +110,7 @@ int main() {
 				if (isdigit(cin.peek())) {
 					cin >> target;
 				} else{
-					cerr << "invalid input to play" < endl;
+					cerr << "invalid input to play" << endl;
 					continue;
 				}
 				Game->play(index, player, target);
@@ -123,9 +125,9 @@ int main() {
 				int player;
 				cin >> player;
 				if(isdigit(cin.peek())) {
-					int target;
-					cin >> target;
-					int skill = activePlayer->getSkill(index, player, target);
+					// int target;
+					// cin >> target;
+					// int skill = activePlayer->getSkill(index, player, target); //bugs
 				} else {
 					cerr << "invalid input to use" << endl;
 				}
@@ -145,12 +147,12 @@ int main() {
 		}
 
 		Game->updateMinion();
-		if(player1->dead() && player2->dead()) {
+		if(p1->dead() && p2->dead()) {
 			cout << "It is a tie" <<endl;
 		} else if(p1->dead()) {
-			cout << p2->getName() << "wins" <<endl;
-		} else if(player2->dead()) {
-			cout <<  p1->getName() << "wins" <<endl;
+			cout << p2->getName() << " wins" <<endl;
+		} else if(p2->dead()) {
+			cout <<  p1->getName() << " wins" <<endl;
 		}
 	}
 
