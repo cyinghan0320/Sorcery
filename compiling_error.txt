@@ -1,0 +1,404 @@
+C:\term2\cs246\project\Sorcery\Sorcery\Sorcery\board.cc: In member function 'void Board::inspect(int)':
+C:\term2\cs246\project\Sorcery\Sorcery\Sorcery\board.cc:39:10: error: 'Enchantment' was not declared in this scope
+  vector <Enchantment*> stack;//create an array of Enchantment pointers, need to print them
+          ^~~~~~~~~~~
+C:\term2\cs246\project\Sorcery\Sorcery\Sorcery\board.cc:39:22: error: template argument 1 is invalid
+  vector <Enchantment*> stack;//create an array of Enchantment pointers, need to print them
+                      ^
+C:\term2\cs246\project\Sorcery\Sorcery\Sorcery\board.cc:39:22: error: template argument 2 is invalid
+C:\term2\cs246\project\Sorcery\Sorcery\Sorcery\board.cc:40:10: error: found ':' in nested-name-specifier, expected '::'
+  for(name: chosen->getEnchant()) {
+          ^
+C:\term2\cs246\project\Sorcery\Sorcery\Sorcery\board.cc:40:6: error: 'name' has not been declared
+  for(name: chosen->getEnchant()) {
+      ^~~~
+C:\term2\cs246\project\Sorcery\Sorcery\Sorcery\board.cc:47:2: error: expected primary-expression before 'for'
+  for(int i = 0; i < stack.size(); i++) {
+  ^~~
+C:\term2\cs246\project\Sorcery\Sorcery\Sorcery\board.cc:47:2: error: expected ';' before 'for'
+C:\term2\cs246\project\Sorcery\Sorcery\Sorcery\board.cc:47:2: error: expected primary-expression before 'for'
+C:\term2\cs246\project\Sorcery\Sorcery\Sorcery\board.cc:47:2: error: expected ')' before 'for'
+C:\term2\cs246\project\Sorcery\Sorcery\Sorcery\board.cc:47:27: error: request for member 'size' in 'stack', which is of non-class type 'int'
+  for(int i = 0; i < stack.size(); i++) {
+                           ^~~~
+C:\term2\cs246\project\Sorcery\Sorcery\Sorcery\board.cc:48:17: error: invalid types 'int[int]' for array subscript
+   delete stack[i];
+                 ^
+C:\term2\cs246\project\Sorcery\Sorcery\Sorcery\board.cc: In member function 'void Board::playerHand()':
+C:\term2\cs246\project\Sorcery\Sorcery\Sorcery\board.cc:126:12: error: 'Hand* Player::hand' is private within this context
+   player1->hand->showhand();
+            ^~~~
+In file included from C:\term2\cs246\project\Sorcery\Sorcery\Sorcery\board.h:7:0,
+                 from C:\term2\cs246\project\Sorcery\Sorcery\Sorcery\board.cc:1:
+C:\term2\cs246\project\Sorcery\Sorcery\Sorcery\player.h:16:8: note: declared private here
+  Hand* hand;
+        ^~~~
+C:\term2\cs246\project\Sorcery\Sorcery\Sorcery\board.cc:128:12: error: 'Hand* Player::hand' is private within this context
+   player2->hand->showhand();
+            ^~~~
+In file included from C:\term2\cs246\project\Sorcery\Sorcery\Sorcery\board.h:7:0,
+                 from C:\term2\cs246\project\Sorcery\Sorcery\Sorcery\board.cc:1:
+C:\term2\cs246\project\Sorcery\Sorcery\Sorcery\player.h:16:8: note: declared private here
+  Hand* hand;
+        ^~~~
+C:\term2\cs246\project\Sorcery\Sorcery\Sorcery\board.cc: In member function 'void Board::attack(int)':
+C:\term2\cs246\project\Sorcery\Sorcery\Sorcery\board.cc:134:53: error: expected primary-expression before 'return'
+  (i < 1 || 5 < i) ? cerr << "out of bound" << endl, return; : Null;
+                                                     ^~~~~~
+C:\term2\cs246\project\Sorcery\Sorcery\Sorcery\board.cc:134:53: error: expected ':' before 'return'
+C:\term2\cs246\project\Sorcery\Sorcery\Sorcery\board.cc:134:53: error: expected primary-expression before 'return'
+C:\term2\cs246\project\Sorcery\Sorcery\Sorcery\board.cc:134:61: error: expected primary-expression before ':' token
+  (i < 1 || 5 < i) ? cerr << "out of bound" << endl, return; : Null;
+                                                             ^
+C:\term2\cs246\project\Sorcery\Sorcery\Sorcery\board.cc: In member function 'void Board::attack(int, int)':
+C:\term2\cs246\project\Sorcery\Sorcery\Sorcery\board.cc:148:73: error: expected primary-expression before 'return'
+  (i < 1 || 5 < i) || (j < 1 || 5 < j) ? cerr << "out of bound" << endl, return; : Null;
+                                                                         ^~~~~~
+C:\term2\cs246\project\Sorcery\Sorcery\Sorcery\board.cc:148:73: error: expected ':' before 'return'
+C:\term2\cs246\project\Sorcery\Sorcery\Sorcery\board.cc:148:73: error: expected primary-expression before 'return'
+C:\term2\cs246\project\Sorcery\Sorcery\Sorcery\board.cc:148:81: error: expected primary-expression before ':' token
+  (i < 1 || 5 < i) || (j < 1 || 5 < j) ? cerr << "out of bound" << endl, return; : Null;
+                                                                                 ^
+C:\term2\cs246\project\Sorcery\Sorcery\Sorcery\board.cc: In member function 'void Board::play(int)':
+C:\term2\cs246\project\Sorcery\Sorcery\Sorcery\board.cc:167:53: error: expected primary-expression before 'return'
+  (i < 1 || 5 < i) ? cerr << "out of bound" << endl, return; : Null;
+                                                     ^~~~~~
+C:\term2\cs246\project\Sorcery\Sorcery\Sorcery\board.cc:167:53: error: expected ':' before 'return'
+C:\term2\cs246\project\Sorcery\Sorcery\Sorcery\board.cc:167:53: error: expected primary-expression before 'return'
+C:\term2\cs246\project\Sorcery\Sorcery\Sorcery\board.cc:167:61: error: expected primary-expression before ':' token
+  (i < 1 || 5 < i) ? cerr << "out of bound" << endl, return; : Null;
+                                                             ^
+C:\term2\cs246\project\Sorcery\Sorcery\Sorcery\board.cc:171:23: error: expected primary-expression before 'auto'
+   (0 <= i && i < 5) ? auto object = player1->onHand[i] : Null;
+                       ^~~~
+C:\term2\cs246\project\Sorcery\Sorcery\Sorcery\board.cc:171:23: error: expected ':' before 'auto'
+C:\term2\cs246\project\Sorcery\Sorcery\Sorcery\board.cc:171:23: error: expected primary-expression before 'auto'
+C:\term2\cs246\project\Sorcery\Sorcery\Sorcery\board.cc:175:23: error: expected primary-expression before 'auto'
+   (0 <= i && i < 5) ? auto object = player2->onHand[i] : Null;
+                       ^~~~
+C:\term2\cs246\project\Sorcery\Sorcery\Sorcery\board.cc:175:23: error: expected ':' before 'auto'
+C:\term2\cs246\project\Sorcery\Sorcery\Sorcery\board.cc:175:23: error: expected primary-expression before 'auto'
+C:\term2\cs246\project\Sorcery\Sorcery\Sorcery\board.cc:177:5: error: 'object' was not declared in this scope
+  if(object->getStat().type == "minion") {
+     ^~~~~~
+C:\term2\cs246\project\Sorcery\Sorcery\Sorcery\board.cc:178:3: error: 'field' was not declared in this scope
+   field.push_back(object);
+   ^~~~~
+C:\term2\cs246\project\Sorcery\Sorcery\Sorcery\board.cc:182:10: error: 'ritual' was not declared in this scope
+   delete ritual;
+          ^~~~~~
+C:\term2\cs246\project\Sorcery\Sorcery\Sorcery\board.cc: In member function 'void Board::play(int, int, int)':
+C:\term2\cs246\project\Sorcery\Sorcery\Sorcery\board.cc:189:53: error: expected primary-expression before 'return'
+  (i < 1 || 5 < i) ? cerr << "out of bound" << endl, return; : Null;
+                                                     ^~~~~~
+C:\term2\cs246\project\Sorcery\Sorcery\Sorcery\board.cc:189:53: error: expected ':' before 'return'
+C:\term2\cs246\project\Sorcery\Sorcery\Sorcery\board.cc:189:53: error: expected primary-expression before 'return'
+C:\term2\cs246\project\Sorcery\Sorcery\Sorcery\board.cc:189:61: error: expected primary-expression before ':' token
+  (i < 1 || 5 < i) ? cerr << "out of bound" << endl, return; : Null;
+                                                             ^
+C:\term2\cs246\project\Sorcery\Sorcery\Sorcery\board.cc:191:26: error: 'class Player' has no member named 'onHand'; did you mean 'getHand'?
+   auto object = player1->onHand[i];
+                          ^~~~~~
+C:\term2\cs246\project\Sorcery\Sorcery\Sorcery\board.cc:193:26: error: 'class Player' has no member named 'onHand'; did you mean 'getHand'?
+   auto object = player2->onHand[i];  //need to implant getType
+                          ^~~~~~
+C:\term2\cs246\project\Sorcery\Sorcery\Sorcery\board.cc:196:16: error: expected primary-expression before 'auto'
+   (t == 'r') ? auto target = ritual1 : Null;
+                ^~~~
+C:\term2\cs246\project\Sorcery\Sorcery\Sorcery\board.cc:196:16: error: expected ':' before 'auto'
+C:\term2\cs246\project\Sorcery\Sorcery\Sorcery\board.cc:196:16: error: expected primary-expression before 'auto'
+C:\term2\cs246\project\Sorcery\Sorcery\Sorcery\board.cc:197:23: error: expected primary-expression before 'auto'
+   (0 <= t && t < 5) ? auto target = minions1[t] : Null;
+                       ^~~~
+C:\term2\cs246\project\Sorcery\Sorcery\Sorcery\board.cc:197:23: error: expected ':' before 'auto'
+C:\term2\cs246\project\Sorcery\Sorcery\Sorcery\board.cc:197:23: error: expected primary-expression before 'auto'
+C:\term2\cs246\project\Sorcery\Sorcery\Sorcery\board.cc:199:16: error: expected primary-expression before 'auto'
+   (t == 'r') ? auto target = ritual2 : Null;
+                ^~~~
+C:\term2\cs246\project\Sorcery\Sorcery\Sorcery\board.cc:199:16: error: expected ':' before 'auto'
+C:\term2\cs246\project\Sorcery\Sorcery\Sorcery\board.cc:199:16: error: expected primary-expression before 'auto'
+C:\term2\cs246\project\Sorcery\Sorcery\Sorcery\board.cc:200:23: error: expected primary-expression before 'auto'
+   (0 <= t && t < 5) ? auto target = minions2[t] : Null;
+                       ^~~~
+C:\term2\cs246\project\Sorcery\Sorcery\Sorcery\board.cc:200:23: error: expected ':' before 'auto'
+C:\term2\cs246\project\Sorcery\Sorcery\Sorcery\board.cc:200:23: error: expected primary-expression before 'auto'
+C:\term2\cs246\project\Sorcery\Sorcery\Sorcery\board.cc:202:5: error: 'object' was not declared in this scope
+  if(object->getStat().type == "enchantment") {
+     ^~~~~~
+C:\term2\cs246\project\Sorcery\Sorcery\Sorcery\board.cc:203:18: error: 'target' was not declared in this scope
+   object->assign(target);
+                  ^~~~~~
+C:\term2\cs246\project\Sorcery\Sorcery\Sorcery\board.cc:205:19: error: 'target' was not declared in this scope
+   object->useCard(target);
+                   ^~~~~~
+C:\term2\cs246\project\Sorcery\Sorcery\Sorcery\board.cc: In member function 'void Board::use(int)':
+C:\term2\cs246\project\Sorcery\Sorcery\Sorcery\board.cc:211:35: error: 'Null' was not declared in this scope
+  (i < 0 && 4 < i) || (i == 'r') ? Null : cerr << "invalid input" return;
+                                   ^~~~
+C:\term2\cs246\project\Sorcery\Sorcery\Sorcery\board.cc:213:16: error: expected primary-expression before 'auto'
+   (i == 'r') ? auto object = ritual1 : Null;
+                ^~~~
+C:\term2\cs246\project\Sorcery\Sorcery\Sorcery\board.cc:213:16: error: expected ':' before 'auto'
+C:\term2\cs246\project\Sorcery\Sorcery\Sorcery\board.cc:213:16: error: expected primary-expression before 'auto'
+C:\term2\cs246\project\Sorcery\Sorcery\Sorcery\board.cc:214:23: error: expected primary-expression before 'auto'
+   (0 <= i && i < 5) ? auto object = minions1[i] : Null;
+                       ^~~~
+C:\term2\cs246\project\Sorcery\Sorcery\Sorcery\board.cc:214:23: error: expected ':' before 'auto'
+C:\term2\cs246\project\Sorcery\Sorcery\Sorcery\board.cc:214:23: error: expected primary-expression before 'auto'
+C:\term2\cs246\project\Sorcery\Sorcery\Sorcery\board.cc:216:16: error: expected primary-expression before 'auto'
+   (i == 'r') ? auto object = ritual2 : Null;
+                ^~~~
+C:\term2\cs246\project\Sorcery\Sorcery\Sorcery\board.cc:216:16: error: expected ':' before 'auto'
+C:\term2\cs246\project\Sorcery\Sorcery\Sorcery\board.cc:216:16: error: expected primary-expression before 'auto'
+C:\term2\cs246\project\Sorcery\Sorcery\Sorcery\board.cc:217:23: error: expected primary-expression before 'auto'
+   (0 <= i && i < 5) ? auto object = minions2[i] : Null;
+                       ^~~~
+C:\term2\cs246\project\Sorcery\Sorcery\Sorcery\board.cc:217:23: error: expected ':' before 'auto'
+C:\term2\cs246\project\Sorcery\Sorcery\Sorcery\board.cc:217:23: error: expected primary-expression before 'auto'
+C:\term2\cs246\project\Sorcery\Sorcery\Sorcery\board.cc:219:2: error: 'object' was not declared in this scope
+  object->useCard();
+  ^~~~~~
+C:\term2\cs246\project\Sorcery\Sorcery\Sorcery\board.cc: In member function 'void Board::use(int, int, int)':
+C:\term2\cs246\project\Sorcery\Sorcery\Sorcery\board.cc:224:35: error: 'Null' was not declared in this scope
+  (i < 0 && 4 < i) || (i == 'r') ? Null : cerr << "invalid input" return;
+                                   ^~~~
+C:\term2\cs246\project\Sorcery\Sorcery\Sorcery\board.cc:228:16: error: expected primary-expression before 'auto'
+   (i == 'r') ? auto object = ritual1 : Null;
+                ^~~~
+C:\term2\cs246\project\Sorcery\Sorcery\Sorcery\board.cc:228:16: error: expected ':' before 'auto'
+C:\term2\cs246\project\Sorcery\Sorcery\Sorcery\board.cc:228:16: error: expected primary-expression before 'auto'
+C:\term2\cs246\project\Sorcery\Sorcery\Sorcery\board.cc:229:23: error: expected primary-expression before 'auto'
+   (0 <= i && i < 5) ? auto object = minions1[i] : Null;
+                       ^~~~
+C:\term2\cs246\project\Sorcery\Sorcery\Sorcery\board.cc:229:23: error: expected ':' before 'auto'
+C:\term2\cs246\project\Sorcery\Sorcery\Sorcery\board.cc:229:23: error: expected primary-expression before 'auto'
+C:\term2\cs246\project\Sorcery\Sorcery\Sorcery\board.cc:231:16: error: expected primary-expression before 'auto'
+   (i == 'r') ? auto object = ritual2 : Null;
+                ^~~~
+C:\term2\cs246\project\Sorcery\Sorcery\Sorcery\board.cc:231:16: error: expected ':' before 'auto'
+C:\term2\cs246\project\Sorcery\Sorcery\Sorcery\board.cc:231:16: error: expected primary-expression before 'auto'
+C:\term2\cs246\project\Sorcery\Sorcery\Sorcery\board.cc:232:23: error: expected primary-expression before 'auto'
+   (0 <= i && i < 5) ? auto object = minions2[i] : Null;
+                       ^~~~
+C:\term2\cs246\project\Sorcery\Sorcery\Sorcery\board.cc:232:23: error: expected ':' before 'auto'
+C:\term2\cs246\project\Sorcery\Sorcery\Sorcery\board.cc:232:23: error: expected primary-expression before 'auto'
+C:\term2\cs246\project\Sorcery\Sorcery\Sorcery\board.cc:235:16: error: expected primary-expression before 'auto'
+   (t == 'r') ? auto target = ritual1 : Null;
+                ^~~~
+C:\term2\cs246\project\Sorcery\Sorcery\Sorcery\board.cc:235:16: error: expected ':' before 'auto'
+C:\term2\cs246\project\Sorcery\Sorcery\Sorcery\board.cc:235:16: error: expected primary-expression before 'auto'
+C:\term2\cs246\project\Sorcery\Sorcery\Sorcery\board.cc:236:23: error: expected primary-expression before 'auto'
+   (0 <= t && t < 5) ? auto target = minions1[t] : Null;
+                       ^~~~
+C:\term2\cs246\project\Sorcery\Sorcery\Sorcery\board.cc:236:23: error: expected ':' before 'auto'
+C:\term2\cs246\project\Sorcery\Sorcery\Sorcery\board.cc:236:23: error: expected primary-expression before 'auto'
+C:\term2\cs246\project\Sorcery\Sorcery\Sorcery\board.cc:238:16: error: expected primary-expression before 'auto'
+   (t == 'r') ? auto target = ritual2 : Null;
+                ^~~~
+C:\term2\cs246\project\Sorcery\Sorcery\Sorcery\board.cc:238:16: error: expected ':' before 'auto'
+C:\term2\cs246\project\Sorcery\Sorcery\Sorcery\board.cc:238:16: error: expected primary-expression before 'auto'
+C:\term2\cs246\project\Sorcery\Sorcery\Sorcery\board.cc:239:23: error: expected primary-expression before 'auto'
+   (0 <= t && t < 5) ? auto target = minions2[t] : Null;
+                       ^~~~
+C:\term2\cs246\project\Sorcery\Sorcery\Sorcery\board.cc:239:23: error: expected ':' before 'auto'
+C:\term2\cs246\project\Sorcery\Sorcery\Sorcery\board.cc:239:23: error: expected primary-expression before 'auto'
+C:\term2\cs246\project\Sorcery\Sorcery\Sorcery\board.cc:241:2: error: 'object' was not declared in this scope
+  object->useCard(target);
+  ^~~~~~
+C:\term2\cs246\project\Sorcery\Sorcery\Sorcery\board.cc:241:18: error: 'target' was not declared in this scope
+  object->useCard(target);
+                  ^~~~~~
+C:\term2\cs246\project\Sorcery\Sorcery\Sorcery\board.cc: In member function 'void Board::updateMinion()':
+C:\term2\cs246\project\Sorcery\Sorcery\Sorcery\board.cc:261:54: error: no matching function for call to 'Minion::getStat()'
+    Minion* holder = new Minion (minions1[i]->getStat().name);
+                                                      ^
+In file included from C:\term2\cs246\project\Sorcery\Sorcery\Sorcery\board.h:5:0,
+                 from C:\term2\cs246\project\Sorcery\Sorcery\Sorcery\board.cc:1:
+C:\term2\cs246\project\Sorcery\Sorcery\Sorcery\minion.h:35:7: note: candidate: Info Minion::getStat(Info&)
+  Info getStat(Info& information){
+       ^~~~~~~
+C:\term2\cs246\project\Sorcery\Sorcery\Sorcery\minion.h:35:7: note:   candidate expects 1 argument, 0 provided
+C:\term2\cs246\project\Sorcery\Sorcery\Sorcery\board.cc:261:60: error: invalid new-expression of abstract class type 'Minion'
+    Minion* holder = new Minion (minions1[i]->getStat().name);
+                                                            ^
+In file included from C:\term2\cs246\project\Sorcery\Sorcery\Sorcery\board.h:5:0,
+                 from C:\term2\cs246\project\Sorcery\Sorcery\Sorcery\board.cc:1:
+C:\term2\cs246\project\Sorcery\Sorcery\Sorcery\minion.h:11:7: note:   because the following virtual functions are pure within 'Minion':
+ class Minion : public Card {
+       ^~~~~~
+In file included from C:\term2\cs246\project\Sorcery\Sorcery\Sorcery\minion.h:7:0,
+                 from C:\term2\cs246\project\Sorcery\Sorcery\Sorcery\board.h:5,
+                 from C:\term2\cs246\project\Sorcery\Sorcery\Sorcery\board.cc:1:
+C:\term2\cs246\project\Sorcery\Sorcery\Sorcery\card.h:19:15: note: 	virtual void Card::useCard()
+  virtual void useCard() = 0;
+               ^~~~~~~
+C:\term2\cs246\project\Sorcery\Sorcery\Sorcery\card.h:20:15: note: 	virtual void Card::draw()
+  virtual void draw() = 0;
+               ^~~~
+C:\term2\cs246\project\Sorcery\Sorcery\Sorcery\card.h:21:22: note: 	virtual std::__cxx11::string Card::showType()
+  virtual std::string showType() = 0;
+                      ^~~~~~~~
+C:\term2\cs246\project\Sorcery\Sorcery\Sorcery\card.h:22:22: note: 	virtual std::__cxx11::string Card::getName()
+  virtual std::string getName() = 0;
+                      ^~~~~~~
+C:\term2\cs246\project\Sorcery\Sorcery\Sorcery\card.h:23:22: note: 	virtual std::__cxx11::string Card::getDescription()
+  virtual std::string getDescription() = 0;
+                      ^~~~~~~~~~~~~~
+C:\term2\cs246\project\Sorcery\Sorcery\Sorcery\board.cc:262:28: error: no matching function for call to 'Graveyard::addMinion(Minion*&)'
+    grave1->addMinion(holder);
+                            ^
+In file included from C:\term2\cs246\project\Sorcery\Sorcery\Sorcery\board.h:8:0,
+                 from C:\term2\cs246\project\Sorcery\Sorcery\Sorcery\board.cc:1:
+C:\term2\cs246\project\Sorcery\Sorcery\Sorcery\graveyard.h:16:7: note: candidate: void Graveyard::addMinion()
+  void addMinion();
+       ^~~~~~~~~
+C:\term2\cs246\project\Sorcery\Sorcery\Sorcery\graveyard.h:16:7: note:   candidate expects 0 arguments, 1 provided
+C:\term2\cs246\project\Sorcery\Sorcery\Sorcery\board.cc:263:20: error: no matching function for call to 'std::vector<Minion*>::erase(int&)'
+    minions1.erase(i);
+                    ^
+In file included from c:\mingw\include\c++\6.2.0\vector:64:0,
+                 from C:\term2\cs246\project\Sorcery\Sorcery\Sorcery\minion.h:6,
+                 from C:\term2\cs246\project\Sorcery\Sorcery\Sorcery\board.h:5,
+                 from C:\term2\cs246\project\Sorcery\Sorcery\Sorcery\board.cc:1:
+c:\mingw\include\c++\6.2.0\bits\stl_vector.h:1147:7: note: candidate: std::vector<_Tp, _Alloc>::iterator std::vector<_Tp, _Alloc>::erase(std::vector<_Tp, _Alloc>::const_iterator) [with _Tp = Minion*; _Alloc = std::allocator<Minion*>; std::vector<_Tp, _Alloc>::iterator = __gnu_cxx::__normal_iterator<Minion**, std::vector<Minion*> >; typename std::_Vector_base<_Tp, _Alloc>::pointer = Minion**; std::vector<_Tp, _Alloc>::const_iterator = __gnu_cxx::__normal_iterator<Minion* const*, std::vector<Minion*> >; typename __gnu_cxx::__alloc_traits<typename std::_Vector_base<_Tp, _Alloc>::_Tp_alloc_type>::const_pointer = Minion* const*]
+       erase(const_iterator __position)
+       ^~~~~
+c:\mingw\include\c++\6.2.0\bits\stl_vector.h:1147:7: note:   no known conversion for argument 1 from 'int' to 'std::vector<Minion*>::const_iterator {aka __gnu_cxx::__normal_iterator<Minion* const*, std::vector<Minion*> >}'
+c:\mingw\include\c++\6.2.0\bits\stl_vector.h:1174:7: note: candidate: std::vector<_Tp, _Alloc>::iterator std::vector<_Tp, _Alloc>::erase(std::vector<_Tp, _Alloc>::const_iterator, std::vector<_Tp, _Alloc>::const_iterator) [with _Tp = Minion*; _Alloc = std::allocator<Minion*>; std::vector<_Tp, _Alloc>::iterator = __gnu_cxx::__normal_iterator<Minion**, std::vector<Minion*> >; typename std::_Vector_base<_Tp, _Alloc>::pointer = Minion**; std::vector<_Tp, _Alloc>::const_iterator = __gnu_cxx::__normal_iterator<Minion* const*, std::vector<Minion*> >; typename __gnu_cxx::__alloc_traits<typename std::_Vector_base<_Tp, _Alloc>::_Tp_alloc_type>::const_pointer = Minion* const*]
+       erase(const_iterator __first, const_iterator __last)
+       ^~~~~
+c:\mingw\include\c++\6.2.0\bits\stl_vector.h:1174:7: note:   candidate expects 2 arguments, 1 provided
+C:\term2\cs246\project\Sorcery\Sorcery\Sorcery\board.cc:268:54: error: no matching function for call to 'Minion::getStat()'
+    Minion* holder = new Minion (minions2[j]->getStat().name);
+                                                      ^
+In file included from C:\term2\cs246\project\Sorcery\Sorcery\Sorcery\board.h:5:0,
+                 from C:\term2\cs246\project\Sorcery\Sorcery\Sorcery\board.cc:1:
+C:\term2\cs246\project\Sorcery\Sorcery\Sorcery\minion.h:35:7: note: candidate: Info Minion::getStat(Info&)
+  Info getStat(Info& information){
+       ^~~~~~~
+C:\term2\cs246\project\Sorcery\Sorcery\Sorcery\minion.h:35:7: note:   candidate expects 1 argument, 0 provided
+C:\term2\cs246\project\Sorcery\Sorcery\Sorcery\board.cc:268:60: error: invalid new-expression of abstract class type 'Minion'
+    Minion* holder = new Minion (minions2[j]->getStat().name);
+                                                            ^
+C:\term2\cs246\project\Sorcery\Sorcery\Sorcery\board.cc:269:28: error: no matching function for call to 'Graveyard::addMinion(Minion*&)'
+    grave2->addMinion(holder);
+                            ^
+In file included from C:\term2\cs246\project\Sorcery\Sorcery\Sorcery\board.h:8:0,
+                 from C:\term2\cs246\project\Sorcery\Sorcery\Sorcery\board.cc:1:
+C:\term2\cs246\project\Sorcery\Sorcery\Sorcery\graveyard.h:16:7: note: candidate: void Graveyard::addMinion()
+  void addMinion();
+       ^~~~~~~~~
+C:\term2\cs246\project\Sorcery\Sorcery\Sorcery\graveyard.h:16:7: note:   candidate expects 0 arguments, 1 provided
+C:\term2\cs246\project\Sorcery\Sorcery\Sorcery\board.cc:270:20: error: no matching function for call to 'std::vector<Minion*>::erase(int&)'
+    minions2.erase(j);
+                    ^
+In file included from c:\mingw\include\c++\6.2.0\vector:64:0,
+                 from C:\term2\cs246\project\Sorcery\Sorcery\Sorcery\minion.h:6,
+                 from C:\term2\cs246\project\Sorcery\Sorcery\Sorcery\board.h:5,
+                 from C:\term2\cs246\project\Sorcery\Sorcery\Sorcery\board.cc:1:
+c:\mingw\include\c++\6.2.0\bits\stl_vector.h:1147:7: note: candidate: std::vector<_Tp, _Alloc>::iterator std::vector<_Tp, _Alloc>::erase(std::vector<_Tp, _Alloc>::const_iterator) [with _Tp = Minion*; _Alloc = std::allocator<Minion*>; std::vector<_Tp, _Alloc>::iterator = __gnu_cxx::__normal_iterator<Minion**, std::vector<Minion*> >; typename std::_Vector_base<_Tp, _Alloc>::pointer = Minion**; std::vector<_Tp, _Alloc>::const_iterator = __gnu_cxx::__normal_iterator<Minion* const*, std::vector<Minion*> >; typename __gnu_cxx::__alloc_traits<typename std::_Vector_base<_Tp, _Alloc>::_Tp_alloc_type>::const_pointer = Minion* const*]
+       erase(const_iterator __position)
+       ^~~~~
+c:\mingw\include\c++\6.2.0\bits\stl_vector.h:1147:7: note:   no known conversion for argument 1 from 'int' to 'std::vector<Minion*>::const_iterator {aka __gnu_cxx::__normal_iterator<Minion* const*, std::vector<Minion*> >}'
+c:\mingw\include\c++\6.2.0\bits\stl_vector.h:1174:7: note: candidate: std::vector<_Tp, _Alloc>::iterator std::vector<_Tp, _Alloc>::erase(std::vector<_Tp, _Alloc>::const_iterator, std::vector<_Tp, _Alloc>::const_iterator) [with _Tp = Minion*; _Alloc = std::allocator<Minion*>; std::vector<_Tp, _Alloc>::iterator = __gnu_cxx::__normal_iterator<Minion**, std::vector<Minion*> >; typename std::_Vector_base<_Tp, _Alloc>::pointer = Minion**; std::vector<_Tp, _Alloc>::const_iterator = __gnu_cxx::__normal_iterator<Minion* const*, std::vector<Minion*> >; typename __gnu_cxx::__alloc_traits<typename std::_Vector_base<_Tp, _Alloc>::_Tp_alloc_type>::const_pointer = Minion* const*]
+       erase(const_iterator __first, const_iterator __last)
+       ^~~~~
+c:\mingw\include\c++\6.2.0\bits\stl_vector.h:1174:7: note:   candidate expects 2 arguments, 1 provided
+In file included from c:\mingw\include\c++\6.2.0\x86_64-w64-mingw32\bits\c++allocator.h:33:0,
+                 from c:\mingw\include\c++\6.2.0\bits\allocator.h:46,
+                 from c:\mingw\include\c++\6.2.0\string:41,
+                 from c:\mingw\include\c++\6.2.0\bits\locale_classes.h:40,
+                 from c:\mingw\include\c++\6.2.0\bits\ios_base.h:41,
+                 from c:\mingw\include\c++\6.2.0\ios:42,
+                 from c:\mingw\include\c++\6.2.0\ostream:38,
+                 from c:\mingw\include\c++\6.2.0\iostream:39,
+                 from C:\term2\cs246\project\Sorcery\Sorcery\Sorcery\minion.h:4,
+                 from C:\term2\cs246\project\Sorcery\Sorcery\Sorcery\board.h:5,
+                 from C:\term2\cs246\project\Sorcery\Sorcery\Sorcery\board.cc:1:
+c:\mingw\include\c++\6.2.0\ext\new_allocator.h: In instantiation of 'void __gnu_cxx::new_allocator<_Tp>::construct(_Up*, _Args&& ...) [with _Up = std::vector<std::__cxx11::basic_string<char> >; _Args = {Minion*&}; _Tp = std::vector<std::__cxx11::basic_string<char> >]':
+c:\mingw\include\c++\6.2.0\bits\alloc_traits.h:455:4:   required from 'static void std::allocator_traits<std::allocator<_CharT> >::construct(std::allocator_traits<std::allocator<_CharT> >::allocator_type&, _Up*, _Args&& ...) [with _Up = std::vector<std::__cxx11::basic_string<char> >; _Args = {Minion*&}; _Tp = std::vector<std::__cxx11::basic_string<char> >; std::allocator_traits<std::allocator<_CharT> >::allocator_type = std::allocator<std::vector<std::__cxx11::basic_string<char> > >]'
+c:\mingw\include\c++\6.2.0\bits\vector.tcc:96:30:   required from 'void std::vector<_Tp, _Alloc>::emplace_back(_Args&& ...) [with _Args = {Minion*&}; _Tp = std::vector<std::__cxx11::basic_string<char> >; _Alloc = std::allocator<std::vector<std::__cxx11::basic_string<char> > >]'
+C:\term2\cs246\project\Sorcery\Sorcery\Sorcery\board.cc:64:33:   required from here
+c:\mingw\include\c++\6.2.0\ext\new_allocator.h:120:4: error: no matching function for call to 'std::vector<std::__cxx11::basic_string<char> >::vector(Minion*&)'
+  { ::new((void *)__p) _Up(std::forward<_Args>(__args)...); }
+    ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+In file included from c:\mingw\include\c++\6.2.0\vector:64:0,
+                 from C:\term2\cs246\project\Sorcery\Sorcery\Sorcery\minion.h:6,
+                 from C:\term2\cs246\project\Sorcery\Sorcery\Sorcery\board.h:5,
+                 from C:\term2\cs246\project\Sorcery\Sorcery\Sorcery\board.cc:1:
+c:\mingw\include\c++\6.2.0\bits\stl_vector.h:403:9: note: candidate: template<class _InputIterator, class> std::vector<_Tp, _Alloc>::vector(_InputIterator, _InputIterator, const allocator_type&)
+         vector(_InputIterator __first, _InputIterator __last,
+         ^~~~~~
+c:\mingw\include\c++\6.2.0\bits\stl_vector.h:403:9: note:   template argument deduction/substitution failed:
+In file included from c:\mingw\include\c++\6.2.0\x86_64-w64-mingw32\bits\c++allocator.h:33:0,
+                 from c:\mingw\include\c++\6.2.0\bits\allocator.h:46,
+                 from c:\mingw\include\c++\6.2.0\string:41,
+                 from c:\mingw\include\c++\6.2.0\bits\locale_classes.h:40,
+                 from c:\mingw\include\c++\6.2.0\bits\ios_base.h:41,
+                 from c:\mingw\include\c++\6.2.0\ios:42,
+                 from c:\mingw\include\c++\6.2.0\ostream:38,
+                 from c:\mingw\include\c++\6.2.0\iostream:39,
+                 from C:\term2\cs246\project\Sorcery\Sorcery\Sorcery\minion.h:4,
+                 from C:\term2\cs246\project\Sorcery\Sorcery\Sorcery\board.h:5,
+                 from C:\term2\cs246\project\Sorcery\Sorcery\Sorcery\board.cc:1:
+c:\mingw\include\c++\6.2.0\ext\new_allocator.h:120:4: note:   candidate expects 3 arguments, 1 provided
+  { ::new((void *)__p) _Up(std::forward<_Args>(__args)...); }
+    ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+In file included from c:\mingw\include\c++\6.2.0\vector:64:0,
+                 from C:\term2\cs246\project\Sorcery\Sorcery\Sorcery\minion.h:6,
+                 from C:\term2\cs246\project\Sorcery\Sorcery\Sorcery\board.h:5,
+                 from C:\term2\cs246\project\Sorcery\Sorcery\Sorcery\board.cc:1:
+c:\mingw\include\c++\6.2.0\bits\stl_vector.h:375:7: note: candidate: std::vector<_Tp, _Alloc>::vector(std::initializer_list<_Tp>, const allocator_type&) [with _Tp = std::__cxx11::basic_string<char>; _Alloc = std::allocator<std::__cxx11::basic_string<char> >; std::vector<_Tp, _Alloc>::allocator_type = std::allocator<std::__cxx11::basic_string<char> >]
+       vector(initializer_list<value_type> __l,
+       ^~~~~~
+c:\mingw\include\c++\6.2.0\bits\stl_vector.h:375:7: note:   no known conversion for argument 1 from 'Minion*' to 'std::initializer_list<std::__cxx11::basic_string<char> >'
+c:\mingw\include\c++\6.2.0\bits\stl_vector.h:350:7: note: candidate: std::vector<_Tp, _Alloc>::vector(std::vector<_Tp, _Alloc>&&, const allocator_type&) [with _Tp = std::__cxx11::basic_string<char>; _Alloc = std::allocator<std::__cxx11::basic_string<char> >; std::vector<_Tp, _Alloc>::allocator_type = std::allocator<std::__cxx11::basic_string<char> >]
+       vector(vector&& __rv, const allocator_type& __m)
+       ^~~~~~
+c:\mingw\include\c++\6.2.0\bits\stl_vector.h:350:7: note:   candidate expects 2 arguments, 1 provided
+c:\mingw\include\c++\6.2.0\bits\stl_vector.h:341:7: note: candidate: std::vector<_Tp, _Alloc>::vector(const std::vector<_Tp, _Alloc>&, const allocator_type&) [with _Tp = std::__cxx11::basic_string<char>; _Alloc = std::allocator<std::__cxx11::basic_string<char> >; std::vector<_Tp, _Alloc>::allocator_type = std::allocator<std::__cxx11::basic_string<char> >]
+       vector(const vector& __x, const allocator_type& __a)
+       ^~~~~~
+c:\mingw\include\c++\6.2.0\bits\stl_vector.h:341:7: note:   candidate expects 2 arguments, 1 provided
+c:\mingw\include\c++\6.2.0\bits\stl_vector.h:337:7: note: candidate: std::vector<_Tp, _Alloc>::vector(std::vector<_Tp, _Alloc>&&) [with _Tp = std::__cxx11::basic_string<char>; _Alloc = std::allocator<std::__cxx11::basic_string<char> >]
+       vector(vector&& __x) noexcept
+       ^~~~~~
+c:\mingw\include\c++\6.2.0\bits\stl_vector.h:337:7: note:   no known conversion for argument 1 from 'Minion*' to 'std::vector<std::__cxx11::basic_string<char> >&&'
+c:\mingw\include\c++\6.2.0\bits\stl_vector.h:320:7: note: candidate: std::vector<_Tp, _Alloc>::vector(const std::vector<_Tp, _Alloc>&) [with _Tp = std::__cxx11::basic_string<char>; _Alloc = std::allocator<std::__cxx11::basic_string<char> >]
+       vector(const vector& __x)
+       ^~~~~~
+c:\mingw\include\c++\6.2.0\bits\stl_vector.h:320:7: note:   no known conversion for argument 1 from 'Minion*' to 'const std::vector<std::__cxx11::basic_string<char> >&'
+c:\mingw\include\c++\6.2.0\bits\stl_vector.h:291:7: note: candidate: std::vector<_Tp, _Alloc>::vector(std::vector<_Tp, _Alloc>::size_type, const value_type&, const allocator_type&) [with _Tp = std::__cxx11::basic_string<char>; _Alloc = std::allocator<std::__cxx11::basic_string<char> >; std::vector<_Tp, _Alloc>::size_type = long long unsigned int; std::vector<_Tp, _Alloc>::value_type = std::__cxx11::basic_string<char>; std::vector<_Tp, _Alloc>::allocator_type = std::allocator<std::__cxx11::basic_string<char> >]
+       vector(size_type __n, const value_type& __value,
+       ^~~~~~
+c:\mingw\include\c++\6.2.0\bits\stl_vector.h:291:7: note:   candidate expects 3 arguments, 1 provided
+c:\mingw\include\c++\6.2.0\bits\stl_vector.h:279:7: note: candidate: std::vector<_Tp, _Alloc>::vector(std::vector<_Tp, _Alloc>::size_type, const allocator_type&) [with _Tp = std::__cxx11::basic_string<char>; _Alloc = std::allocator<std::__cxx11::basic_string<char> >; std::vector<_Tp, _Alloc>::size_type = long long unsigned int; std::vector<_Tp, _Alloc>::allocator_type = std::allocator<std::__cxx11::basic_string<char> >] <near match>
+       vector(size_type __n, const allocator_type& __a = allocator_type())
+       ^~~~~~
+c:\mingw\include\c++\6.2.0\bits\stl_vector.h:279:7: note:   conversion of argument 1 would be ill-formed:
+In file included from c:\mingw\include\c++\6.2.0\x86_64-w64-mingw32\bits\c++allocator.h:33:0,
+                 from c:\mingw\include\c++\6.2.0\bits\allocator.h:46,
+                 from c:\mingw\include\c++\6.2.0\string:41,
+                 from c:\mingw\include\c++\6.2.0\bits\locale_classes.h:40,
+                 from c:\mingw\include\c++\6.2.0\bits\ios_base.h:41,
+                 from c:\mingw\include\c++\6.2.0\ios:42,
+                 from c:\mingw\include\c++\6.2.0\ostream:38,
+                 from c:\mingw\include\c++\6.2.0\iostream:39,
+                 from C:\term2\cs246\project\Sorcery\Sorcery\Sorcery\minion.h:4,
+                 from C:\term2\cs246\project\Sorcery\Sorcery\Sorcery\board.h:5,
+                 from C:\term2\cs246\project\Sorcery\Sorcery\Sorcery\board.cc:1:
+c:\mingw\include\c++\6.2.0\ext\new_allocator.h:120:4: error: invalid conversion from 'Minion*' to 'std::vector<std::__cxx11::basic_string<char> >::size_type {aka long long unsigned int}' [-fpermissive]
+  { ::new((void *)__p) _Up(std::forward<_Args>(__args)...); }
+    ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+In file included from c:\mingw\include\c++\6.2.0\vector:64:0,
+                 from C:\term2\cs246\project\Sorcery\Sorcery\Sorcery\minion.h:6,
+                 from C:\term2\cs246\project\Sorcery\Sorcery\Sorcery\board.h:5,
+                 from C:\term2\cs246\project\Sorcery\Sorcery\Sorcery\board.cc:1:
+c:\mingw\include\c++\6.2.0\bits\stl_vector.h:266:7: note: candidate: std::vector<_Tp, _Alloc>::vector(const allocator_type&) [with _Tp = std::__cxx11::basic_string<char>; _Alloc = std::allocator<std::__cxx11::basic_string<char> >; std::vector<_Tp, _Alloc>::allocator_type = std::allocator<std::__cxx11::basic_string<char> >]
+       vector(const allocator_type& __a) _GLIBCXX_NOEXCEPT
+       ^~~~~~
+c:\mingw\include\c++\6.2.0\bits\stl_vector.h:266:7: note:   no known conversion for argument 1 from 'Minion*' to 'const allocator_type& {aka const std::allocator<std::__cxx11::basic_string<char> >&}'
+c:\mingw\include\c++\6.2.0\bits\stl_vector.h:255:7: note: candidate: std::vector<_Tp, _Alloc>::vector() [with _Tp = std::__cxx11::basic_string<char>; _Alloc = std::allocator<std::__cxx11::basic_string<char> >]
+       vector()
+       ^~~~~~
+c:\mingw\include\c++\6.2.0\bits\stl_vector.h:255:7: note:   candidate expects 0 arguments, 1 provided
