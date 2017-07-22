@@ -9,6 +9,8 @@ using namespace std;
 class Board;
 
 class Ritual : public Card {
+	std::string name;
+	std::string des;
 	int charge;
 	int index;
 public:
