@@ -41,14 +41,14 @@ void Board::inspect(int i){
 	//dont know if createCard() will be available here
 	vector <Enchantment*> stack;//create an array of Enchantment pointers, need to print them
 	for(name: chosen->getEnchantVec()) {
-		Enchantment* temp = player1->getHand().createCard(name);
+		Enchantment* temp = player1->getHand2()->createCard(name);
 		stack.push_back(temp);
 	}
 	//implant display for enchantment here !!!!!!!!!!!!!!!!!!!!!!!
 	//the description for enchantment is enchantDes
 
 	for(int i = 0; i < stack.size(); i++) {
-		delete stack[i];
+		stack.pop_back();
 	}
 }
 
@@ -126,9 +126,9 @@ void Board::showboard(){
 
 void Board::playerHand(){
 	if(turn%2 == 1) {
-		player1->getHand().showhand();
+		player1->getHand2()->showhand();
 	} else{
-		player2->getHand().showhand();
+		player2->getHand2()->showhand();
 	}
 }
 
@@ -138,8 +138,6 @@ void Board::attack(int i){
 		cerr << "out of bound" << endl;
 		return;
 	}
-	else
-		Null;
 
 	if(turn%2 == 1 && minions1[i]->getAction()) {
 		player2->takeDmg(minions1[i]->showAttack());  //make a attack fun or make attack public for minion,
@@ -154,21 +152,21 @@ void Board::attack(int i){
 
 
 void Board::attack(int i, int j){
-	if (i < 1 || 5 < i) || (j < 1 || 5 < j) {
-			cerr << "out of bound" << endl;
-			return;
-		}
-		if (turn%2 == 1 && minions1[i]->getAction()) {
-			minions1[i]->takeDmg(minions2[j]->showAttack());
-			minions2[j]->takeDmg(minions1[i]->showAttack());
-			minions1[i]->useAttack();
-		} else if(turn%2 == 0 && minions2[i]->getAction()) {
-			minions1[j]->takeDmg(minions2[i]->showAttack());
-			minions2[i]->takeDmg(minions1[j]->showAttack());
-			minions2[i]->useAttack();
-		} else{
-			cout << "cannot attack opponent." << endl;
-		}
+	if ((i < 1 || 5 < i) || (j < 1 || 5 < j)) {
+		cerr << "out of bound" << endl;
+		return;
+	}
+	if (turn%2 == 1 && minions1[i]->getAction()) {
+		minions1[i]->takeDmg(minions2[j]->showAttack());
+		minions2[j]->takeDmg(minions1[i]->showAttack());
+		minions1[i]->useAttack();
+	} else if(turn%2 == 0 && minions2[i]->getAction()) {
+		minions1[j]->takeDmg(minions2[i]->showAttack());
+		minions2[i]->takeDmg(minions1[j]->showAttack());
+		minions2[i]->useAttack();
+	} else{
+		cout << "cannot attack opponent." << endl;
+	}
 
 }
 
@@ -180,15 +178,19 @@ void Board::play(int i) {
 		cerr << "out of bound" << endl;
 		return;
 	}
-	if(turn%2 == 1) {
-		auto field = minions1;
-		auto ritual = ritual1;
-		(0 <= i && i < 5) ? auto object = player1->onHand[i] : Null;
-	} else{
-		auto field = minions2;
-		auto ritual = ritual2;
-		(0 <= i && i < 5) ? auto object = player2->onHand[i] : Null;
+	Card* field = minions1;
+	Card* ritual = ritual1;
+	Card* object;
+	if (0 <= i && i < 5)
+		object = player1->getHand()[i];
+
+	if(turn%2 == 0) {
+		field = minions2;
+		ritual = ritual2;
+		if (0 <= i && i < 5)
+			object = player2->getHand()[i];
 	}
+
 	if(object->getStat().type == "minion") {
 		field.push_back(object);
 	} else if(object->getStat().type == "spell") {
@@ -201,21 +203,27 @@ void Board::play(int i) {
 
 
 void Board::play(int i, int p, int t) {
+	Card* target;
+	Card* object;
 	if (i < 1 || 5 < i) {
 		cerr << "out of bound" << endl;
 		return;
 	}
 	if(turn%2 == 1) {
-		auto object = player1->onHand[i];
+		object = player1->getHand()[i];
 	} else{
-		auto object = player2->onHand[i];  //need to implant getType
+		object = player2->getHand()[i];  //need to implant getType
 	}
 	if(p == 1) {
-		(t == 'r') ? auto target = ritual1 : Null;
-		(0 <= t && t < 5) ? auto target = minions1[t] : Null;
+		if (t == 'r')
+			target = ritual1;
+		else if (0 <= t && t < 5)
+			target = minions1[t];
 	} else{
-		(t == 'r') ? auto target = ritual2 : Null;
-		(0 <= t && t < 5) ? auto target = minions2[t] : Null;
+		if (t == 'r')
+			target = ritual2;
+		else if (0 <= t && t < 5)
+			target = minions2[t];
 	}
 	if(object->getStat().type == "enchantment") {
 		object->assign(target);
@@ -226,60 +234,63 @@ void Board::play(int i, int p, int t) {
 
 
 void Board::use(int i){
+	Card* object;
 	if  (!((i < 0 && 4 < i) || (i == 'r'))) {
 		cerr << "invalid input";
 		return;
 	}
 	if(turn%2 == 1) {
-		(i == 'r') ? auto object = ritual1 : Null;
-		(0 <= i && i < 5) ? auto object = minions1[i] : Null;
+		if (i == 'r')
+			object = ritual1;
+		else if (0 <= i && i < 5)
+			object = minions1[i];
 	} else{
-		(i == 'r') ? auto object = ritual2 : Null;
-		(0 <= i && i < 5) ? auto object = minions2[i] : Null;
+		if (i == 'r')
+			object = ritual2:Null;
+		else if (0 <= i && i < 5)
+			object = minions2[i];
 	}
 	object->useCard();
 }
 
 
-void Board::use(int i, int p = 0, int t = 0){
-	(i < 0 && 4 < i) || (i == 'r') ? Null : cerr << "invalid input" return;
-	(t < 0 && 4 < t) || (t == 'r') ? Null : cerr << "invalid input" return;
-	(p == 1 || p == 2) ? Null : cerr << "invalid input" return;
-	if(turn%2 == 1) {
-		(i == 'r') ? auto object = ritual1 : Null;
-		(0 <= i && i < 5) ? auto object = minions1[i] : Null;
-	} else{
-		(i == 'r') ? auto object = ritual2 : Null;
-		(0 <= i && i < 5) ? auto object = minions2[i] : Null;
+void Board::use(int i, int p, int t){
+	Card* target;
+	Card* object;
+	if (!((i < 0 && 4 < i) || (i == 'r'))) {
+		cerr << "invalid input" return;
 	}
-	if(p == 1) {
-		(t == 'r') ? auto target = ritual1 : Null;
-		(0 <= t && t < 5) ? auto target = minions1[t] : Null;
-	} else{
-		(t == 'r') ? auto target = ritual2 : Null;
-		(0 <= t && t < 5) ? auto target = minions2[t] : Null;
-	}
-	int index = object
-	            if() {
-	}else if() {
-	}else if() {
-	}else if() {
-	}else if() {
-	}else if() {
-	}else if() {
-	}else if() {
-	}else if() {
-	}else if() {
-	}else if() {
-	}else if() {
-	}else if() {
-	}else if() {
-	}else if() {
-	}else if() {
-	}else if() {
-	}else{
+	if (!((t < 0 && 4 < t) || (t == 'r'))) {
+		cerr << "invalid input";
 		return;
 	}
+	if (!((p == 1 || p == 2))) {
+		cerr << "invalid input";
+		return;
+	}
+	if(turn%2 == 1) {
+		if (i == 'r')
+			object = ritual1;
+		else if (0 <= i && i < 5)
+			object = minions1[i];
+	} else{
+		if (i == 'r')
+			object = ritual2;
+		else if (0 <= i && i < 5)
+			object = minions2[i];
+	}
+	if(p == 1) {
+		if (t == 'r')
+			target = ritual1;
+		else if (0 <= t && t < 5)
+			target = minions1[t];
+	} else{
+		if (t == 'r')
+			target = ritual2;
+		else if (0 <= t && t < 5)
+			target = minions2[t];
+	}
+	object->useCard(target);
 }
 
 

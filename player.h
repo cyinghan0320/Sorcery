@@ -20,9 +20,10 @@ public:
 	~Player();
 	void setName(string name);
 	void useSkill();
+	Hand* getHand2();
 	void takeDmg(int dmg);
 	std::string getName();
-	Hand getHand();
+	vector<Card*>& getHand();
 	void getMagic();
 	void takeCard();
 	int getSkill(int index);

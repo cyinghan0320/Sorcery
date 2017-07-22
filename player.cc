@@ -49,8 +49,8 @@ string Player::getName(){
 }
 
 
-Hand Player::getHand(){
-	return hand;
+Hand* Player::getHand(){
+	return hand->getHand();
 }
 
 bool dead(){
