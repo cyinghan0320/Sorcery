@@ -6,13 +6,14 @@
 #include <string>
 using namespace std;
 
+class Board;
+
 class Ritual : public Card {
-	Board &t;
 	int charge;
 	int index;
 public:
 	void draw();
-	void useCard();
+	void useCard(Board &t);
 	card_template_t display();
 };
 

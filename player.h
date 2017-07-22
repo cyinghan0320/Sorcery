@@ -5,7 +5,6 @@
 #include <string>
 #include "hand.h"
 #include "ascii_graphics.h"
-#include <boolean>
 using namespace std;
 
 

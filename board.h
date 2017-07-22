@@ -11,14 +11,16 @@
 
 using namespace std;
 
+class Ritual;
+
 class Board {
 private:
-	GraveYard* grave1;
-	GraveYard* grave2;
+	Graveyard* grave1;
+	Graveyard* grave2;
 	Player* player1;
 	Player* player2;
-	vector <Minions*> minions1;
-	vector <Minions*> minions2;
+	vector <Minion*> minions1;
+	vector <Minion*> minions2;
 	Ritual* ritual1 = nullptr;
 	Ritual* ritual2 = nullptr;
 	int turn;
