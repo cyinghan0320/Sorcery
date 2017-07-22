@@ -11,9 +11,6 @@
 class Minion : public Card {
 protected:
 	std::string type = "minion";
-	std::string name;
-	int abilityCost;
-	int ability;
 	bool trigger;
 	int action = 1;
 	int attack;
