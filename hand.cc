@@ -34,7 +34,7 @@ Card* createCard(string name){
 		Spell* cardptr = new Spell(name,1,"Destroy the top enchantment on target minion");
 	} else if(name == "Raise Dead"){
 		Spell* cardptr = new Spell(name,1,"Resurrect the top minion in your graveyard");
-	} else ifname == "Blizzard"){
+	} else if (name == "Blizzard"){
 		Spell* cardptr = new Spell(name,3,"Deal 2 damage to all minions");
 	} else{
 		Minion* cardptr = new Minion(name);
