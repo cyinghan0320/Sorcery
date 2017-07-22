@@ -10,13 +10,14 @@ protected:
 	std::string name;
 	std::string des;
 	std::string type;
+	std::string ability;
+	int abilityCost
 	int summonCost;
 public:
 	Card();
-	Card(std::string name, std::string des, std::string type, int summonCost) :
-		name{name}, des{des}, type{type}, summonCost{summonCost}{
-	}
-	virtual void useCard() = 0;
+	Card(std::string name, std::string des, std::string type, int summonCost, std::string ability;
+	int abilityCost) :
+		name{name}, des{des}, type{type}, summonCost{summonCost}, ability{ability}, abilityCost{abilityCost} {
 	virtual void draw() = 0;
 	virtual std::string showType() = 0;
 	virtual std::string getName() = 0;
