@@ -228,7 +228,7 @@ void Board::play(int i, int p, int t) {
 		if(abil == “destroy"){
 		   if(target->)
 		} else if(abil == “unsummon"){
-			  
+			  object->showType
 		} else if(abil == “recharge"){
 		} else if(abil == “disenchant"){
 		} else if(abil == “revive"){
