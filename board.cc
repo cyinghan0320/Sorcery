@@ -24,7 +24,7 @@ Board::~Board(){
 
 void Board::inspect(int i){
 	Minion* chosen;
-	(i < minions1.size) ? chosen = minions1[i] : cerr << "Inspection: No minion at that position" <<  endl;
+	(i >= 0 && i < minions1.size) ? chosen = minions1[i] : cerr << "Inspection: No minion at that position" <<  endl;
 	if(turn%2 == 0) {
 		(i < minions2.size) ? chosen = minions2[i] : cerr << "Inspection: No minion at that position" <<  endl;
 	}
