@@ -224,7 +224,17 @@ void Board::play(int i, int p, int t) {
 	if(object->getStat().type == "enchantment") {
 		object->assign(target);
 	} else if(object->getStat().type == "spell") {
-		object->useCard(target);
+		string abil = object->getAbility(); //spell implementation
+		if(abil == “destroy"){
+		   if(target->)
+		} else if(abil == “unsummon"){
+			  
+		} else if(abil == “recharge"){
+		} else if(abil == “disenchant"){
+		} else if(abil == “revive"){
+		} else if(abil == “blizzard"){
+		}
+
 	}
 }
 
