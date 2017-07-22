@@ -10,6 +10,7 @@
 
 class Minion : public Card {
 	std::string type = "minion";
+	std::string name;
 	int abilityCost;
 	int ability;
 	bool trigger;
@@ -44,13 +45,13 @@ public:
 		information.enchantVec = enchantVec;
 		return information;
 	}
-	
+
 	void addEnchant(string name){
-		enchantVec.push_back(name);	
+		enchantVec.push_back(name);
 	}
-	
+
 	void removeEnchant(){
-		enchantVec.pop_back();	
+		enchantVec.pop_back();
 	}
 
 	void useAttack(){

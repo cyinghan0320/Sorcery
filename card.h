@@ -6,6 +6,7 @@
 #include "ascii_graphics.h"
 
 class Card {
+protected:
 	std::string name;
 	std::string des;
 	std::string type;

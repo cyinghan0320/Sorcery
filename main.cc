@@ -1,4 +1,4 @@
-#include <ifstream>
+#include <fstream>
 #include <cstdlib>
 #include "card.h"
 #include "board.h"
@@ -13,13 +13,13 @@
 #include "ability.h"
 
 void createDeck(Deck* deck, string infile) {
-    ifstream ifs;
-    ifs.open(infile.c_str(), in);
-    string temp;
-    while(ifs >> temp){
-        deck->addCard(temp);
-    }
-    ifs.close();
+	ifstream ifs;
+	ifs.open(infile.c_str(), in);
+	string temp;
+	while(ifs >> temp) {
+		deck->addCard(temp);
+	}
+	ifs.close();
 }
 
 using namespace std;
@@ -29,18 +29,18 @@ int main() {
 	//initializing the entire board
 	string filename1 = "default.deck";
 	string filename2 = "default.deck";
-	
+
 	Deck* deck1 = new Deck;
 	Deck* deck2 = new Deck;
 	createDeck(deck1, filename1), deck1.shuffle();
 	createDeck(deck2, filename2), deck2.shuffle();
-	
+
 	string name1;
 	string name2;
 	cin >> name1 >> name2;
 	Hand* hand1 = new Hand(deck1,0);
 	Hand* hand2 = new Hand(deck2,0);
-	for(int i = 0; i < 5; i++){
+	for(int i = 0; i < 5; i++) {
 		hand1.draw();
 		hand2.draw();
 	}
@@ -84,11 +84,11 @@ int main() {
 		} else if (command == "quit") {
 			cout << "quitting game" << endl;
 			break;
-		} else if (command == "draw" && testMode == 1) { 
+		} else if (command == "draw" && testMode == 1) {
 			activePlayer->takeCard();
-		} else if (command == "discard" && testMode == 1) { 
+		} else if (command == "discard" && testMode == 1) {
 			activePlayer->discard();
-		} else if (command == "attack") { 
+		} else if (command == "attack") {
 			int index;
 			cin >> index;
 			int choice;
@@ -145,11 +145,11 @@ int main() {
 		}
 
 		Game->updateMinion();
-		if(player1->dead() && player2->dead()){
+		if(player1->dead() && player2->dead()) {
 			cout << "It is a tie" <<endl;
-		} else if(p1->dead()){
+		} else if(p1->dead()) {
 			cout << p2->getName() << "wins" <<endl;
-		} else if(player2->dead()){
+		} else if(player2->dead()) {
 			cout <<  p1->getName() << "wins" <<endl;
 		}
 	}
