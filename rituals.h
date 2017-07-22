@@ -9,8 +9,6 @@ using namespace std;
 class Board;
 
 class Ritual : public Card {
-	std::string name;
-	std::string des;
 	int charge;
 public:
 	Ritual(std::string name, std::string description,std::string ability, int summonCost, int charge)
