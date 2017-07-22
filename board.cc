@@ -214,7 +214,7 @@ void Board::use(int i){
 }
 
 
-void Board::use(int i, int p, int t){
+void Board::use(int i, int p = 0, int t = 0){
 	(i < 0 && 4 < i) || (i == 'r') ? Null : cerr << "invalid input" return;
 	(t < 0 && 4 < t) || (t == 'r') ? Null : cerr << "invalid input" return;
 	(p == 1 || p == 2) ? Null : cerr << "invalid input" return;
@@ -232,7 +232,27 @@ void Board::use(int i, int p, int t){
 		(t == 'r') ? auto target = ritual2 : Null;
 		(0 <= t && t < 5) ? auto target = minions2[t] : Null;
 	}
-	object->useCard(target);
+	int index = object
+	if() {
+	}else if(){
+	}else if(){
+	}else if(){
+	}else if(){
+	}else if(){
+	}else if(){
+	}else if(){
+	}else if(){
+	}else if(){
+	}else if(){
+	}else if(){
+	}else if(){
+	}else if(){
+	}else if(){
+	}else if(){
+	}else if(){
+	}else{
+	return;
+	}
 }
 
 
