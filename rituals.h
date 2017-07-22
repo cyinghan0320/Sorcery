@@ -14,6 +14,7 @@ public:
 	Ritual(std::string name, std::string description, int summonCost, std::string ability, int abilityCost, int charge);
 	void draw();
 	void useCard(Board &t);
+	void recharge();
 	card_template_t display();
 };
 
