@@ -1,7 +1,7 @@
 #ifndef graveyard_h
 #define graveyard_h
 #include <vector>
-#include "Card.h"
+#include "card.h"
 #include <string>
 #include "ascii_graphics.h"
 

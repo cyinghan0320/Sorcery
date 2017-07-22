@@ -1,6 +1,7 @@
 #ifndef ABA_H
 #define ABA_H
-#include "Board.h"
+
+class Board;
 
 class ability {
 public:
