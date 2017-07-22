@@ -2,7 +2,7 @@
 
 using namespace std;
 
-spell::spell(string name, string description, int cost, string ability, int abilityCost, ) :
+spell::spell(string name, string description, int cost, string ability) :
 	name{name}, des{description}, int abilityCost{abilityCost}, summonCost{cost}, type{"spell"}{
 }
 
