@@ -20,4 +20,5 @@ void Ritual::draw(){
 
 void Ritual::useCard(Board &t){
 	chooseAbility(t, index);
+	charge--;
 }
