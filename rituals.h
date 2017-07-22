@@ -9,12 +9,9 @@ using namespace std;
 class Board;
 
 class Ritual : public Card {
-	std::string name;
-	std::string des;
 	int charge;
-	int index;
 public:
-	Ritual(std::string name, std::string description,int cost, int charge);
+	Ritual(std::string name, std::string description, int summonCost, std::string ability, int abilityCost, int charge);
 	void draw();
 	void useCard(Board &t);
 	card_template_t display();

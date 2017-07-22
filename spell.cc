@@ -2,14 +2,15 @@
 
 using namespace std;
 
-spell::spell(string name, string description, int cost) :
-	name{name}, description{description}, cost{cost}{
+spell::spell(string name, string description, int cost, string ability, int abilityCost, ) :
+	name{name}, des{description}, int abilityCost{abilityCost}, summonCost{cost}, type{"spell"}{
 }
 
 card_template_t spell::display(){
 	return display_spell(name, cost, description);
 }
-
+spell(std::string name,std::string description,int cost,
+	      ,std::string ability, int abilityCost, std::string type = "spell");
 int spell::getCost(){
 	return cost;
 }

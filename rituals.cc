@@ -4,8 +4,9 @@ using namespace std;
 
 class ability;
 
-Ritual::Ritual(string name, string description, int cost, int charge) :
-	Card(name, description,"Ritual", cost), charge{charge}{
+Ritual::Ritual(string name, string description, int summonCost, string ability, int abilityCost, int charge)
+	name{name},des{description}, ability{ability} ,
+	abilityCost{abilityCost}, summonCost{summonCost},charge{charge}, type{"ritual"};
 }
 
 card_template_t Ritual::display(){
