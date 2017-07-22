@@ -113,30 +113,35 @@ public:
 			health = 4;
 		} else if (s == "Fire Elemental") {
 			summonCost = 2;
+			ability = "enter play 1 dmg";
 			abilityCost = 0;
 			attack = 2;
 			health = 2;
 			des = "Whenever an opponent's minion enters the play, deal 1 damage to it.";
 		} else if (s == "Potion Seller") {
 			summonCost = 2;
+			ability = "heal all";
 			abilityCost = 0;
 			attack = 1;
 			health = 3;
 			des = "at the end of your turn, all your minions gain +0/+1";
 		} else if (s == "Novice Pyromancer") {
 			summonCost = 1;
+			ability = "deal 1 dmg";
 			abilityCost = 1;
 			attack = 0;
 			health = 1;
 			des = "Deal 1 damage to target minion";
 		} else if (s == "Apprentice Summoner") {
 			summonCost = 1;
+			ability = "summon 1 air";
 			abilityCost = 1;
 			attack = 1;
 			health = 1;
 			des = "Summon a 1/1 air elemental";
 		} else if (s == "Master Summoner") {
 			summonCost = 3;
+			ability = "summon 3 air";
 			abilityCost = 2;
 			attack = 2;
 			health = 2;
