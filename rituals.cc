@@ -24,3 +24,8 @@ void Ritual::useCard(Board &t){
 	ability a;
 	a.chooseAbility(t, index);
 }
+
+
+void Ritual::recharge(int count){
+	charge += count;
+}
