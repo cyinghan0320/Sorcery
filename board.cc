@@ -234,16 +234,34 @@ void Board::play(int i, int p, int t) {
 	} else if(object->getStat().type == "spell") {
 		string abil = object->getAbility(); //spell implementation
 		if(abil == “destroy"){
-		   if(target->showType() == "minion")
+		   if(target->showType() == "minion"){
 		   	target->takeDmg(999);
-		   else
+		   }  else {
 		   	delete target;
 		   	target = nullptr;
+		   }
 		} else if(abil == “unsummon"){
-			  if(object->
+			string unsum = target->getName();
+			hand* deck = player1->getHand()->sendToBottom(unsum);
+		   	if(target->showType() == "minion"){
+				vector<Minion*> field = player1->getHand();
+				if(2 == p){
+					field = player2->getHand();  //need to implant getType
+				}
+				field.erase(t);
+			}else{
+		   		delete target;
+		   		target = nullptr;
+			}
 		} else if(abil == “recharge"){
+			if(turn%2 == 1)
+			 	ritual1->recharge(3);
+			else
+				ritual2->recharge(3);
 		} else if(abil == “disenchant"){
+			target->disenchant();
 		} else if(abil == “revive"){
+			
 		} else if(abil == “blizzard"){
 		}
 
