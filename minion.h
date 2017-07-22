@@ -18,7 +18,7 @@ protected:
 	int action = 1;
 	int attack;
 	int health;
-	vector<string> enchantVec;
+	vector<std::string> enchantVec;
 
 public:
 	Minion();
