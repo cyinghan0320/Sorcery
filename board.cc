@@ -264,7 +264,7 @@ void Board::play(int i, int p, int t) {
 		} else if(abil == “recharge"){
 			 	myRitual->recharge(3);
 		} else if(abil == “disenchant"){
-			target->disenchant();
+			target->removeEnchant();
 		} else if(abil == “revive"){
 			  if(field.size() >= 5) {
 				  cerr << "full field, no minion can be summoned" << endl;
