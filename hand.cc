@@ -18,7 +18,7 @@ Card* createCard(string name){
 	} else if(name == "Silence") {
 		Silence* cardptr = new Silence();
 	} else if(name == "Dark Ritual") {
-		Ritual* cardptr = new Ritual(name, "At the start of your turn, gain 1 magic", 0, 5);
+		Ritual* cardptr = new Ritual(name, "At the start of your turn, gain 1 magic", 0, , 5);
 	} else if(name == "Aura of Power") {
 		Ritual* cardptr = new Ritual(name, "Whenever a minion enters play under your control, it gains +1/+1", 1, 4);
 	} else if(name == "Standstill") {
