@@ -41,7 +41,7 @@ void Board::inspect(int i){
 	//dont know if createCard() will be available here
 	vector <Enchantment*> stack;//create an array of Enchantment pointers, need to print them
 	for(name: chosen->getEnchantVec()) {
-		Enchantment* temp = player1->getHand2()->createCard(name);
+		Card* temp = player1->getHand2()->createCard(name);
 		stack.push_back(temp);
 	}
 	//implant display for enchantment here !!!!!!!!!!!!!!!!!!!!!!!
@@ -183,8 +183,8 @@ void Board::use(int i, int p, int t){
 			cerr << "out of bound" << endl;
 			return;
 		}
-		Card* field = minions1;
-		Card* ritual = ritual1;
+		vector<Card*> field = minions1;
+		Ritual* ritual = ritual1;
 		Card* object;
 		if (0 <= i && i < 5)
 			object = player1->getHand()[i];
@@ -203,7 +203,8 @@ void Board::use(int i, int p, int t){
 			}
 			field.push_back(object);
 		} else if(object->getStat().type == "spell") {
-			object->useCard();
+			Spell &t = *object;
+			t.useCard();
 		} else if(object->getStat().type == "ritual") {
 			delete ritual;
 			ritual = object;
@@ -211,7 +212,7 @@ void Board::use(int i, int p, int t){
 	}
 
 
-	void Board::play(int i, int p, int t) {
+	void Board::play (int i, int p, int t) {
 		Card* target;
 		Card* object;
 		vector<Minion*> fieldOpponent;
@@ -247,7 +248,8 @@ void Board::use(int i, int p, int t){
 				target = minions2[t];
 		}
 		if(object->getStat().type == "enchantment") {
-			object->assign(target);
+			Enchantment &t = *object;
+			t.assign(target);
 		} else if(object->getStat().type == "spell") {
 			string abil = object->getAbility(); //spell implementation
 			if(abil == "destroy") {
