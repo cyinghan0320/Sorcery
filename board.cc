@@ -259,7 +259,7 @@ void Board::play(int i, int p, int t) {
 				field.erase(t);
 			}else{
 		   		delete target;
-		   		target = nullptr;
+		   		*target = Null;
 			}
 		} else if(abil == “recharge"){
 			 	myRitual->recharge(3);
