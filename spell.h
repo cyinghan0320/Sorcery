@@ -8,8 +8,7 @@
 class Spell : public Card {
 public:
 	void draw();
-	Spell(std::string name,std::string description,int cost,
-	      ,std::string ability, int abilityCost);
+	Spell(std::string name,std::string description,int cost,std::string ability, int abilityCost);
 	int getCost();
 	std::string getDes();
 	card_template_t display();
