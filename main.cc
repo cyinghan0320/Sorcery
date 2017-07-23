@@ -12,10 +12,9 @@
 #include "hand.h"
 #include "ability.h"
 
-
-
-
 using namespace std;
+
+
 void createDeck(Deck* deck, string infile) {
 	ifstream ifs;
 	ifs.open(infile.c_str());
@@ -26,6 +25,8 @@ void createDeck(Deck* deck, string infile) {
 	ifs.close();
 }
 int testMode = 1;
+
+
 int main() {
 	//initializing the entire board
 	string filename1 = "default.deck";

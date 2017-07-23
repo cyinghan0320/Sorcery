@@ -39,7 +39,7 @@ public:
 		minion = min;
 		name = info.name;
 		des = info.des;
-		type = "enchanted minion";
+		type = "minion";
 		summonCost = info.summonCost;
 		abilityCost = info.abilityCost;
 		ability = info.ability;
@@ -66,7 +66,7 @@ public:
 		minion = min;
 		name = info.name;
 		des = info.des;
-		type = "enchanted minion";
+		type = "minion";
 		summonCost = info.summonCost;
 		abilityCost = info.abilityCost + 2;
 		ability = info.ability;
@@ -93,7 +93,7 @@ public:
 		minion = min;
 		name =info.name;
 		des =info.des;
-		type = "enchanted minion";
+		type = "minion";
 		summonCost = info.summonCost;
 		abilityCost = info.abilityCost;
 		ability = "";
