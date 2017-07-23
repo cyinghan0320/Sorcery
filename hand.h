@@ -23,6 +23,7 @@ public:
 	Card* getTop();
 	void removeDeck();
 	void getCard(Card* t);
+	void sendToBottom(string name);
 };
 
 #endif
