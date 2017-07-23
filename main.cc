@@ -13,6 +13,9 @@
 #include "ability.h"
 
 
+
+
+using namespace std;
 void createDeck(Deck* deck, string infile) {
 	ifstream ifs;
 	ifs.open(infile.c_str());
@@ -22,9 +25,6 @@ void createDeck(Deck* deck, string infile) {
 	}
 	ifs.close();
 }
-
-using namespace std;
-
 int testMode = 1;
 int main() {
 	//initializing the entire board
@@ -89,7 +89,7 @@ int main() {
 		} else if (command == "discard" && testMode == 1) {
 			int choice;
 			cin >> choice;
-			activePlayer->getHand().discard(choice);
+			activePlayer->getHand2()->discard(choice);
 		} else if (command == "attack") {
 			int index;
 			cin >> index;
@@ -115,7 +115,7 @@ int main() {
 				}
 				Game->play(index, player, target);
 			} else {
-				Game->play(index);
+				Game->play(index, 0, 0);
 			}
 		} else if (command == "use") { //these takes various number of inputs need to implant
 			int index;

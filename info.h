@@ -7,7 +7,8 @@ using namespace std;
 
 struct Info {
 	string name, des, type;
-	int summonCost, abilityCost, ability;
+	int summonCost, abilityCost;
+	string ability;
 	bool trigger;
 	int action, attack, health;
 	vector<string> enchantVec;

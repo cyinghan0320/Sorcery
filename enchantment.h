@@ -96,7 +96,7 @@ public:
 		type = "enchanted minion";
 		summonCost = info.summonCost;
 		abilityCost = info.abilityCost;
-		ability = 0;
+		ability = "";
 		trigger =info.trigger;
 		action = info.action;
 		attack = info.attack;

@@ -20,7 +20,7 @@ protected:
 public:
 	Minion();
 	card_template_t display(){
-		if (ability == -1)
+		if (ability == "")
 			return display_minion_no_ability(name, summonCost, attack, health);
 		else if (trigger == true)
 			return display_minion_triggered_ability(name, summonCost, attack, health, des);
@@ -64,7 +64,7 @@ public:
 		return action;
 	}
 
-	int getAbility(){
+	string getAbility(){
 		return ability;
 	}
 
@@ -100,7 +100,8 @@ public:
 		return false;
 	}
 
-	Minion(std::string s) : name{s}, type{"minion"}{
+	Minion(std::string s) :  type{"minion"}{
+		name = s;
 		if (s == "Air Elemental") {
 			summonCost = 0;
 			abilityCost = 0;
