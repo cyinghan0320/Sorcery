@@ -173,117 +173,117 @@ void Board::attack(int i, int j){
 
 
 
-void Board::play(int i) {
-	if (i < 1 || 5 < i) {
-		cerr << "out of bound" << endl;
-		return;
-	}
-	Card* field = minions1;
-	Card* ritual = ritual1;
+
+
+
+void Board::use(int i, int p, int t){
 	Card* object;
-	if (0 <= i && i < 5)
-		object = player1->getHand()[i];
-
-	if(turn%2 == 0) {
-		field = minions2;
-		ritual = ritual2;
-		if (0 <= i && i < 5)
-			object = player2->getHand()[i];
-	}
-
-	if(object->getStat().type == "minion") {
-		if(field.size() 5 >=) {
-			cerr << "Field is full!" << endl;
+	if (p == -1 && t == -1) {
+		if (i < 1 || 5 < i) {
+			cerr << "out of bound" << endl;
 			return;
 		}
-		field.push_back(object);
-	} else if(object->getStat().type == "spell") {
-		object->useCard();
-	} else if(object->getStat().type == "ritual") {
-		delete ritual;
-		ritual = object;
-	}
-}
+		Card* field = minions1;
+		Card* ritual = ritual1;
+		Card* object;
+		if (0 <= i && i < 5)
+			object = player1->getHand()[i];
 
-
-void Board::play(int i, int p, int t) {
-	Card* target;
-	Card* object;
-	vector<Minion*> fieldOpponent;
-	vector<Minion*> field;
-	Graveyard* grave;
-	Ritual myRitual;
-	if (i < 1 || 5 < i) {
-		cerr << "out of bound" << endl;
-		return;
-	}
-	if(turn%2 == 1) {
-		object = player1->getHand()[i];
-		field = player1->getHand();
-		fieldOpponent = player2->getHand();
-		grave = grave1;
-		myRitual = ritual1;
-	} else{
-		object = player2->getHand()[i];  //need to implant getType
-		field = player2->getHand();
-		fieldOpponent = player1->getHand();
-		grave = grave2;
-		myRitual = ritual2;
-	}
-	if(p == 1) {
-		if (t == 'r')
-			target = ritual1;
-		else if (0 <= t && t < 5)
-			target = minions1[t];
-	} else{
-		if (t == 'r')
-			target = ritual2;
-		else if (0 <= t && t < 5)
-			target = minions2[t];
-	}
-	if(object->getStat().type == "enchantment") {
-		object->assign(target);
-	} else if(object->getStat().type == "spell") {
-		string abil = object->getAbility(); //spell implementation
-		if(abil == “destroy"){
-		   if(target->showType() == "minion"){
-		   	target->takeDmg(999);
-		   }  else {
-		   	delete target;
-		   	target = nullptr;
-		   }
-		} else if(abil == “unsummon"){
-			string unsum = target->getName();
-			hand* deck = player1->getHand()->sendToBottom(unsum);
-		   	if(target->showType() == "minion"){
-				field.erase(t);
-			}else{
-		   		delete target;
-		   		target = nullptr;
-			}
-		} else if(abil == “recharge"){
-			 	myRitual->recharge(3);
-		} else if(abil == “disenchant"){
-			target->disenchant();
-		} else if(abil == “revive"){
-			  if(field.size() >= 5) {
-				  cerr << "full field, no minion can be summoned" << endl;
-				  return;
-			  } 
-			string top = grave->getTop();
-			createCard(top)
-		} else if(abil == “blizzard"){
-			 for(int i = 0; i < fieldOpponent.size(); i++){ 
-				fieldOpponent[i]->takeDmg(2);
-			 }
+		if(turn%2 == 0) {
+			field = minions2;
+			ritual = ritual2;
+			if (0 <= i && i < 5)
+				object = player2->getHand()[i];
 		}
 
+		if(object->getStat().type == "minion") {
+			if(field.size() 5 >=) {
+				cerr << "Field is full!" << endl;
+				return;
+			}
+			field.push_back(object);
+		} else if(object->getStat().type == "spell") {
+			object->useCard();
+		} else if(object->getStat().type == "ritual") {
+			delete ritual;
+			ritual = object;
+		}
 	}
-}
 
 
-void Board::use(int i){
-	Card* object;
+	void Board::play(int i, int p, int t) {
+		Card* target;
+		Card* object;
+		vector<Minion*> fieldOpponent;
+		vector<Minion*> field;
+		Graveyard* grave;
+		Ritual myRitual;
+		if (i < 1 || 5 < i) {
+			cerr << "out of bound" << endl;
+			return;
+		}
+		if(turn%2 == 1) {
+			object = player1->getHand()[i];
+			field = player1->getHand();
+			fieldOpponent = player2->getHand();
+			grave = grave1;
+			myRitual = ritual1;
+		} else{
+			object = player2->getHand()[i];  //need to implant getType
+			field = player2->getHand();
+			fieldOpponent = player1->getHand();
+			grave = grave2;
+			myRitual = ritual2;
+		}
+		if(p == 1) {
+			if (t == 'r')
+				target = ritual1;
+			else if (0 <= t && t < 5)
+				target = minions1[t];
+		} else{
+			if (t == 'r')
+				target = ritual2;
+			else if (0 <= t && t < 5)
+				target = minions2[t];
+		}
+		if(object->getStat().type == "enchantment") {
+			object->assign(target);
+		} else if(object->getStat().type == "spell") {
+			string abil = object->getAbility(); //spell implementation
+			if(abil == "destroy") {
+				if(target->showType() == "minion ") {
+					target->takeDmg(999);
+				}  else {
+					delete target;
+					target = nullptr;
+				}
+			} else if(abil == "unsummon") {
+				string unsum = target->getName();
+				hand* deck = player1->getHand()->sendToBottom(unsum);
+				if(target->showType() == "minion") {
+					field.erase(t);
+				}else{
+					delete target;
+					target = nullptr;
+				}
+			} else if(abil == "recharge") {
+				myRitual->recharge(3);
+			} else if(abil == "disenchant") {
+				target->disenchant();
+			} else if(abil == "revive") {
+				if(field.size() >= 5) {
+					cerr << "full field, no minion can be summoned " << endl;
+					return;
+				}
+				string top = grave->getTop();
+				createCard(top)
+			} else if(abil == "blizzard") {
+				for(int i = 0; i < fieldOpponent.size(); i++) {
+					fieldOpponent[i]->takeDmg(2);
+				}
+			}
+		}
+	}
 	if  (!((i < 0 && 4 < i) || (i == 'r'))) {
 		cerr << "invalid input";
 		return;
