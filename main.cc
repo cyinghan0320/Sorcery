@@ -70,11 +70,23 @@ int main() {
 		if(Game->getTurn()%2 == 0) {
 			activePlayer = p2;
 		}
+		
+		
 
 		if (Game->getTurn() != 1 && Game->getTurn() != 2) { // not the first round of player1 or player2
 			activePlayer->getMagic(); // add one magic
 			activePlayer->takeCard(); // take one card if possibile
 			Game->refreshAllAttack();
+		}
+		else if (Game->getTurn() == 1){
+			for (int i =0; i <4; ++i){
+			p1->takeCard();
+			}
+		}
+		else if (Game->getTurn() == 2){
+			for (int i =0; i <4; ++i){
+			p2->takeCard();
+			}
 		}
 		cout << "at the start of "<<activePlayer->getName()  + "'s turn" << endl;
 
