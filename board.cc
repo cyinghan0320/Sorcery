@@ -41,7 +41,7 @@ void Board::inspect(int i){
     //dont know if createCard() will be available here
     vector <Enchantment*> stack;//create an array of Enchantment pointers, need to print them
     for(name: chosen->getEnchantVec()) {
-        Enchantment* temp = player1->getHand2()->createCard(name);
+        Enchantment* temp = player1->getHand()->createCard(name);
         stack.push_back(temp);
     }
     //implant display for enchantment here !!!!!!!!!!!!!!!!!!!!!!!
