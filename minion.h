@@ -29,6 +29,15 @@ public:
 	}
 
 
+	void heal(int count){
+		health += count;	
+	}
+	
+	void increaseStat(int attack, int health){
+		attack += attack;
+		health += health;
+	}
+	
 	Info getStat(Info& information){
 		information.name = name;
 		information.des = des;
