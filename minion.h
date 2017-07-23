@@ -49,7 +49,7 @@ public:
 	}
 
 	void removeEnchant(){
-		enchantVec.pop_back();
+		return;
 	}
 
 	void useAttack(){
