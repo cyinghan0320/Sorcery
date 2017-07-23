@@ -5,10 +5,10 @@
 #include "ascii_graphics.h"
 #include "board.h"
 
-class spell : public Card {
+class Spell : public Card {
 public:
 	void draw();
-	spell(std::string name,std::string description,int cost,
+	Spell(std::string name,std::string description,int cost,
 	      ,std::string ability, int abilityCost);
 	int getCost();
 	std::string getDes();

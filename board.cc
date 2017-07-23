@@ -197,7 +197,7 @@ void Board::use(int i, int p, int t){
 		}
 
 		if(object->getStat().type == "minion") {
-			if(field.size() 5 >=) {
+			if(field.size() >= 5) {
 				cerr << "Field is full!" << endl;
 				return;
 			}
