@@ -2,24 +2,23 @@
 
 using namespace std;
 
-spell::spell(string name, string description, int cost, string ability) :
-	name{name}, des{description}, summonCost{cost}, type{"spell"}{
+Spell::Spell(string name, string description, int cost, string ability) :
+	name {name}, des {description}, summonCost {cost}, type {"spell"} {
 }
 
-card_template_t spell::display(){
+card_template_t Spell::display(){
 	return display_spell(name, cost, description);
 }
-spell(std::string name,std::string description,int cost,
-	      ,std::string ability, int abilityCost, std::string type = "spell");
-int spell::getCost(){
+
+int Spell::getCost(){
 	return cost;
 }
 
-string spell::getDes(){
+string Spell::getDes(){
 	return description;
 }
 
-void spell::draw(){
+void Spell::draw(){
 	card_template_t out = display();
 	for (auto e: out) {
 		cout << e << endl;

@@ -6,6 +6,7 @@
 #include "rituals.h"
 #include "player.h"
 #include "graveyard.h"
+#include "spell.h"
 #include "ascii_graphics.h"
 #include <vector>
 
