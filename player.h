@@ -12,7 +12,7 @@ class Player {
 private:
 	std::string name;
 	int health = 20;
-	int magic;
+	int magic = 3;
 	Hand* hand;
 	int num;
 public:

@@ -22,6 +22,11 @@ public:
 	Minion* removeEnchant(){
 		return minion;
 	}
+	
+	void deleteMinion(){
+		minion = nullptr;
+		delete this;
+	}
 };
 
 

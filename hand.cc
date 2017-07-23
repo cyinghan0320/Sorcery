@@ -18,11 +18,11 @@ Card* createCard(string name){
 	} else if(name == "Silence") {
 		Silence* cardptr = new Silence();
 	} else if(name == "Dark Ritual") {
-		Ritual* cardptr = new Ritual(name, "At the start of your turn, gain 1 magic", 0, 5);
+		Ritual* cardptr = new Ritual(name, "At the start of your turn, gain 1 magic", 0,"gain 1 magic at start", 1 , 5);
 	} else if(name == "Aura of Power") {
-		Ritual* cardptr = new Ritual(name, "Whenever a minion enters play under your control, it gains +1/+1", 1, 4);
+		Ritual* cardptr = new Ritual(name, "Whenever a minion enters play under your control, it gains +1/+1", 1,"+1/+1 enter play", 1, 4);
 	} else if(name == "Standstill") {
-		Ritual* cardptr = new Ritual(name, "Whenever a minion enters play, destroy it", 3, 4);
+		Ritual* cardptr = new Ritual(name, "Whenever a minion enters play, destroy it", 3, "destroy enter play", 3, 4);
 	} else if(name == "Banish") {
 		Spell* cardptr = new Spell(name,"Destroy target minion or ritual", 2, "destroy");
 	} else if(name == "Unsummon") {
@@ -99,4 +99,9 @@ void Hand::draw() {
 	string newCardName = myDeck->allCards.pop_back();
 	Card* newCard = createCard(newCardName);
 	onHand.push_back(newCard);
+}
+
+
+void Hand::sendToBottom(string name){
+		myDeck->addFront(name);
 }
