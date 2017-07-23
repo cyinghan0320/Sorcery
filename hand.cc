@@ -100,3 +100,8 @@ void Hand::draw() {
 	Card* newCard = createCard(newCardName);
 	onHand.push_back(newCard);
 }
+
+
+void Hand::sendToBottom(string name){
+		myDeck->addFront(name);
+}
