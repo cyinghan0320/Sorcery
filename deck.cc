@@ -28,3 +28,8 @@ void Deck::Dshuffle() {
 void Deck::addCard(string name){
 	allCards.push_back(name);
 }
+
+
+void Deck::addFront(string name){
+	allCards.insert(name, 0);
+}
