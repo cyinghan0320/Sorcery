@@ -25,6 +25,7 @@ public:
 	
 	void deleteMinion(){
 		minion = nullptr;
+		delete this;
 	}
 };
 
