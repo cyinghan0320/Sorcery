@@ -14,6 +14,7 @@ public:
 	void removeTop();
 	void Dshuffle();
 	void addCard(std::string str);
+	void addFront();
 };
 
 
