@@ -542,6 +542,7 @@ void Board::updateMinion() {
             Minion* holder = new Minion(minions1[i]->getStat().name);
             grave1->addMinion(holder);
             minions1.erase(i);
+	    i--;
         }
     }
     for(int j = 0; j < minions2.size(); j++) {
@@ -549,6 +550,7 @@ void Board::updateMinion() {
             Minion* holder = new Minion(minions2[j]->getStat().name);
             grave2->addMinion(holder);
             minions2.erase(j);
+	    j--;
         }
     }
 }
