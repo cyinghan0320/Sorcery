@@ -19,7 +19,7 @@ public:
 	vector <string> getEnchantVec(){
 		return enchantVec;
 	}
-	Minion* removeEnchant(){
+	Minion removeEnchant(){
 		return minion;
 	}
 };
