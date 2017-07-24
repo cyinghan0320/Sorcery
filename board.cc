@@ -321,15 +321,25 @@ void Board::useAbility(string ability){
 	}
 }
 
-void Board::triggerAbility(int target, string ability, int player){
-	      if(abil == "destroy") {
+void Board::triggerAbility(int t, string ability, int p){
+	Card* targe†;
+	vector<Minion*> field = getField(p);
+	vector<Minion*> fieldOpponent = getField(2 - (p + 1)%2);
+	if(target == 'r'){
+		target = getRitual(p,t);
+	} else if(0 < t && t < 6 ) {
+		target = findMinion(p,t);
+	} else{
+		cout << "target do not exists" << endl; 
+	}
+	if(ability == "destroy") {
 	          if(target->showType() == "minion") {
 	              dynamic_cast <Minion*> (target)->takeDmg(999);
 	          }  else {
 	              delete target;
 	              target = nullptr;
 	          }
-	      } else if(abil == "unsummon") {
+	      } else if(ability == "unsummon") {
 	          string unsum = target->getName();
 	          Hand* deck = player1->returnHand()->sendToBottom(unsum);
 	          if(target->showType() == "minion") {
@@ -341,41 +351,26 @@ void Board::triggerAbility(int target, string ability, int player){
 	             delete target;
 	              target = nullptr;
 	          }
-	      } else if(abil == "recharge") {
-          myRitual->recharge(3);
-	      } else if(abil == "disenchant") {
+	      } else if(aabilitybil == "recharge") {
+         		myRitual->recharge(3);
+	      } else if(ability == "disenchant") {
 	          if(p == 1) {
 	              minions1[t] = dynamic_cast <Minion*> (target)->removeEnchant();
 	          } else {
 	              minions2[t] = dynamic_cast <Minion*> (target)->removeEnchant();
 	          }
 	          target->deleteEnchant();
-	      } else if(abil == "revive") {
-	          if (turn % 2 == 1) {
-	              if(minions1.size() >= 5) {
-	                  cerr << "full field, no minion can be summoned" << endl;
-	                  return;
-              }
-	          }
-	          else {
-	 if(minions2.size() >= 5) {
-                      cerr << "full field, no minion can be summoned" << endl;
-                      return;
-                  }
-              }
-              string top = grave->getTop();
-              createCard(top)
+	      } else if(ability == "revive") {
+	        	if(field.size() >= 5) {
+	                	cerr << "full field, no minion can be summoned" << endl;
+	              		return;
+             		}
+	        }
+             	string top = grave->getTop();
+              	field.push_back(createCard(top));
           } else if(abil == "blizzard") {
-              if (turn % 2 == 1) {
-                  for(int i = 0; i < minions1.size(); i++) {
-                      minions1[i]->takeDmg(2);
-                 }
-              }              
-else {
-                  for(int i = 0; i < minions2.size(); i++) {
-                      minions2[i]->takeDmg(2);
-                  }
-             }
+                  for(int i = 0; i < fieldOpponent.size(); i++) {
+                      fieldOpponent[i]->takeDmg(2);
           }
 }
   }
@@ -398,6 +393,22 @@ void Board::replaceMinion(Minion* object, int p, int t){
 	} else{
 		minions2[t - 1] = object;
 	}
+}
+
+Ritual* Board::getRitual(int p, int t){
+	if(p == 1){
+		return ritual1;
+	} else{
+		return ritual2;
+	}
+}
+
+vector<Minion*>& Board::getField(p){
+	vector <Minion*> temp = minions2;
+	if(p == 1){
+		temp = minions1;
+	}
+	return temp
 }
 
 
