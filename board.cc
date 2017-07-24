@@ -42,7 +42,7 @@ void Board::inspect(int i){
 	//dont know if createCard() will be available here
 	vector <Enchantment*> stack;//create an array of Enchantment pointers, need to print them
 	for(name: chosen->getEnchantVec()) {
-		Card* temp = player1->getHand2()->createCard(name);
+		Minion* temp = player1->getHand2()->createCard(name);
 		stack.push_back(temp);
 	}
 	//implant display for enchantment here !!!!!!!!!!!!!!!!!!!!!!!
@@ -204,7 +204,7 @@ void Board::attack(int i, int j){
 
 
 
-void Board::use(int i, int p, int t){
+void Board::use(intd i, int p, int t){
 	Card* object;
 	if (p == -1 && t == -1) {
 		if (i < 1 || 5 < i) {
