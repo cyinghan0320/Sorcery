@@ -36,8 +36,8 @@ public:
 		name = "Giant Strength";
 		enchantDes ="";
 		summonCost = 1;
-		attack = 1;
-		health = 1;
+		attack = 2;
+		health = 2;
 	}
 	Minion* assign(Minion* &min){
 		Info info;
