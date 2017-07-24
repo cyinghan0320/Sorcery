@@ -19,7 +19,9 @@ public:
 	Card();
 	virtual void draw() = 0;
 	virtual std::string showType() = 0;
-	virtual std::string getName() = 0;
+	std::string getName(){
+		return name;
+	};
 	virtual Info getStat() = 0;
 	virtual std::string getDescription() = 0;
 	virtual card_template_t display();
