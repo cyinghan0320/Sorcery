@@ -322,63 +322,63 @@ void Board::useAbility(string ability){
 }
 
 void Board::triggerAbility(int target, string ability, int player){
-	//      if(abil == "destroy") {
-	//          if(target->showType() == "minion") {
-	//              dynamic_cast <Minion*> (target)->takeDmg(999);
-	//          }  else {
-	//              delete target;
-	//              target = nullptr;
-	//          }
-	//      } else if(abil == "unsummon") {
-	//          string unsum = target->getName();
-	//          Hand* deck = player1->returnHand()->sendToBottom(unsum);
-	//          if(target->showType() == "minion") {
-	//              if (turn % 2 == 1)
-	//                  minions1.erase(t);
-	//              else
-	//                  minions2.erase(t);
-	//          }else{
-	//              delete target;
-	//              target = nullptr;
-	//          }
-	//      } else if(abil == "recharge") {
-	//          myRitual->recharge(3);
-	//      } else if(abil == "disenchant") {
-	//          if(p == 1) {
-	//              minions1[t] = dynamic_cast <Minion*> (target)->removeEnchant();
-	//          } else {
-	//              minions2[t] = dynamic_cast <Minion*> (target)->removeEnchant();
-	//          }
-	//          target->deleteEnchant();
-	//      } else if(abil == "revive") {
-	//          if (turn % 2 == 1) {
-	//              if(minions1.size() >= 5) {
-	//                  cerr << "full field, no minion can be summoned" << endl;
-	//                  return;
-	//              }
-	//          }
-	//          else {
-	// if(minions2.size() >= 5) {
-//                      cerr << "full field, no minion can be summoned" << endl;
-//                      return;
-//                  }
-//              }
-//              string top = grave->getTop();
-//              createCard(top)
-//          } else if(abil == "blizzard") {
-//              if (turn % 2 == 1) {
-//                  for(int i = 0; i < minions1.size(); i++) {
-//                      minions1[i]->takeDmg(2);
-//                  }
-//              }
-//              else {
-//                  for(int i = 0; i < minions2.size(); i++) {
-//                      minions2[i]->takeDmg(2);
-//                  }
-//              }
-//          }
-//      }
-//  }
+	      if(abil == "destroy") {
+	          if(target->showType() == "minion") {
+	              dynamic_cast <Minion*> (target)->takeDmg(999);
+	          }  else {
+	              delete target;
+	              target = nullptr;
+	          }
+	      } else if(abil == "unsummon") {
+	          string unsum = target->getName();
+	          Hand* deck = player1->returnHand()->sendToBottom(unsum);
+	          if(target->showType() == "minion") {
+	              if (turn % 2 == 1)
+	                  minions1.erase(t);
+	              else
+	                  minions2.erase(t);
+	          }else{
+	             delete target;
+	              target = nullptr;
+	          }
+	      } else if(abil == "recharge") {
+          myRitual->recharge(3);
+	      } else if(abil == "disenchant") {
+	          if(p == 1) {
+	              minions1[t] = dynamic_cast <Minion*> (target)->removeEnchant();
+	          } else {
+	              minions2[t] = dynamic_cast <Minion*> (target)->removeEnchant();
+	          }
+	          target->deleteEnchant();
+	      } else if(abil == "revive") {
+	          if (turn % 2 == 1) {
+	              if(minions1.size() >= 5) {
+	                  cerr << "full field, no minion can be summoned" << endl;
+	                  return;
+              }
+	          }
+	          else {
+	 if(minions2.size() >= 5) {
+                      cerr << "full field, no minion can be summoned" << endl;
+                      return;
+                  }
+              }
+              string top = grave->getTop();
+              createCard(top)
+          } else if(abil == "blizzard") {
+              if (turn % 2 == 1) {
+                  for(int i = 0; i < minions1.size(); i++) {
+                      minions1[i]->takeDmg(2);
+                 }
+              }              
+else {
+                  for(int i = 0; i < minions2.size(); i++) {
+                      minions2[i]->takeDmg(2);
+                  }
+             }
+          }
+}
+  }
 }
 
 
