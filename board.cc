@@ -537,9 +537,11 @@ int Board::getTurn() {
 
 
 void Board::updateMinion() {
+Info info;
     for(int i = 0; i < minions1.size(); i++) {
         if(minions1[i]->defeated()) {
-            Minion* holder = new Minion(minions1[i]->getStat().name);
+
+            Minion* holder = new Minion(minions1[i]->getStat(info).name);
             grave1->addMinion(holder);
             minions1.erase(i);
 	    i--;
@@ -547,7 +549,8 @@ void Board::updateMinion() {
     }
     for(int j = 0; j < minions2.size(); j++) {
         if(minions2[j]->defeated()) {
-            Minion* holder = new Minion(minions2[j]->getStat().name);
+	
+            Minion* holder = new Minion(minions2[j]->getStat(info).name);
             grave2->addMinion(holder);
             minions2.erase(j);
 	    j--;
