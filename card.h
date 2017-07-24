@@ -18,12 +18,16 @@ protected:
 public:
 	Card();
 	virtual void draw() = 0;
-	virtual std::string showType() = 0;
+	std::string showType(){
+		return type;
+	}
 	std::string getName(){
 		return name;
-	};
+	}
 	virtual Info getStat() = 0;
-	virtual std::string getDescription() = 0;
+	std::string getDescription(){
+		return des;
+	}
 	virtual card_template_t display();
 	std::string getAbility(){
 		return ability;
