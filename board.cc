@@ -285,6 +285,33 @@ void Board::triggerAbility(int target, string ability, int player){
 }
 
 
+//Added Code July 24
+//==================================================================================================
+Minion* Board::findMinion(int p, int t){
+	if(p == 1){
+		return minions1[t - 1];
+	} else{
+		return minions2[t - 1];
+	}
+}
+
+void Board::replaceMinion(Minion* object, int p, int t){
+	if(p == 1){
+		minions1[t - 1] = object;
+	} else{
+		minions2[t - 1] = object;
+	}
+}
+
+
+Minion* Board::attachEnchant(Enchantment* enchant, Minion* min){
+	enchant->assign(min);
+	return enchant;
+}
+
+//==================================================================================================
+
+
 void Board::play(int i, int p, int t) {
 	if ((i < 1 || 5 < i) || (t < 1 || 5 < t)) {
 		cerr << "out of bound" << endl;
@@ -302,9 +329,19 @@ void Board::play(int i, int p, int t) {
 			else if (object->showType() == "spell") {
 				useAbility( dynamic_cast <Spell*> (player1->getCard(i ))->getAbility()); // use spell
 			}
+		} else { 
+			Card* object = player2->getCard(i);
+			if (object->showType() == "minion") {
+				minions2.emplace_back(dynamic_cast <Minion*> (player2->getCard(i)));
+			}
+			else if (object->showType() == "ritual") {
+				ritual2 = dynamic_cast <Ritual*> (player2->getCard(i));
+			}
+			else if (object->showType() == "spell") {
+				useAbility( dynamic_cast <Spell*> (player2->getCard(i))->getAbility()); // use spell
+			}
 		}
-	}
-	else {
+	} else {
 
 		if (t > 5 || t < 1) {
 			cerr << "out of bounds" << endl;
@@ -320,7 +357,15 @@ void Board::play(int i, int p, int t) {
 			}
 			else if (player1->getCard(i)->showType() == "enchantment") {
 				if (p == 1) {
-          
+          				Enchantment* enchant = createCard(player1->getCard(i)->getName());
+					player1->returnHand()->getHand().erase(i - 1);
+					Minion* target = findMinion(p,t);
+					replaceMinion(attachEnchant(enchant, target), p, t);	
+				} else if(p == 2 ){
+					Enchantment* enchant = createCard(player1->getCard(i)->getName());
+					player1->returnHand()->getHand().erase(i - 1);
+					Minion* target = findMinion(p,t);
+					replaceMinion(attachEnchant(enchant, target), p, t);	
 				}
 			}
 		}
@@ -328,9 +373,21 @@ void Board::play(int i, int p, int t) {
 			if (t == 'r') {
 				ritual2 = dynamic_cast <Ritual*> (player2->getCard(i));
 			}
-			else if (player1->getCard(i)->showType() == "spell") {
-				triggerAbility(t, dynamic_cast <Spell*>(player2->getCard(i))->getAbility());
+			else if (player2->getCard(i)->showType() == "spell") {
+				triggerAbility(p, t, dynamic_cast <Spell*>(player2->getCard(i))->getAbility());
 			}
+			else if (player2->getCard(i)->showType() == "enchantment") {
+				if (p == 1) {
+          				Enchantment* enchant = createCard(player2->getCard(i)->getName());
+					player2->returnHand()->getHand().erase(i - 1);
+					Minion* target = findMinion(p,t);
+					replaceMinion(attachEnchant(enchant, target), p, t);
+				} else if(p == 2) {
+					Enchantment* enchant = createCard(player2->getCard(i)->getName());
+					player2->returnHand()->getHand().erase(i - 1);
+					Minion* target = findMinion(p,t);
+					replaceMinion(attachEnchant(enchant, target), p, t);
+				}
 		}
 
 	}
