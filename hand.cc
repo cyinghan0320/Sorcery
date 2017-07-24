@@ -18,7 +18,7 @@ Card* Hand::createCard(string name){
 	} else if(name == "Aura of Power") {
 		return new Ritual(name, "Whenever a minion enters play under your control, it gains +1/+1", 1,"+1/+1 enter play", 1, 4);
 	} else if(name == "Standstill") {
-		return new Ritual(name, "Whenever a minion enters play, destroy it", 3, "destroy enter play", 3, 4);
+		return new Ritual(name, "Whenever a minion enters play, destroy it", 3, "destroy enter play", 2, 4);
 	} else if(name == "Banish") {
 		return new Spell(name,"Destroy target minion or ritual", 2, "destroy");
 	} else if(name == "Unsummon") {
