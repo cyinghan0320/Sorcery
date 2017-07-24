@@ -277,11 +277,108 @@ void Board::setActive(int num){
 
 
 void Board::useAbility(string ability){
-
+	 	vector<Minion*> fieldOpponent = minions2;
+	 	vector<Minion*> field = minions1; 
+	 	Graveyard* grave = grave1;
+	 	Ritual* myRitual = ritual1;
+	 	Player player = p1;
+	if(turn%2 == 0){
+	 	fieldOpponent = minions1;
+	 	field = minions2;
+	 	grave = grave2;
+	 	myRitual ritual2;
+	 	player = p2;
+	}
+	if ((i < 0 || 4 < i) || (t < 0 || t < i)) {
+		cerr << "out of bound" << endl;
+		return;
+	} 
+	if(abil ==  "heal all") {
+		for(int i = 0; i < field.size(); i++) {
+			field[i]->heal(1);
+	  	}
+	}else if(abil == "summon 1 air") {
+	  	if(field.size() < 5) {
+	      		Minion* holder = createCard("Air Elemental");
+	               	field.push_back(holder);
+	  	}
+	}else if(abil == "summon 3 air") {
+		for(int i = 3; i > 0; i--) {
+	     		if(field.size() < 5) {
+	         		Minion* holder = createCard("Air Elemental");
+	            		field.push_back(holder);
+	    		}
+		}
+	}else if("gain 1 magic at start") {
+	  	player->getMagic();
+	}else if("+1/+1 enter play") {
+	 	field[field.size() - 1]->increaseStat(1,1);
+	}else if("destroy enter play") {
+	  	field[field.size() - 1]->takeDmg(999);
+	}else{
+	 	cerr << "no ability" << endl;
+	  	return;
+	}
 }
 
 void Board::triggerAbility(int target, string ability, int player){
-
+	//      if(abil == "destroy") {
+	//          if(target->showType() == "minion") {
+	//              dynamic_cast <Minion*> (target)->takeDmg(999);
+	//          }  else {
+	//              delete target;
+	//              target = nullptr;
+	//          }
+	//      } else if(abil == "unsummon") {
+	//          string unsum = target->getName();
+	//          Hand* deck = player1->returnHand()->sendToBottom(unsum);
+	//          if(target->showType() == "minion") {
+	//              if (turn % 2 == 1)
+	//                  minions1.erase(t);
+	//              else
+	//                  minions2.erase(t);
+	//          }else{
+	//              delete target;
+	//              target = nullptr;
+	//          }
+	//      } else if(abil == "recharge") {
+	//          myRitual->recharge(3);
+	//      } else if(abil == "disenchant") {
+	//          if(p == 1) {
+	//              minions1[t] = dynamic_cast <Minion*> (target)->removeEnchant();
+	//          } else {
+	//              minions2[t] = dynamic_cast <Minion*> (target)->removeEnchant();
+	//          }
+	//          target->deleteEnchant();
+	//      } else if(abil == "revive") {
+	//          if (turn % 2 == 1) {
+	//              if(minions1.size() >= 5) {
+	//                  cerr << "full field, no minion can be summoned" << endl;
+	//                  return;
+	//              }
+	//          }
+	//          else {
+	// if(minions2.size() >= 5) {
+//                      cerr << "full field, no minion can be summoned" << endl;
+//                      return;
+//                  }
+//              }
+//              string top = grave->getTop();
+//              createCard(top)
+//          } else if(abil == "blizzard") {
+//              if (turn % 2 == 1) {
+//                  for(int i = 0; i < minions1.size(); i++) {
+//                      minions1[i]->takeDmg(2);
+//                  }
+//              }
+//              else {
+//                  for(int i = 0; i < minions2.size(); i++) {
+//                      minions2[i]->takeDmg(2);
+//                  }
+//              }
+//          }
+//      }
+//  }
 }
 
 
@@ -325,7 +422,9 @@ void Board::play(int i, int p, int t) {
 			}
 			else if (object->showType() == "ritual") {
 				delete ritual1;
-				Ritual* copy = dynamic_cast <Ritual*> (player1->getCard(i)->);
+				Ritual* copy = createCard(player1->getCard(i)->getName());
+				player1->returnHand()->getHand.erase(i - 1);
+				ritual1 = copy;
 			}
 			else if (object->showType() == "spell") {
 				useAbility( dynamic_cast <Spell*> (player1->getCard(i ))->getAbility()); // use spell
@@ -336,7 +435,10 @@ void Board::play(int i, int p, int t) {
 				minions2.emplace_back(dynamic_cast <Minion*> (player2->getCard(i)));
 			}
 			else if (object->showType() == "ritual") {
-				ritual2 = dynamic_cast <Ritual*> (player2->getCard(i));
+				delete ritual2;
+				Ritual* copy = createCard(player2->getCard(i)->getName());
+				player2->returnHand()->getHand.erase(i - 1);
+				ritual2 = copy;
 			}
 			else if (object->showType() == "spell") {
 				useAbility( dynamic_cast <Spell*> (player2->getCard(i))->getAbility()); // use spell
@@ -351,7 +453,7 @@ void Board::play(int i, int p, int t) {
 
 		if (turn % 2 == 1) {
 			if (t == 'r') {
-				ritual1 = dynamic_cast <Ritual*> (player1->getCard(i));
+				
 			}
 			else if (player1->getCard(i)->showType() == "spell") {
 				triggerAbility(t, dynamic_cast <Spell*>(player1->getCard(i))->getAbility(), p);
@@ -372,7 +474,7 @@ void Board::play(int i, int p, int t) {
 		}
 		else{
 			if (t == 'r') {
-				ritual2 = dynamic_cast <Ritual*> (player2->getCard(i));
+				
 			}
 			else if (player2->getCard(i)->showType() == "spell") {
 				triggerAbility(p, t, dynamic_cast <Spell*>(player2->getCard(i))->getAbility());
@@ -390,7 +492,6 @@ void Board::play(int i, int p, int t) {
 					replaceMinion(attachEnchant(enchant, target), p, t);
 				}
 		}
-
 	}
 	// else {
 	//  Card* target;
