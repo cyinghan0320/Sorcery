@@ -324,7 +324,8 @@ void Board::play(int i, int p, int t) {
 				minions1.emplace_back(dynamic_cast <Minion*> (player1->getCard(i)));
 			}
 			else if (object->showType() == "ritual") {
-				ritual1 = dynamic_cast <Ritual*> (player1->getCard(i));
+				delete ritual1;
+				Ritual* copy = dynamic_cast <Ritual*> (player1->getCard(i)->);
 			}
 			else if (object->showType() == "spell") {
 				useAbility( dynamic_cast <Spell*> (player1->getCard(i ))->getAbility()); // use spell
