@@ -3,7 +3,7 @@
 using namespace std;
 
 Spell::Spell(string name, string description, int cost, string ability) :
-	name {name}, des {description}, summonCost {cost}, type {"spell"} {
+	name {name}, des {description}, summonCost {cost},ability{ability}, type {"spell"} {
 }
 
 card_template_t Spell::display(){
