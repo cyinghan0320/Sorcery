@@ -40,6 +40,9 @@ public:
 	int getMinSize(int side);
 	void updateMinion();
 	void refreshAllAttack();
+	Minion* findMinion(p, t);
+	void replaceMinion(Minion* min, int p, int t);
+	Minion* attachMinion(Enchantment* enchant, Minion* min);
 };
 
 
