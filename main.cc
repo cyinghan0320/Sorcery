@@ -10,7 +10,7 @@
 #include "rituals.h"
 #include "enchantment.h"
 #include "hand.h"
-#include "ability.h"
+
 
 using namespace std;
 
