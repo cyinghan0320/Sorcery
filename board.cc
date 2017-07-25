@@ -199,77 +199,62 @@ void Board::attack(int i, int j) {
 //  }
 // }
 
-void Board::use(int i, int p, int t){
-	// Card* target;
-	// Card* object;
-	// vector<Minion*> fieldOpponent;
-	// vector<Minion*> field;
-	// Graveyard* grave;
-	// Ritual* myRitual;
-	// Player player;
-	// if ((i < 0 || 4 < i) || (t < 0 || t < i)) {
-	//  cerr << "out of bound" << endl;
-	//  return;
-	// }
-	// if(turn%2 == 1) {
-	//  player = player1;
-	//  field = minions1;
-	//  if (i == 'r')
-	//      object = ritual1;
-	//  else if (0 <= i && i < 5)
-	//      object = minions1[i];
-	// } else{
-	//  player = player2;
-	//  field = minions2;
-	//  if (i == 'r')
-	//      object = ritual2;
-	//  else if (0 <= i && i < 5)
-	//      object = minions2[i];
-	// }
-	// if(p == 1) {
-	//  if (t == 'r')
-	//      target = ritual1;
-	//  else if (0 <= t && t < 5)
-	//      target = minions1[t];
-	// } else{
-	//  if (t == 'r')
-	//      target = ritual2;
-	//  else if (0 <= t && t < 5)
-	//      target = minions2[t];
-	// }
-	// vector<Minion*> field = minion1;
-	// if(turn%2 == 0)
-	//  field = minion2;
-	// string abil = object->getAbility();
-	// if(abil == "enter play 1 dmg" || "deal 1 dmg") {
-	//  target->takeDmg(1);
-	// }else if(abil ==  "heal all") {
-	//  for(int i = 0; i < field.size(); i++) {
-	//      field[i]->heal(1);
-	//  }
-	// }else if(abil == "summon 1 air") {
-	//  if(field.size() < 5) {
-	//      Minion* holder = createCard("Air Elemental")
-	//                       field.push_back(holder);
-	//  }
-	// }else if(abil == "summon 3 air") {
-	//  for(int i = 3; i > 0; i--) {
-	//      if(field.size() < 5) {
-	//          Minion* holder = createCard("Air Elemental")
-	//                           field.push_back(holder);
-	//      }
-	//  }
-	// }else if("gain 1 magic at start") {
-	//  player->getMagic()
-	// }else if("+1/+1 enter play") {
-	//  field[field.size() - 1]->increaseStat(1,1);
-	// }else if("destroy enter play") {
-	//  field[field.size() - 1]->takeDmg(999);
-	// }else{
-	//  cerr << "no ability" << endl;
-	//  return;
-	// }
+Player* Board::getPlayer(int p){
+    if(p == 1)
+        return player1;
+    return player2;
 }
+
+void Board::use(int i, int p, int t){
+    if ((i < 0 || 5 < i) || (t < 1 || t > 5)) {
+        cerr << "out of bound" << endl;
+        return;
+    }
+    Minion* target = findMinion(p,t);
+    Minion* object = findMinion(turn%2,t);
+    vector<Minion*> fieldOpponent = getField(2 - (turn + 1)%2);
+    vector<Minion*> field = getField(turn%2);
+    Graveyard* grave = getGrave(turn%2);
+    Ritual* myRitual = getRitual(turn%2);
+    Player* player = getPlayer(p);
+    
+    string abil = object->getAbility();
+    if(abil == "enter play 1 dmg" || abil == "deal 1 dmg") {
+        target->takeDmg(1);
+    }else if(abil ==  "heal all") {
+        for(int i = 0; i < field.size(); i++) {
+            field[i]->heal(1);
+        }
+    }else if(abil == "summon 1 air") {
+        if(field.size() < 5) {
+            Minion* holder = createCard("Air Elemental")
+            field.push_back(holder);
+        }
+    }else if(abil == "summon 3 air") {
+        for(int i = 3; i > 0; i--) {
+            if(field.size() < 5) {
+                Minion* holder = createCard("Air Elemental")
+                field.push_back(holder);
+            }
+        }
+    }else if("gain 1 magic at start") {
+        player->getMagic()
+    }else if("+1/+1 enter play") {
+        field[field.size() - 1]->increaseStat(1,1);
+    }else if("destroy enter play") {
+        field[field.size() - 1]->takeDmg(999);
+    }else{
+        cerr << "no ability" << endl;
+        return;
+    }
+}
+
+
+
+
+
+
+
 
 void Board::setActive(int num){
 	activePlayer = num;
