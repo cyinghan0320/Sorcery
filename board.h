@@ -30,7 +30,6 @@ public:
 	~Board();
 	void showboard();
 	void playerHand();
-	void attack(int i);
 	void attack(int i, int j);
 	void use(int i, int p, int t);
 	void play(int i, int p, int t);
