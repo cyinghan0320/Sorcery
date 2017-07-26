@@ -329,9 +329,11 @@ void Board::triggerAbility(int t, string ability, int p){
 		cout << "target do not exists" << endl; 
 	}
 if(ability == "assassinate"){
-	Player targetPlayer = getPlayer(p);
+	Player* targetPlayer = getPlayer(p);
 	targetPlayer->takeDmg(4);
-}else if(){
+}else if(ability == "frenzy"){
+		Minion* min = findMinion(t,p);
+	min->increaseStat(3, -2);
 	}else if(ability == "destroy") {
 	          if(target->showType() == "minion") {
 	              dynamic_cast <Minion*> (target)->takeDmg(999);
