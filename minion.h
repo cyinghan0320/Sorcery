@@ -111,7 +111,15 @@ public:
 
 	Minion(std::string s) :  type{"minion"}{
 		name = s;
-		if (s == "Air Elemental") {
+		if(s == "Leech"){
+			summonCost = 1;
+			attack = 
+		} else if(s == "Hell Hound"){
+			summonCost = 4;
+			attack = 5;
+			health = 4;
+			abilityCost = 0;
+		} else if(s == "Air Elemental") {
 			summonCost = 0;
 			abilityCost = 0;
 			attack = 1;
