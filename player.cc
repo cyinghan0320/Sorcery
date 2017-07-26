@@ -6,9 +6,22 @@ using namespace std;
 Player::Player(string name, Hand* hand, int num) : name{name},hand{hand}, num{num}{
 }
 
+
+
+
 Player::~Player(){
 	delete hand;
 }
+
+bool Player::useMagic(int cost){
+	if(cost >= magic){
+		magic -= cost;
+		return true;
+	} else {
+	return false;
+	}
+}
+
 
 void Player::getMagic(){
 	++magic;
