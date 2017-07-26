@@ -29,5 +29,6 @@ public:
 	int getSkill(int index);
 	bool dead();
 	card_template_t display();
+	bool useMagic(int cost);
 };
 #endif
