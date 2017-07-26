@@ -113,7 +113,10 @@ public:
 		name = s;
 		if(s == "Leech"){
 			summonCost = 1;
-			attack = 
+			attack = 2;
+			health = 4;
+			abilityCost = 2;
+			ability = "Heal";
 		} else if(s == "Hell Hound"){
 			summonCost = 4;
 			attack = 5;
