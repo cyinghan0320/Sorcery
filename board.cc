@@ -219,7 +219,9 @@ void Board::use(int i, int p, int t){
     Player* player = getPlayer(p);
     
     string abil = object->getAbility();
-    if(abil == "enter play 1 dmg" || abil == "deal 1 dmg") {
+    if(abil == "heal"){
+	    object->heal(1);
+    }else if(abil == "enter play 1 dmg" || abil == "deal 1 dmg") {
         target->takeDmg(1);
     }else if(abil ==  "heal all") {
         for(int i = 0; i < field.size(); i++) {
@@ -247,6 +249,7 @@ void Board::use(int i, int p, int t){
         cerr << "no ability" << endl;
         return;
     }
+	
 }
 
 
