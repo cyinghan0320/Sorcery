@@ -119,6 +119,7 @@ int getCost(){
 			health = 4;
 			abilityCost = 2;
 			ability = "Heal";
+			des = "health self by 1";
 		} else if(s == "Hell Hound"){
 			summonCost = 4;
 			attack = 5;
