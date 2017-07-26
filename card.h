@@ -32,6 +32,9 @@ public:
 	std::string getAbility(){
 		return ability;
 	}
+	int getCost(){
+		return abilityCost;
+	}
 };
 
 #endif
