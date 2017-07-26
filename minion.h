@@ -28,7 +28,9 @@ public:
 			return display_minion_activated_ability(name, summonCost, attack, health, abilityCost, des);
 	}
 
-
+int getCost(){
+	return abilityCost;
+}
 	void heal(int count){
 		health += count;	
 	}
