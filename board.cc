@@ -211,14 +211,19 @@ void Board::use(int i, int p, int t){
         return;
     }
     Minion* target = findMinion(p,t);
-    Minion* object = findMinion(turn%2,t);
+    Minion* object = findMinion(1 + (turn + 1)%2,t);
     vector<Minion*> fieldOpponent = getField(2 - (turn + 1)%2);
     vector<Minion*> field = getField(turn%2);
     Graveyard* grave = getGrave(turn%2);
     Ritual* myRitual = getRitual(turn%2);
     Player* player = getPlayer(p);
+	Player* myPlayer = getPlayer(1 + (turn + 1)%2);
     
     string abil = object->getAbility();
+	if(! myPlayer->useMagic(object->getCost())){
+		cout << "no enough magic" << endl;
+		return;
+	}
     if(abil == "heal"){
 	    object->heal(1);
     }else if(abil == "enter play 1 dmg" || abil == "deal 1 dmg") {
