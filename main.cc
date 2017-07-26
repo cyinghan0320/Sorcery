@@ -38,7 +38,7 @@ string filename1 = "default.deck";
 string filename2 = "default.deck";
 string arg;
 string filename3;
-ifstream in = cin;
+istream in = cin;
 int main(int argc, char *argv[]) {
 	for(int i = 0; i < argc) {
 		arg = argv[i];
@@ -51,6 +51,7 @@ int main(int argc, char *argv[]) {
 		}
 		else if (arg == "-init") {
 			filename3 = argv[++i];
+			in = dynamic_cast<std::ifstream&> in;
 			in.open(filename3.c_str());
 		}
 	}
