@@ -31,6 +31,10 @@ Card* Hand::createCard(string name){
 		// Spell* cardptr = new Spell(name,"Resurrect the top minion in your graveyard", 1,"revive");
 	} else if(name == "Blizzard") {
 		return new Spell(name,"Deal 2 damage to all minions", 3, "blizzard");
+	} else if(name == "Assassinate"){
+		return new Spell(name,"Deal 4 damage to player", 4, "assassinate")
+	} else if(name == "Frenzy"){
+		return new Spell(name,"Increase attack by 3 decrease health by 2", 2, "frenzy")
 	} else{
 		return new Minion(name);
 	}
