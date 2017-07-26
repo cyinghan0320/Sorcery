@@ -34,11 +34,12 @@ void createDeck(Deck* deck, string infile) {
 }
 
 int testMode = 0;
+int init = 0;
 string filename1 = "default.deck";
 string filename2 = "default.deck";
 string arg;
 string filename3;
-istream in = cin;
+ifstream in;
 int main(int argc, char *argv[]) {
 	for(int i = 0; i < argc) {
 		arg = argv[i];
@@ -51,7 +52,7 @@ int main(int argc, char *argv[]) {
 		}
 		else if (arg == "-init") {
 			filename3 = argv[++i];
-			in = dynamic_cast<std::ifstream&> in;
+			init = 1;
 			in.open(filename3.c_str());
 		}
 	}
@@ -86,19 +87,30 @@ int main(int argc, char *argv[]) {
 	//while game is in session loop
 
 	cout << "What is your name, my warrior player1? " << endl;
-	getline(in, name1);
+	if (init == 1)
+		getline(in, name1);
+	else
+		getline(cin, name1);
 	p1->setName(name1);
 	cout << p1->getName() <<" is a nice name!"  << endl;
 	cout << "What is your name, my warrior player2? " << endl;
-	getline(in, name2);
-	p2->setName(name2);
+	if (init == 1)
+		getline(in, name2);
+	else
+		p2->setName(name2);
 	cout << p2->getName() << " is a nice name!"  << endl;
 	if (Game->getTurn() == 1) {
 		cout << "at the start of "<< p1->getName()  + "'s turn" << endl;
 	}
 
 	string wholeLine;
-	while(getline(in, wholeLine)) {
+	
+	
+	while(1) {
+		if(init == 1)
+			getline(in, wholeLine);
+		else 
+			getline(cin, wholeLine);
 		istringstream is (wholeLine);
 		is >> command;
 		//declaring turn
