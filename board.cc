@@ -417,6 +417,7 @@ Minion* Board::attachEnchant(Enchantment* enchant, Minion* min){
 
 
 void Board::play(int i, int p, int t) {
+	Player* myPlayer  = getPlayer(1 + (turn + 1)%2); 
 	if ((i < 1 || 5 < i) || (t < 1 || 5 < t)) {
 		cerr << "out of bound" << endl;
 		return;
@@ -434,6 +435,10 @@ void Board::play(int i, int p, int t) {
 				ritual1 = copy;
 			}
 			else if (object->showType() == "spell") {
+				if(! myPlayer->useMagic(object->getCost())){
+				cout << "no enough magic" << endl;
+				return;
+	}
 				useAbility( dynamic_cast <Spell*> (player1->getCard(i ))->getAbility()); // use spell
 			}
 		} else { 
@@ -448,6 +453,10 @@ void Board::play(int i, int p, int t) {
 				ritual2 = copy;
 			}
 			else if (object->showType() == "spell") {
+				if(! myPlayer->useMagic(object->getCost())){
+				cout << "no enough magic" << endl;
+				return;
+	}
 				useAbility( dynamic_cast <Spell*> (player2->getCard(i))->getAbility()); // use spell
 			}
 		}
