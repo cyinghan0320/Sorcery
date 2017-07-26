@@ -328,7 +328,11 @@ void Board::triggerAbility(int t, string ability, int p){
 	} else{
 		cout << "target do not exists" << endl; 
 	}
-	if(ability == "destroy") {
+if(ability == "assassinate"){
+	Player targetPlayer = getPlayer(p);
+	targetPlayer->takeDmg(4);
+}else if(){
+	}else if(ability == "destroy") {
 	          if(target->showType() == "minion") {
 	              dynamic_cast <Minion*> (target)->takeDmg(999);
 	          }  else {
@@ -472,9 +476,17 @@ void Board::play(int i, int p, int t) {
 				
 			}
 			else if (player1->getCard(i)->showType() == "spell") {
+				if(! myPlayer->useMagic(object->getCost())){
+				cout << "no enough magic" << endl;
+				return;
+	}
 				triggerAbility(t, dynamic_cast <Spell*>(player1->getCard(i))->getAbility(), p);
 			}
 			else if (player1->getCard(i)->showType() == "enchantment") {
+				if(! myPlayer->useMagic(player2->getCard(i)->getCost())){
+				cout << "no enough magic" << endl;
+				return;
+	}
 				if (p == 1) {
           				Enchantment* enchant = createCard(player1->getCard(i)->getName());
 					player1->returnHand()->getHand().erase(i - 1);
@@ -493,9 +505,17 @@ void Board::play(int i, int p, int t) {
 				
 			}
 			else if (player2->getCard(i)->showType() == "spell") {
+				if(! myPlayer->useMagic(object->getCost())){
+				cout << "no enough magic" << endl;
+				return;
+	}
 				triggerAbility(p, t, dynamic_cast <Spell*>(player2->getCard(i))->getAbility());
 			}
 			else if (player2->getCard(i)->showType() == "enchantment") {
+				if(! myPlayer->useMagic(player2->getCard(i)->getCost())){
+				cout << "no enough magic" << endl;
+				return;
+	}
 				if (p == 1) {
           				Enchantment* enchant = createCard(player2->getCard(i)->getName());
 					player2->returnHand()->getHand().erase(i - 1);
