@@ -314,6 +314,9 @@ void Board::useAbility(string ability){
 	}
 }
 
+
+
+
 void Board::triggerAbility(int t, string ability, int p){
 	Card* targe†;
 	vector<Minion*> field = getField(p);
